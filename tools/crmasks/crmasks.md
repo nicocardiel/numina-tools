@@ -263,6 +263,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
   3  CRMASK1       1 ImageHDU         8   (2016, 1596)   uint8
   4  CRMASK2       1 ImageHDU         8   (2016, 1596)   uint8
   5  CRMASK3       1 ImageHDU         8   (2016, 1596)   uint8
+  6  LAMEDIAN      1 ImageHDU         8   (2016, 1596)   float32
 ```
 
 In this case, the primary extension does not contain an image, but rather a
@@ -289,17 +290,41 @@ masks:
 In all cases, these masks store values of 0 and 1, corresponding respectively
 to pixels unaffected and affected by cosmic rays.
 
-## Example
+- $\color{magenta}\texttt{LAMEDIAN}$: this extension does not actually contain
+  a mask but rather the value of the cosmic-ray-cleaned image obtained using
+  $\color{red}\texttt{LAcosmic}$.
+
+## Examples
 
 The images used in the following examples correspond to a cropped region from
 frames obtained with the MEGARA instrument, a fiber fed Integral Field Unit
-installed at the Gran Telescopio Canarias. The three exposures have an
-integration time of 1200 seconds each, and all of them contain a high number of
-cosmic rays. The images have been preprocessed (bias subtracted and gain scale
-corrected). A simple median combination of the three images initially performs
-well, but as we will see below, it leaves several dozen pixels uncorrected due
-to cosmic ray hits occurring in the same pixel in two out of the three
-available exposures.
+installed at the Gran Telescopio Canarias. 
+
+The exposures used in each example actually correspond to simulated images
+generated from a reference image (the median of three 1200-sec exposures, all
+of them contain a high number of cosmic rays), to which the individual cosmic
+rays detected in the single exposures have been added. This allows for sets of
+three exposures in which several scenarios have been examined:
+
+- **Example 1:** three equivalent exposures are used (the expected signal in
+  each individual exposure is the same), and the detection boundary in the
+  diagnostic diagram is determined automatically.
+
+- **Example 2:** three equivalent exposures are used, with a manual adjustment
+  of the detection boundary.
+
+- **Example 3:** the three exposures are not equivalent, with a multiplicative
+  factor between the signal measured in the different individual exposures.
+
+- **Example 4:** three equivalent exposures are used, but there is an (X, Y)
+  offset between the individual images.
+
+The initial images have been preprocessed (bias subtracted and gain scale
+corrected). 
+
+A simple median combination of the three images initially performs well, but as
+we will see below, it leaves several dozen pixels uncorrected due to cosmic ray
+hits occurring in the same pixel in two out of the three available exposures.
 
 In these MEGARA images, the spectral direction lies along the horizontal axis,
 and the spectra from the different fibers are distributed along the vertical
@@ -316,7 +341,7 @@ configuration can be applied to a larger set of similarly acquired frames
 using the same instrumental configuration.
 ```
 
-### Simple execution
+### Example 1: simple execution
 
 In this example, we will use `crmethod: mm_lacosmic`,
 which means that cosmic-ray pixels will be detected using both the
@@ -325,10 +350,8 @@ methods. We will consider a pixel to contain spurious signal due to a cosmic
 ray hit when it is detected by either of the two methods, and not necessarily
 by both simultaneously.
 
-We start this example making use of the file
-{download}`params_example1.yaml <files/params_example1.yaml>`:
-
 ```console
+(venv_numina) $ cd example1
 (venv_numina) $ numina-crmasks params_example1.yaml
 ```
 
@@ -342,7 +365,7 @@ median combination.
 ```{include} files/terminal_output_example1_02.md
 ```
 
-In this example 28 pixels are flagged as suspicious of being affected by cosmic
+In this example 98 pixels are flagged as suspicious of being affected by cosmic
 rays.
 
 Next, the program begins applying the $\color{blue}\textbf{MMcosmic}$
@@ -379,7 +402,7 @@ The MM diagnostic diagram displayed above is actually a 2D histogram, and it is
 shown in two panels:
 
 - *Left Panel:* This shows the result of a predefined number of simulations
-  (`mm_nsimulations: 5` in this example). En each simulation, the program
+  (`mm_nsimulations: 10` in this example). En each simulation, the program
   employs the original `median2d` image to generate 3 synthetic exposures,
   based on the provided values for gain, readout noise, and bias.
 - *Right Panel:* This shows the same diagnostic diagram, but using the actual
@@ -411,7 +434,7 @@ method.
 ```{include} files/terminal_output_example1_04.md
 ```
 
-In this example, there are 100 pixels flagged above the detection boundary.
+In this example, there are 72 pixels flagged above the detection boundary.
 
 After pressing the `q` key, the program resumes execution (you can press the
 `x` key to halt the program execution at this point in case it is necessary to
@@ -432,25 +455,24 @@ method but not the other, and how many were identified by both.
 
 **Panel (a)**: MM diagnostic diagram showing the pixels detected only using the
 $\color{red}\textbf{LAcosmic}$ algorithm (red x's), those detected only using
-the $\color{blue}\textbf{MMcosmic}$
-method in the MM diagnostic diagram (blue +'s), and those detected by both methods
-(open magenta circles). **Panel (b)**: the same diagram is shown, but
-instead of symbols, a sequential number is assigned to each suspected pixel.
-The displayed numbers follow the same color coding used for symbols in
-Panel (a). **Panel (c)**: representation of the `median2d` image, with
-the locations of suspected pixels overlaid. The same symbols and colors used
-in Panel (a) are applied here. **Panel (d)**: representation of the
-`mean2d` image. Pressing keys `1`, `2`, and `3` cycles through the
-individual exposures in this panel. Pressing `0` displays again the
-`mean2d` image. Any zoom applied in Panel (a) is propagated to Panel (b),
-while Panel (c) displays only the suspected pixels selected within the
-zoomed region of Panel (a). Panels (c) and (d) update simultaneously when
-the zoom is modified in either of them. This interactive figure allows the
-user to closely examine which pixels are suspected of having been affected
-by cosmic rays in two out of the three available exposures. It also helps to
-understand how the two detection methods ($\color{red}\textbf{LAcosmic}$ and 
-$\color{blue}\textbf{MMcosmic}$)
-have performed in identifying suspected pixels.
+the $\color{blue}\textbf{MMcosmic}$ method in the MM diagnostic diagram (blue
++'s), and those detected by both methods (open magenta circles). **Panel (b)**:
+the same diagram is shown, but instead of symbols, a sequential number is
+assigned to each suspected pixel.  The displayed numbers follow the same color
+coding used for symbols in Panel (a). **Panel (c)**: representation of the
+`median2d` image, with the locations of suspected pixels overlaid. The same
+symbols and colors used in Panel (a) are applied here. **Panel (d)**:
+representation of the `mean2d` image. Pressing keys `1`, `2`, and `3` cycles
+through the individual exposures in this panel. Pressing `0` displays again the
+`mean2d` image. Any zoom applied in Panel (a) is propagated to Panel (b), while
+Panel (c) displays only the suspected pixels selected within the zoomed region
+of Panel (a). Panels (c) and (d) update simultaneously when the zoom is
+modified in either of them. This interactive figure allows the user to closely
+examine which pixels are suspected of having been affected by cosmic rays in
+two out of the three available exposures. It also helps to understand how the
+two detection methods ($\color{red}\textbf{LAcosmic}$ and
+$\color{blue}\textbf{MMcosmic}$) have performed in identifying suspected
+pixels.
 ```
 
 Pressing the `?` key displays a help message in the terminal, indicating the
@@ -501,7 +523,7 @@ underestimated, we proceed with the execution of **numina-crmasks** by pressing
 the `q` key again. From this point onward, the program continues without any
 further interruptions.
 
-The previous step allowed us to detect 111 suspected pixels that require
+The previous step allowed us to detect 154 suspected pixels that require
 correction. To avoid leaving neighboring pixels uncorrected (those in contact
 with pixels identified as cosmic rays but not flagged themselves due to having
 relatively low signal) the program surrounds each detected pixel with a
@@ -512,38 +534,38 @@ dilation can be controlled using the `dilation` requirement in the YAML file
 ```{include} files/terminal_output_example1_06.md
 ```
 
-With a dilation factor of 1, the initial 111 pixels expand to 724 pixels.
+With a dilation factor of 1, the initial 154 pixels expand to 967 pixels.
 After dilation, the program groups connected pixels into clusters, each
 representing an individual cosmic ray hit affecting contiguous pixels. In this
-example, the 724 pixels are grouped into 66 cosmic rays. A table identifiying
+example, the 967 pixels are grouped into 79 cosmic rays. A table identifiying
 the flagged pixels is saved in the file `mediancr_identified.csv`.
 
 For each identified case, the program generates an independent page in the
-output file `mediancr_identified_cr.pdf`. Initially the corresponding plots
-are not displayed interactively (unless the `verify_cr` is set to `True` in
-the input YAML file), so users should open this file manually after the program
+output file `mediancr_identified_cr.pdf`. Initially the corresponding plots are
+not displayed interactively (unless the `verify_cr` is set to `True` in the
+input YAML file), so users should open this file manually after the program
 finishes execution. Each page of this file displays one of the identified
-cosmic rays. Below are three examples: CR#4 is a slightly hot pixel on the
-detector; CR#5 is a falso positive (a relatively bright sky line); and CR#13 is
-genuine case of cosmic rays hitting the same pixels in two exposures.
+cosmic rays. Below are three examples: CR#7 is a slightly hot pixel on the
+detector; CR#17 is a false positive (a relatively bright sky line); and CR#23
+is genuine case of cosmic rays hitting the same pixels in two exposures.
 
-```{figure} images/cr04_example1.png
-:name: fig-cr04_example1
+```{figure} images/cr07_example1.png
+:name: fig-cr07_example1
 :width: 100%
 
 Example of relatively hot pixel that exhibits the similar signal in the
 three exposures.
 ```
 
-```{figure} images/cr05_example1.png
-:name: fig-cr05_example1
+```{figure} images/cr17_example1.png
+:name: fig-cr17_example1
 :width: 100%
 
 Example of false positive, corresponding to a sky emission line.
 ```
 
-```{figure} images/cr13_example1.png
-:name: fig-cr13_example1
+```{figure} images/cr23_example1.png
+:name: fig-cr23_example1
 :width: 100%
 
 Example of correct detection of two cosmic rays affecting the same pixels in
@@ -667,7 +689,7 @@ displayed:
 ```{include} files/terminal_output_example1_16.md
 ```
 
-### Adjusting the detection boundary
+### Example 2: adjusting the detection boundary
 
 
 With the goal of obtaining a detection boundary that reaches higher values in
@@ -677,31 +699,33 @@ fixed points that the fit must pass through.
 
 For that purpose, we are going to set
 the input parameter `mm_boundary_fit` to `piecewise`:
+
 ```{literalinclude} files/params_example2.yaml
 :language: yaml
-:lines: 53
-:lineno-start: 53
+:lines: 63
+:lineno-start: 63
 :linenos: true
 ```
 
-In addition, we are including 3 fixed points, that are inserted under the
-`mm_fixed_points_in_boundary` parameter:
+In addition, we are arbitrarily including 3 fixed points, that are inserted
+under the `mm_fixed_points_in_boundary` parameter:
+
 ```{literalinclude} files/params_example2.yaml
 :language: yaml
-:lines: 55-59
-:lineno-start: 55
+:lines: 65-69
+:lineno-start: 65
 :linenos: true
 ```
-
-The modified version of the YAML file is {download}`params_example2.yaml
-<files/params_example2.yaml>`.
 
 We can run the program again using this new version of the input parameter
 file.
 
 ```console
+(venv_numina) $ cd example2
 (venv_numina) $ numina-crmasks params_example2.yaml
 ```
+
+In this case, the generated diagnostic diagram is as follows:
 
 ```{figure} images/diagnostic_histogram2d_example2.png
 :alt: MM diagnostic diagram for the median combination
@@ -714,16 +738,323 @@ three fixed points.  This figure should be compared with
 {numref}`fig-diagnostic_histogram2d_example1`.
 ```
 
-### Adjusting the flux level
+By shifting the detection boundary upward, the false detection rate decreases.
+In particular, the number of false detections on the sky lines decreases
+drastically, as can be seen in panel (c) of the following figure:
 
-TBD
 
-### Taking care of small image offsets
+```{figure} images/diagnostic_mediancr_example2.png
+:name: fig-diagnostic_mediancr_example2
+:width: 100%
 
-TBD
+MM diagnostic diagram and location of the detected cosmic-ray pixels. To be
+compared with {numref}`fig-diagnostic_mediancr_example1`.
+```
+
+From this point onward, the program can be used in the same way as in Example
+1.
+
+
+### Example 3: adjusting the flux level
+
+In some circumstances, small variations in the detected flux among different
+exposures may occur. This causes a straightforward execution of
+**numina-crmasks** to produce a simulated diagnostic diagram that does not
+match the one obtained when using the individual exposures. To illustrate this
+issue, in this example we use the same three individual exposures as in the
+previous two examples, but in this case the signal of the first image has been
+artificially decreased by 20%, while that of the third exposure has been
+increased by 20%.
+
+```console
+(venv_numina) $ cd example3
+(venv_numina) $ numina-crmasks params_example3_initial.yaml
+```
+
+```{figure} images/diagnostic_histogram2d_example3_initial.png
+:alt: MM diagnostic diagram for the median combination
+:name: fig-diagnostic_histogram2d_example3_initial
+:width: 100%
+
+Simulated (left) and real (right) Minimum-Median diagnostic diagram. In
+this case, there is a clear difference between  the simulated and the real
+data.
+```
+
+Since the detection boundary is underestimated, the number of false positives
+on the sky lines increases dramatically, as shown in panel(c) of the following
+figure:
+
+```{figure} images/diagnostic_mediancr_example3_initial.png
+:name: fig-diagnostic_mediancr_example3_initial
+:width: 100%
+
+MM diagnostic diagram and location of the detected cosmic-ray pixels. Note the
+large number of false detections on the sky lines.
+```
+
+The **numina-crmasks** program includes the option to attempt to determine
+multiplicative factors that allow rescaling the individual exposures to
+minimize this problem. The procedure does not guarantee optimal results, but it
+can help reveal the presence of this issue. The user may also explicitly
+provide the multiplicative factors, having calculated them beforehand.
+
+In the following steps, we will attempt to automatically estimate these factors by specifying the following information in the parameter file:
+
+```{literalinclude} files/params_example3.yaml
+:language: yaml
+:lines: 21-25
+:lineno-start: 21
+:linenos: true
+```
+
+Note that we have modified the value of the `flux_factor` parameter,
+changing it from `none` to `auto`. This instructs **numina-crmasks** to check
+for the presence of a multiplicative factor between the individual exposures
+and the median image before generating the diagnostic diagram.
+
+If nothing else is changed in the parameter file, the code uses information
+from the entire image. However, in this example there are large regions of the
+detector with very little signal, so it is advisable to select rectangular
+regions that contain pixels with significant signal. In this case, a single
+region is selected that includes the sky emission lines. The coordinates of
+this rectangle are specified under the parameter `flux_factor_regions`.
+
+The additional parameter `apply_flux_factor_to` allows choosing whether the
+calculated multiplicative factors should be applied to the simulated images
+(thus generating individual exposures that preserve the signal differences
+between them) or to the original images (rescaling them so that the exposures
+should then have similar signal levels). In this example, we choose the first
+option.
+
+```console
+(venv_numina) $ numina-crmasks params_example3_initial.yaml
+```
+
+Before generating the diagnostic diagram, **numina-crmasks** first displays a
+figure showing the median combination (left panel) and the image number used to
+compute the median at each pixel (right panel).
+
+```{figure} images/image_number_at_median_position_example3.png
+:name: fig-image_number_at_median_position_example3
+:width: 100%
+
+Left panel: median combination. Right panel: imagen number employed to computed
+the median at each pixel.  Since in this example we have decreased and
+increased the signal of the first and third exposures, respectively, the pixels
+of the image with the strongest signal (sky lines) are mostly seen in the right
+panel with the color corresponding to the second individual image. The user can
+interactively zoom in on either of the two panels, and the same zoom level is
+automatically applied to the adjacent panel.
+```
+
+Examining the previous figure clearly reveals the presence of a signal
+discrepancy among the individual exposures.
+
+Next, **numina-crmasks** attempts to determine a multiplicative flux factor
+between each individual exposure and the median image.
+
+```{figure} images/flux_factor1_example3.png
+:name: fig-flux_factor1_example3
+:width: 100%
+```
+
+```{figure} images/flux_factor2_example3.png
+:name: fig-flux_factor2_example3
+:width: 100%
+```
+
+```{figure} images/flux_factor3_example3.png
+:name: fig-flux_factor3_example3
+:width: 100%
+```
+
+In the figures shown above, the ratio between the signal in each individual
+image and the median image is compared as a function of the signal in the
+image. These figures are 2D histograms, and after removing some isolated bins
+(left panels), a fit is performed to determine a multiplicative factor for each
+individual exposure (right panels).
+
+The user can choose to proceed from this point using these automatically
+determined factors or rerun the program by explicitly setting the desired
+factors in the `flux_factor` parameter. In the latter case, the factors are
+provided as a list, for example: `flux_factor: [0.75, 1.01, 1.16]`.
+
+In this example, the factors automatically calculated by **numina-crmasks** do
+not match exactly the factors used to generate the input images (those factors
+were `0.80`, `1.00` and `1.20`). In this case, where we are using
+`apply_flux_factor_to: simulated` as an input parameter, the discrepancy is
+not very problematic because the goal is to obtain an appropriate detection
+boundary, and the multiplicative factors are being used only for that task. If
+instead one wanted to use `apply_flux_factor_to: original`, a more accurate
+determination of those multiplicative factors would be advisable.
+
+Continuing the program execution after the automatic estimation of the
+multiplicative factors, the code displays the resulting diagnostic diagram and
+the estimated detection boundary.
+
+```{figure} images/diagnostic_histogram2d_example3.png
+:alt: MM diagnostic diagram for the median combination
+:name: fig-diagnostic_histogram2d_example3
+:width: 100%
+
+Simulated (left) and real (right) Minimum-Median diagnostic diagram. This
+diagram has been generated making use of the multiplicative factors computed by
+**numina-crmasks**. This time, the simulated data show a distribution much
+more similar to that of the original data, and the calculated detection
+boundary is better defined. Compare this figure with 
+{numref}`fig-diagnostic_histogram2d_example3_initial`.
+```
+
+From this point onward, the program can be used in the same way as in Example
+1.
+
+
+### Example 4: taking care of small image offsets
+
+Another situation that may also occur is that the individual exposures show
+small shifts between them, on the order of a fraction of a pixel in X or Y.
+Note that, in principle, offsets larger than 1 pixel can always be reduced to
+values smaller than one pixel by applying an integer translation of the offset
+and leaving the fractional part as a residual.
+
+In this new example, we will use as input a set of individual images that are
+slightly shifted. In particular, we keep the second image fixed and shift the
+first image by $(-0.5, +0.5)$ pixels in $(X, Y)$, while the offsets applied to
+the third exposure are $(+0.5, -0.25)$ pixels.
+
+As in Example 3, we will start running **numina-crmasks** while ignoring the
+possibility that offsets may exist among the three individual exposures.
+
+```console
+(venv_numina) $ cd example4
+(venv_numina) $ numina-crmasks params_example4_initial.yaml
+```
+
+In this case, we again encounter simulated diagnostic diagrams that fail to
+reproduce what is observed in the individual exposures.
+
+```{figure} images/diagnostic_histogram2d_example4_initial.png
+:alt: MM diagnostic diagram for the median combination
+:name: fig-diagnostic_histogram2d_example4_initial
+:width: 100%
+
+Simulated (left) and real (right) Minimum-Median diagnostic diagram. In
+this case, there is a clear difference between the simulated and the real
+data.
+```
+
+Since the detection boundary is underestimated, the number of false positives
+on the sky lines increases dramatically, as shown in panel(c) of the following
+figure:
+
+```{figure} images/diagnostic_mediancr_example4_initial.png
+:name: fig-diagnostic_mediancr_example4_initial
+:width: 100%
+
+MM diagnostic diagram and location of the detected cosmic-ray pixels. Note the
+large number of false detections on the sky lines.
+```
+
+In this situacion, the **numina-crmasks** program includes the option to
+attempt to determine the offsets between individual exposures making use of 2D
+crosscorrelation.  The procedure does not guarantee optimal results, but it can
+help reveal the presence of this issue. The user may also explicitly provide
+the desired offsets, having calculated them beforehand.
+
+In the following steps, we will attempt to automatically determine these
+offsets by specifying the following information in the parameter file:
+
+```{literalinclude} files/params_example4.yaml
+:language: yaml
+:lines: 60-62
+:lineno-start: 60
+:linenos: true
+```
+
+Note that we have modified the value of the `mm_crosscorr_region` parameter,
+changing it from `null` to a rectangular region to be employed in the
+crosscorrelation procedure. This instructs **numina-crmasks** to check
+for the presence offsets between each individual exposure and the median
+combination before generating the diagnostic diagram.
+
+```console
+(venv_numina) $ numina-crmasks params_example4.yaml
+```
+
+```{include} files/terminal_output_example4_01.md
+```
+
+In this example, we are using a rectangular region of the image that contains
+bright sky lines. The offsets found for the three exposures — $(0.41, -0.46)$,
+$(0.01, 0.00)$, and $(-0.29, 0.49)$ — agree very well with the offsets
+introduced when simulating the individual exposures  — $(0.50, -0.50)$, $(0.00,
+0.00)$, and $(-0.25, 0.50)$.
+
+```{figure} images/xyoffset_crosscorr_1_example4.png
+:name: fig-xyoffset_crosscorr_1_example4
+:width: 100%
+
+For each individual exposure, the program displays a figure with four panels.
+In the top row, we have the median combination (left panel) and the
+corresponding individual image (right panel). In the bottom row, we see the
+difference between both images (left panel) and the same result after the
+individual image has been shifted by applying the (X, Y) offsets calculated
+using the 2D cross-correlation method (right panel).  In this case, the
+situation for the first individual exposure is shown. The offset between the
+median and that exposure is clearly visible (bottom-left panel), and after
+applying the calculated offset, the difference between the median and the
+shifted individual image becomes much more consistent with the exposures being
+properly aligned.  
+```
+
+```{figure} images/xyoffset_crosscorr_2_example4.png
+:name: fig-xyoffset_crosscorr_2_example4
+:width: 100%
+
+Figure similar to {numref}`fig-xyoffset_crosscorr_1_example4`, for the case of
+the second individual exposure.
+```
+
+```{figure} images/xyoffset_crosscorr_3_example4.png
+:name: fig-xyoffset_crosscorr_3_example4
+:width: 100%
+
+Figure similar to {numref}`fig-xyoffset_crosscorr_1_example4`, for the case of
+the third individual exposure.
+```
+
+When generating the diagnostic diagram, **"numina-crmasks"** applies the
+calculated offsets to the median image in order to simulate three exposures
+that have the same relative displacements as the original three exposures.
+
+```{figure} images/diagnostic_histogram2d_example4.png
+:alt: MM diagnostic diagram for the median combination
+:name: fig-diagnostic_histogram2d_example4
+:width: 100%
+
+Simulated (left) and real (right) Minimum-Median diagnostic diagram. This
+diagram has been generated making use of the (X,Y) offsets between exposures
+computed by **numina-crmasks**. This time, the simulated data show a distribution much more similar to that of the original data, and the calculated detection boundary is better defined. Compare this figure with
+{numref}`fig-diagnostic_histogram2d_example4_initial`.
+```
+
+The newly calculated detection boundary performs much better, removing the
+large number of false detections that occur when the presence of offsets
+between exposures is not taken into account.
+
+```{figure} images/diagnostic_mediancr_example4.png
+:name: fig-diagnostic_mediancr_example4
+:width: 100%
+
+MM diagnostic diagram and location of the detected cosmic-ray pixels.
+Compare this figure with
+{numref}`fig-diagnostic_mediancr_example4_initial`.
+```
+
+From this point onward, the program can be used in the same way as in Example 1.
 
 (description-of-parameters-in-requirements)=
-
 ## Parameters in the requirements section
 
 This section describes the parameters found in the requirements section of the
@@ -808,6 +1139,10 @@ These parameters determine the overall execution of **numina-crmasks**:
   mask around detected cosmic ray pixels. A value of 0 disables dilation. A
   value of 1 is typically recommended, as it helps include the tails of cosmic
   rays, which may have lower signal levels but are still affected.
+
+- `regions_to_be_skipped` (list of $\color{green}\texttt{[xmin, xmax, ymin,
+  ymax]}$ regions). The format of each region must be a list of 4 integers,
+  following the FITS convention
 
 - `pixels_to_be-flagged_as_cr` (list of $\color{green}\texttt{[X,Y]}$ pixel
   coordinates; FITS criterium).
@@ -948,6 +1283,11 @@ respectively.
 These are the parameters that define how to compute the detection boundary in
 the MM diagnostic diagram. Their name make use of the prefix `mm_` to clearly
 distinguish them from those associated with the L.A. Cosmic method.
+
+- `mm_xy_offsets` (list of $\color{green}\texttt{[xoffset, yoffset]}$ values).
+  Offsets (pixels) to apply to each simulated individual exposure when
+  computing the diagnostic diagram for the mmcosmic method. This option is not
+  compatible with `mm_crosscorr_region`.
 
 - `mm_crosscorr_region` (string $\color{green}\texttt{"[xmin:xmax,
   ymin:ymax]"}$): Rectangular region used to determine X and Y offsets between

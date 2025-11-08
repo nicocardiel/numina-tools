@@ -2,10 +2,10 @@
 :class: my-special-block no-copybutton
 
 [92m────────────────────────── [0m[1;35m Numina: Cosmic Ray Masks [0m[92m ──────────────────────────[0m
-Using numina.array.crmasks.__main__ version [1;36m0.35[0m.[1;36m3.[0mdev175+g2b33e9a03            
-found input file: test_1.fits                                                   
-found input file: test_2.fits                                                   
-found input file: test_3.fits                                                   
+Using numina.array.crmasks.__main__ version [1;36m0.35[0m.[1;36m3.[0mdev188+g05cf3664d            
+found input file: fake_1a.fits                                                  
+found input file: fake_2a.fits                                                  
+found input file: fake_3a.fits                                                  
 [92m───────────────────────── [0m[1;35m Computing cosmic ray masks [0m[92m ─────────────────────────[0m
 number of input arrays: [1;36m3[0m                                                       
 gain defined as a constant value: [1;36m1.000000[0m                                      
@@ -24,7 +24,7 @@ dilation factor: [1;36m1[0m
 verify cosmic-ray detection: [3;91mFalse[0m                                              
 semiwindow size for plotting coincident cosmic-ray pixels: [1;36m15[0m                   
 maximum number of coincident cosmic-ray pixels to plot: [1;36m-1[0m                      
-color scale for plots: minmax                                                   
+color scale for plots: zscale                                                   
 ...
 ...
 ```
