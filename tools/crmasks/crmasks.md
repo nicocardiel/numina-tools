@@ -298,7 +298,7 @@ to pixels unaffected and affected by cosmic rays.
 
 The images used in the following examples correspond to a cropped region from
 frames obtained with the MEGARA instrument, a fiber fed Integral Field Unit
-installed at the Gran Telescopio Canarias. 
+installed at the Gran Telescopio Canarias.
 
 The exposures used in each example actually correspond to simulated images
 generated from a reference image (the median of three 1200-sec exposures, all
@@ -318,6 +318,10 @@ three exposures in which several scenarios have been examined:
 
 - **Example 4:** three equivalent exposures are used, but there is an (X, Y)
   offset between the individual images.
+
+The files required to run these examples are available in the
+following ZIP file:
+[crmasks_tutorial_v1.zip](https://guaix.fis.ucm.es/data/megaradrp/crmasks_tutorial_v1.zip)
 
 The initial images have been preprocessed (bias subtracted and gain scale
 corrected). 
@@ -1053,6 +1057,13 @@ Compare this figure with
 ```
 
 From this point onward, the program can be used in the same way as in Example 1.
+
+If the user obtains incorrect values when applying the cross-correlation
+technique but has another way to estimate the offsets between individual
+exposures, those values can be entered explicitly under the parameter
+`mm_xy_offsets`. In this case, each pair of offsets (X, Y) must be provided
+on a separate line for each individual exposure.
+
 
 (description-of-parameters-in-requirements)=
 ## Parameters in the requirements section
