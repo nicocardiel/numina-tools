@@ -5,66 +5,66 @@ input="${fname}.txt"
 
 #------------------------------------------------------------------------------
 output="${fname}_01.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 1 24 0 0
 #------------------------------------------------------------------------------
 output="${fname}_02.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 43 53
 #------------------------------------------------------------------------------
 output="${fname}_03.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 54 68
 #------------------------------------------------------------------------------
 output="${fname}_04.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 69 71
 #------------------------------------------------------------------------------
 output="${fname}_05.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 72 78
 #------------------------------------------------------------------------------
 output="${fname}_06.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 79 105
 #------------------------------------------------------------------------------
 output="${fname}_07.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 106 124
 #------------------------------------------------------------------------------
 output="${fname}_08.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 125 143
 #------------------------------------------------------------------------------
 output="${fname}_09.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 144 162
 #------------------------------------------------------------------------------
 output="${fname}_10.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 163 181
 #------------------------------------------------------------------------------
 output="${fname}_11.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 182 207
 #------------------------------------------------------------------------------
 output="${fname}_12.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 208 218
 #------------------------------------------------------------------------------
 output="${fname}_13.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 220 235
 #------------------------------------------------------------------------------
 output="${fname}_14.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 236 252
 #------------------------------------------------------------------------------
 output="${fname}_15.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 253 271
 #------------------------------------------------------------------------------
 output="${fname}_16.md"
-./extract_blocks_ansi.sh \
+../../extract_blocks_ansi.sh \
   "$input" "${output}" 272 272
 #------------------------------------------------------------------------------
