@@ -20,9 +20,15 @@ it is not the aim of **numina** to provide a general-purpose astronomical image
 reduction package.
 
 ```{toctree}
-:maxdepth: 1
+:maxdepth: 2
 
 installation/installation
+arithmetic/arithmetic
+adr/adr
+misc3d/misc3d
+world2pix/world2pix
+mosaicking/mosaicking
+visualization/visualization
 crmasks/crmasks
 ```
 

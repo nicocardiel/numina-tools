@@ -1,0 +1,32 @@
+```console
+(venv_numina) $ numina-imath3d --help
+```
+
+```{code-block} ansi-shell-session
+:class: my-special-block no-copybutton
+
+[38;5;208mUsage:[0m [38;5;244mnumina-imath3d[0m [[36m-h[0m] [[36m--extname1[0m [38;5;36mEXTNAME1[0m] [[36m--extname2[0m [38;5;36mEXTNAME2[0m]
+                      [[36m--overwrite[0m]
+                      [[36m--dtype[0m [38;5;36m{uint8,int8,uint16,int16,uint32,int32,uint64,int64,float32,float64}[0m]
+                      [[36m--echo[0m]
+                      [36mfile1[0m [36m{+,-,x,/,=}[0m [36mfile2[0m [36moutput[0m
+
+[39mdescription: binary image arithmetic[0m
+
+[38;5;208mPositional Arguments:[0m
+  [36mfile1[0m                 [39mFirst FITS image[0m
+  [36m{+,-,x,/,=}[0m           [39mArithmetic operation[0m
+  [36mfile2[0m                 [39mSecond FITS image or number[0m
+  [36moutput[0m                [39mOutput FITS image[0m
+
+[38;5;208mOptions:[0m
+  [36m-h[0m, [36m--help[0m            [39mshow this help message and exit[0m
+  [36m--extname1[0m [38;5;36mEXTNAME1[0m   [39mExtension name of the first FITS file (default:[0m
+                        [39m'PRIMARY').[0m
+  [36m--extname2[0m [38;5;36mEXTNAME2[0m   [39mExtension name of the second FITS file (default:[0m
+                        [39m'PRIMARY').[0m
+  [36m--overwrite[0m           [39mOverwrite output file if already exists[0m
+  [36m--dtype[0m [38;5;36m{uint8,int8,uint16,int16,uint32,int32,uint64,int64,float32,float64}[0m
+                        [39mData type of the output image (default: float32)[0m
+  [36m--echo[0m                [39mDisplay full command line[0m
+```

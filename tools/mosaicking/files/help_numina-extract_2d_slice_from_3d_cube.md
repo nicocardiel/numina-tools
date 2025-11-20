@@ -1,0 +1,39 @@
+```console
+(venv_numina) $ numina-extract_2d_slice_from_3d_cube --help
+```
+
+```{code-block} ansi-shell-session
+:class: my-special-block no-copybutton
+
+[38;5;208mUsage:[0m [38;5;244mnumina-extract_2d_slice_from_3d_cube[0m [[36m-h[0m] [[36m--axis[0m [38;5;36mAXIS[0m] [[36m--i1[0m [38;5;36mI1[0m]
+                                            [[36m--i2[0m [38;5;36mI2[0m]
+                                            [[36m--method[0m [38;5;36m{sum,mean,median}[0m]
+                                            [[36m--wavecal[0m [38;5;36m{none,fridasimulator,1,2,3}[0m]
+                                            [[36m--transpose[0m] [[36m--noplot[0m]
+                                            [[36m--vmin[0m [38;5;36mVMIN[0m] [[36m--vmax[0m [38;5;36mVMAX[0m]
+                                            [[36m--output[0m [38;5;36mOUTPUT[0m] [[36m--echo[0m]
+                                            [[36m--debug[0m]
+                                            [36minput[0m
+
+[39mExtract 2D slice from 3D cube[0m
+
+[38;5;208mPositional Arguments:[0m
+  [36minput[0m                 [39mInput FITS file[0m
+
+[38;5;208mOptions:[0m
+  [36m-h[0m, [36m--help[0m            [39mshow this help message and exit[0m
+  [36m--axis[0m [38;5;36mAXIS[0m           [39mAxis to be collapsed in output[0m
+  [36m--i1[0m [38;5;36mI1[0m               [39mFirst pixel of the projected axis[0m
+  [36m--i2[0m [38;5;36mI2[0m               [39mLast pixel of the projected axis (0=NAXIS value)[0m
+  [36m--method[0m [38;5;36m{sum,mean,median}[0m
+                        [39mCollapse method (default=sum)[0m
+  [36m--wavecal[0m [38;5;36m{none,fridasimulator,1,2,3}[0m
+                        [39mWavelength calibration type[0m
+  [36m--transpose[0m           [39mTranspose data array in output[0m
+  [36m--noplot[0m              [39mDo not plot result[0m
+  [36m--vmin[0m [38;5;36mVMIN[0m           [39mvmin value for imshow[0m
+  [36m--vmax[0m [38;5;36mVMAX[0m           [39mvmax value for imshow[0m
+  [36m--output[0m [38;5;36mOUTPUT[0m       [39mOutput FITS file[0m
+  [36m--echo[0m                [39mDisplay full command line[0m
+  [36m--debug[0m               [39mDebug[0m
+```

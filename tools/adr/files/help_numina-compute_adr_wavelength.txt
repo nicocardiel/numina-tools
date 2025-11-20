@@ -1,0 +1,38 @@
+[38;5;208mUsage:[0m [38;5;244mnumina-compute_adr_wavelength[0m [[36m-h[0m] [[36m--airmass[0m [38;5;36mAIRMASS[0m]
+                                     [[36m--reference_wave_vacuum[0m [38;5;36mREFERENCE_WAVE_VACUUM[0m]
+                                     [[36m--wave_ini[0m [38;5;36mWAVE_INI[0m]
+                                     [[36m--wave_end[0m [38;5;36mWAVE_END[0m]
+                                     [[36m--wave_step[0m [38;5;36mWAVE_STEP[0m]
+                                     [[36m--wave_unit[0m [38;5;36mWAVE_UNIT[0m]
+                                     [[36m--temperature[0m [38;5;36mTEMPERATURE[0m]
+                                     [[36m--pressure[0m [38;5;36mPRESSURE[0m]
+                                     [[36m--pressure_water_vapor[0m [38;5;36mPRESSURE_WATER_VAPOR[0m]
+                                     [[36m--plots[0m] [[36m--ndecimal_wave[0m [38;5;36mNDECIMAL_WAVE[0m]
+                                     [[36m--ndecimal_adr[0m [38;5;36mNDECIMAL_ADR[0m] [[36m--echo[0m]
+                                     [[36m--debug[0m]
+
+[39mCompute Atmospheric Differential Refraction[0m
+
+[38;5;208mOptions:[0m
+  [36m-h[0m, [36m--help[0m            [39mshow this help message and exit[0m
+  [36m--airmass[0m [38;5;36mAIRMASS[0m     [39mAirmass[0m
+  [36m--reference_wave_vacuum[0m [38;5;36mREFERENCE_WAVE_VACUUM[0m
+                        [39mReference wavelength (vacuum)[0m
+  [36m--wave_ini[0m [38;5;36mWAVE_INI[0m   [39mInitial wavelength[0m
+  [36m--wave_end[0m [38;5;36mWAVE_END[0m   [39mFinal wavelength[0m
+  [36m--wave_step[0m [38;5;36mWAVE_STEP[0m
+                        [39mWavelength step[0m
+  [36m--wave_unit[0m [38;5;36mWAVE_UNIT[0m
+                        [39mWavelength unit (astropy)[0m
+  [36m--temperature[0m [38;5;36mTEMPERATURE[0m
+                        [39mTemperature (Celsius)[0m
+  [36m--pressure[0m [38;5;36mPRESSURE[0m   [39mPressure (mmHg)[0m
+  [36m--pressure_water_vapor[0m [38;5;36mPRESSURE_WATER_VAPOR[0m
+                        [39mWater vapor pressure (mmHg)[0m
+  [36m--plots[0m               [39mPlot intermediate results[0m
+  [36m--ndecimal_wave[0m [38;5;36mNDECIMAL_WAVE[0m
+                        [39mNumber of decimal places in wavelength[0m
+  [36m--ndecimal_adr[0m [38;5;36mNDECIMAL_ADR[0m
+                        [39mNumber of decimal places in ADR[0m
+  [36m--echo[0m                [39mDisplay full command line[0m
+  [36m--debug[0m               [39mDebug[0m

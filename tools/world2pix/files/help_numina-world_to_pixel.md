@@ -1,0 +1,26 @@
+```console
+(venv_numina) $ numina-world_to_pixel --help
+```
+
+```{code-block} ansi-shell-session
+:class: my-special-block no-copybutton
+
+usage: numina-world_to_pixel [-h] [--sky SKY] [--wave WAVE] [--extnum EXTNUM]
+                             [--verbose] [--echo]
+                             inputfile
+
+Convert world to pixel coordinates.
+
+positional arguments:
+  inputfile        Input FITS file
+
+options:
+  -h, --help       show this help message and exit
+  --sky SKY        Celestial coordinate (string)
+                   e.g. 'SkyCoord(0*u.arcsec, 0*u.arcsec)'
+  --wave WAVE      Spectral wavelength (string)
+                   e.g. '1.9344e-06*u.m'
+  --extnum EXTNUM  Extension number (default 0=PRIMARY)
+  --verbose        Display intermediate information
+  --echo           Display full command line
+```

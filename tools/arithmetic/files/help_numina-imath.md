@@ -1,0 +1,41 @@
+```console
+(venv_numina) $ numina-imath --help
+```
+
+```{code-block} ansi-shell-session
+:class: my-special-block no-copybutton
+
+[38;5;208mUsage:[0m [38;5;244mnumina-imath[0m [[36m-h[0m] [[36m--extname1[0m [38;5;36mEXTNAME1[0m] [[36m--extname2[0m [38;5;36mEXTNAME2[0m]
+                    [[36m--overwrite[0m]
+                    [[36m--dtype[0m [38;5;36m{uint8,int8,uint16,int16,uint32,int32,uint64,int64,float32,float64}[0m]
+                    [[36m--display[0m [38;5;36m{all,result,none}[0m] [[36m--z1z2[0m [38;5;36mZ1Z2[0m] [[36m--bbox[0m [38;5;36mBBOX[0m]
+                    [[36m--keystitle[0m [38;5;36mKEYSTITLE[0m] [[36m--geometry[0m [38;5;36mGEOMETRY[0m] [[36m--echo[0m]
+                    [36mfile1[0m [36m{+,-,x,/,=}[0m [36mfile2[0m [36moutput[0m
+
+[39mdescription: binary image arithmetic[0m
+
+[38;5;208mPositional Arguments:[0m
+  [36mfile1[0m                 [39mFirst FITS image[0m
+  [36m{+,-,x,/,=}[0m           [39mArithmetic operation[0m
+  [36mfile2[0m                 [39mSecond FITS image or number[0m
+  [36moutput[0m                [39mOutput FITS image[0m
+
+[38;5;208mOptions:[0m
+  [36m-h[0m, [36m--help[0m            [39mshow this help message and exit[0m
+  [36m--extname1[0m [38;5;36mEXTNAME1[0m   [39mExtension name of the first FITS file (default:[0m
+                        [39m'PRIMARY').[0m
+  [36m--extname2[0m [38;5;36mEXTNAME2[0m   [39mExtension name of the second FITS file (default:[0m
+                        [39m'PRIMARY').[0m
+  [36m--overwrite[0m           [39mOverwrite output file if already exists[0m
+  [36m--dtype[0m [38;5;36m{uint8,int8,uint16,int16,uint32,int32,uint64,int64,float32,float64}[0m
+                        [39mData type of the output image (default: float32)[0m
+  [36m--display[0m [38;5;36m{all,result,none}[0m
+                        [39mDisplay images: all, result, none (default)[0m
+  [36m--z1z2[0m [38;5;36mZ1Z2[0m           [39mtuple z1,z2, minmax or None (use zscale)[0m
+  [36m--bbox[0m [38;5;36mBBOX[0m           [39mbounding box tuple: nc1,nc2,ns1,ns2[0m
+  [36m--keystitle[0m [38;5;36mKEYSTITLE[0m
+                        [39mtuple of FITS keywords.format:[0m
+                        [39mkey1,key2,...keyn.'format'[0m
+  [36m--geometry[0m [38;5;36mGEOMETRY[0m   [39mTuple x,y,dx,dy indicating window geometry[0m
+  [36m--echo[0m                [39mDisplay full command line[0m
+```

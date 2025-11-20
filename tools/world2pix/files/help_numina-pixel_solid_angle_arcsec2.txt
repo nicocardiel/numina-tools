@@ -1,0 +1,27 @@
+usage: numina-pixel_solid_angle_arcsec2 [-h] [--extname EXTNAME]
+                                        [--method METHOD]
+                                        [--kernel_size KERNEL_SIZE]
+                                        [--verbose] [--echo]
+                                        input_file output_file
+
+Compute the solid angle in arcsec^2 for each pixel in a 2D image.
+
+positional arguments:
+  input_file            FITS file containing the image data.
+  output_file           Output FITS file to save the solid angle data.
+
+options:
+  -h, --help            show this help message and exit
+  --extname EXTNAME     Extension name of the input HDU (default: 'PRIMARY').
+  --method METHOD       Method to compute the solid angle:
+                        1: Use spherical polygons (slow)
+                           (not recommended for very small pixel sizes)
+                        2: Use spherical polygons (different approach, slow)
+                           (recommended for small pixel sizes)
+                        3: Use spherical coordinates and distances (fast)
+                           (default, not recommended for very small pixel sizes)
+  --kernel_size KERNEL_SIZE
+                        Kernel size for smoothing the result using a median
+                        filter. If not specified, no smoothing is applied.
+  --verbose             Display intermediate information
+  --echo                Display full command line

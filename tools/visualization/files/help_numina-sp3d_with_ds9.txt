@@ -1,0 +1,25 @@
+[38;5;208mUsage:[0m [38;5;244mnumina-sp3d_with_ds9[0m [[36m-h[0m] [[36m--i1[0m [38;5;36mI1[0m] [[36m--i2[0m [38;5;36mI2[0m] [[36m--ds9exec[0m [38;5;36mDS9EXEC[0m]
+                            [[36m--plot_render[0m [38;5;36m{matplotlib,ds9,both}[0m]
+                            [[36m--input_masks[0m [38;5;36mINPUT_MASKS[0m]
+                            [[36m--output_masks[0m [38;5;36mOUTPUT_MASKS[0m] [[36m--verbose[0m] [[36m--echo[0m]
+                            [36mdatacube[0m
+
+[39mInteractive examination of 3D data cubes with ds9.[0m
+
+[38;5;208mPositional Arguments:[0m
+  [36mdatacube[0m              [39mInput 3D FITS data cube[0m
+
+[38;5;208mOptions:[0m
+  [36m-h[0m, [36m--help[0m            [39mshow this help message and exit[0m
+  [36m--i1[0m [38;5;36mI1[0m               [39mFirst pixel along NAXIS3 (default 1)[0m
+  [36m--i2[0m [38;5;36mI2[0m               [39mLast pixel along NAXIS3 (default NAXIS3)[0m
+  [36m--ds9exec[0m [38;5;36mDS9EXEC[0m     [39mCommand line to launch ds9 (default 'ds9')[0m
+  [36m--plot_render[0m [38;5;36m{matplotlib,ds9,both}[0m
+                        [39mDisplay to display spectra (default=matplotlib)[0m
+  [36m--input_masks[0m [38;5;36mINPUT_MASKS[0m
+                        [39mPath to a FITS file with source and continuum masks[0m
+  [36m--output_masks[0m [38;5;36mOUTPUT_MASKS[0m
+                        [39mPath to the output FITS file with source and continuum[0m
+                        [39mmasks[0m
+  [36m--verbose[0m             [39mDisplay intermediate information[0m
+  [36m--echo[0m                [39mDisplay full command line[0m

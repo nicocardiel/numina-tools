@@ -1,0 +1,22 @@
+```console
+(venv_numina) $ numina-compare_adr_extensions_in_3d_cube --help
+```
+
+```{code-block} ansi-shell-session
+:class: my-special-block no-copybutton
+
+[38;5;208mUsage:[0m [38;5;244mnumina-compare_adr_extensions_in_3d_cube[0m [[36m-h[0m] [[36m--verbose[0m] [[36m--echo[0m]
+                                                [36mfilename[0m [36mextname1[0m [36mextname2[0m
+
+[39mCompare ADR extensions in 3D cube[0m
+
+[38;5;208mPositional Arguments:[0m
+  [36mfilename[0m    [39mInput 3D FITS file[0m
+  [36mextname1[0m    [39mFirst extension name[0m
+  [36mextname2[0m    [39mSecond extension name (optional)[0m
+
+[38;5;208mOptions:[0m
+  [36m-h[0m, [36m--help[0m  [39mshow this help message and exit[0m
+  [36m--verbose[0m   [39mDisplay intermediate information[0m
+  [36m--echo[0m      [39mDisplay full command line[0m
+```

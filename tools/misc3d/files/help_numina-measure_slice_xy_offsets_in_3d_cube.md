@@ -1,0 +1,37 @@
+```console
+(venv_numina) $ numina-measure_slice_xy_offsets_in_3d_cube --help
+```
+
+```{code-block} ansi-shell-session
+:class: my-special-block no-copybutton
+
+[38;5;208mUsage:[0m [38;5;244mnumina-measure_slice_xy_offsets_in_3d_cube[0m [[36m-h[0m] [[36m--extname[0m [38;5;36mEXTNAME[0m]
+                                                  [[36m--polydeg[0m [38;5;36mPOLYDEG[0m]
+                                                  [[36m--times_sigma_reject[0m [38;5;36mTIMES_SIGMA_REJECT[0m]
+                                                  [[36m--islice_reference[0m [38;5;36mISLICE_REFERENCE[0m]
+                                                  [[36m--iterate[0m] [[36m--method[0m [38;5;36m{1,2}[0m]
+                                                  [[36m--plots[0m] [[36m--verbose[0m]
+                                                  [[36m--echo[0m]
+                                                  [36mfilename[0m [36mnpoints[0m
+
+[39mDetermine (X,Y) offsets between slices along NAXIS3[0m
+
+[38;5;208mPositional Arguments:[0m
+  [36mfilename[0m              [39mInput 3D FITS file[0m
+  [36mnpoints[0m               [39mNumber of points along NAXIS3[0m
+
+[38;5;208mOptions:[0m
+  [36m-h[0m, [36m--help[0m            [39mshow this help message and exit[0m
+  [36m--extname[0m [38;5;36mEXTNAME[0m     [39mOutput extension name to store result (default None)[0m
+  [36m--polydeg[0m [38;5;36mPOLYDEG[0m     [39mPolynomial degree to fit distortion[0m
+  [36m--times_sigma_reject[0m [38;5;36mTIMES_SIGMA_REJECT[0m
+                        [39mTimes sigma to reject fitted offsets (default 3.0)[0m
+  [36m--islice_reference[0m [38;5;36mISLICE_REFERENCE[0m
+                        [39mInitial pixel corresponding to the reference slice[0m
+                        [39m(from 1 to NAXIS3)[0m
+  [36m--iterate[0m             [39mForce one iteration[0m
+  [36m--method[0m [38;5;36m{1,2}[0m        [39mMethod (1: skimage, 2: scipy)[0m
+  [36m--plots[0m               [39mPlot intermediate results[0m
+  [36m--verbose[0m             [39mDisplay intermediate information[0m
+  [36m--echo[0m                [39mDisplay full command line[0m
+```
