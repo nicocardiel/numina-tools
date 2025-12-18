@@ -57,7 +57,7 @@ process:
    the median combination, which likely correspond to pixels suspected of
    having been hit by a cosmic ray in two out of the three available exposures.
    In this document, we will refer to this method in abbreviated form as
-   $\color{red}\textbf{LAcosmic}$.
+   $\color{red}\textbf{L.A.Cosmic}$.
 
 2. The Median-Minimum (MM) diagnostic diagram technique (Cardiel et al. 2025,
    in preparation), an alternative method that works by identifying pixels that
@@ -72,7 +72,14 @@ process:
    in the MM diagnostic diagram, such that pixels falling above this boundary
    ave a high probability of having been affected by cosmic rays in two out of
    the three available exposures. In this document, we will refer to this
-   method in abbreviated form as $\color{blue}\textbf{MMcosmic}$.
+   method in abbreviated form as $\color{blue}\textbf{M.M.Cosmic}$.
+
+```{note}
+The practical application of the M.M.Cosmic algorithm for removing cosmic rays
+in scientific exposures obtained with MEGARA is explained at [this
+link](https://guaix-ucm.github.io/megaradrp-cookbook/crmasks.html) within the
+MERARA cookbook.
+```
 
 ## Script usage
 
@@ -84,8 +91,8 @@ is conducted with new images.
 
 The **numina** script responsible for detecting and correcting residual cosmic
 rays using the methods
-$\color{red}\textbf{LAcosmic}$ and or
-$\color{blue}\textbf{MMcosmic}$
+$\color{red}\textbf{L.A.Cosmic}$ and or
+$\color{blue}\textbf{M.M.Cosmic}$
 is called
 **numina-crmasks**. Its execution is straightforward:
 
@@ -140,7 +147,7 @@ yellow background in the example above):
   **numina-crmasks**.
 
   2\. Parameters for the
-  $\color{red}\textbf{LAcosmic}$
+  $\color{red}\textbf{L.A.Cosmic}$
   technique: Identified by the `la_`
   prefix, these parameters configure the *Laplacian Cosmic Ray Detection
   Algorithm* (van Dokkum 2001). Some default values are provided. These
@@ -148,7 +155,7 @@ yellow background in the example above):
   [$\color{gray}\texttt{cosmicray_lacosmic()}$
   function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmic.html).
 
-  3\. Parameters for the $\color{blue}\textbf{MMcosmic}$ method:
+  3\. Parameters for the $\color{blue}\textbf{M.M.Cosmic}$ method:
   Identified by the `mm_` prefix, these control the computation of the
   detection boundary in the MM diagnostic diagram.
 
@@ -292,7 +299,7 @@ to pixels unaffected and affected by cosmic rays.
 
 - $\color{magenta}\texttt{LAMEDIAN}$: this extension does not actually contain
   a mask but rather the value of the cosmic-ray-cleaned image obtained using
-  $\color{red}\texttt{LAcosmic}$.
+  $\color{red}\texttt{L.A.Cosmic}$.
 
 ## Examples
 
@@ -349,7 +356,7 @@ using the same instrumental configuration.
 
 In this example, we will use `crmethod: mm_lacosmic`,
 which means that cosmic-ray pixels will be detected using both the
-$\color{red}\textbf{LAcosmic}$ and the $\color{blue}\textbf{MMcosmic}$
+$\color{red}\textbf{L.A.Cosmic}$ and the $\color{blue}\textbf{M.M.Cosmic}$
 methods. We will consider a pixel to contain spurious signal due to a cosmic
 ray hit when it is detected by either of the two methods, and not necessarily
 by both simultaneously.
@@ -363,7 +370,7 @@ by both simultaneously.
 ```
 
 After a short processing time, **numina-crmasks** starts applying the
-$\color{red}\textbf{LAcosmic}$ technique to detect residual cosmic rays in the
+$\color{red}\textbf{L.A.Cosmic}$ technique to detect residual cosmic rays in the
 median combination.
 
 ```{include} files/terminal_output_example1_02.md
@@ -372,7 +379,7 @@ median combination.
 In this example 98 pixels are flagged as suspicious of being affected by cosmic
 rays.
 
-Next, the program begins applying the $\color{blue}\textbf{MMcosmic}$
+Next, the program begins applying the $\color{blue}\textbf{M.M.Cosmic}$
 method in the median combination. 
 
 ```{include} files/terminal_output_example1_03.md
@@ -432,7 +439,7 @@ exposures used are truly equivalent, the MM diagnostic diagram on the right
 should closely resemble the diagram shown on the left. Pixels that appear above
 the calculated boundary in the right-hand figure exhibit very large values of
 `median2d - min2d`, exceeding what would be expected based on the image noise,
-and are considered as cosmic-ray pixels by this $\color{blue}\textbf{MMcosmic}$
+and are considered as cosmic-ray pixels by this $\color{blue}\textbf{M.M.Cosmic}$
 method.
 
 ```{include} files/terminal_output_example1_04.md
@@ -445,8 +452,8 @@ After pressing the `q` key, the program resumes execution (you can press the
 modify any of the input parameters).
 
 Since we are using ``crmethod: mm_lacosmic``, the program proceeds to combine
-the detections made by both the $\color{red}\textbf{LAcosmic}$ and
-$\color{blue}\textbf{MMcosmic}$ methods. This allows
+the detections made by both the $\color{red}\textbf{L.A.Cosmic}$ and
+$\color{blue}\textbf{M.M.Cosmic}$ methods. This allows
 for a detailed analysis of how many pixels were flagged as suspicious by one
 method but not the other, and how many were identified by both.
 
@@ -458,8 +465,8 @@ method but not the other, and how many were identified by both.
 :width: 100%
 
 **Panel (a)**: MM diagnostic diagram showing the pixels detected only using the
-$\color{red}\textbf{LAcosmic}$ algorithm (red x's), those detected only using
-the $\color{blue}\textbf{MMcosmic}$ method in the MM diagnostic diagram (blue
+$\color{red}\textbf{L.A.Cosmic}$ algorithm (red x's), those detected only using
+the $\color{blue}\textbf{M.M.Cosmic}$ method in the MM diagnostic diagram (blue
 +'s), and those detected by both methods (open magenta circles). **Panel (b)**:
 the same diagram is shown, but instead of symbols, a sequential number is
 assigned to each suspected pixel.  The displayed numbers follow the same color
@@ -474,8 +481,8 @@ of Panel (a). Panels (c) and (d) update simultaneously when the zoom is
 modified in either of them. This interactive figure allows the user to closely
 examine which pixels are suspected of having been affected by cosmic rays in
 two out of the three available exposures. It also helps to understand how the
-two detection methods ($\color{red}\textbf{LAcosmic}$ and
-$\color{blue}\textbf{MMcosmic}$) have performed in identifying suspected
+two detection methods ($\color{red}\textbf{L.A.Cosmic}$ and
+$\color{blue}\textbf{M.M.Cosmic}$) have performed in identifying suspected
 pixels.
 ```
 
@@ -581,9 +588,9 @@ organized into two rows. The *top row* displays the 3 individual exposures. The
 left panel of the *bottom row* shows the initial `median2d` combination of the
 3 exposures. The central panel of the *bottom row* displays the detection
 information, where each detected pixel is coloured according to the detection
-method: red when detected only by $\color{red}\textbf{LAcosmic}$; blue when
-detected only by $\color{blue}\textbf{MMcosmic}$; yellow when detected by
-both $\color{red}\textbf{LAcosmic}$ and $\color{blue}\textbf{MMcosmic}$;
+method: red when detected only by $\color{red}\textbf{L.A.Cosmic}$; blue when
+detected only by $\color{blue}\textbf{M.M.Cosmic}$; yellow when detected by
+both $\color{red}\textbf{L.A.Cosmic}$ and $\color{blue}\textbf{M.M.Cosmic}$;
 gray for pixels included after the dilation process. The right panel of the
 *bottom row* shows the result of replacing the masked pixels in `median2d` by
 their value in `min2d`.
@@ -596,9 +603,9 @@ Next, the program generates the `mean2d` image, which contains the average of
 all individual exposures, and attempts to identify cosmic rays in this image.
 Note that in this case, the number of cosmic rays will be very large, as it
 will include all cosmic rays from all individual exposures.  This procedure
-begins with the $\color{red}\textbf{LAcosmic}$ method, using the same
+begins with the $\color{red}\textbf{L.A.Cosmic}$ method, using the same
 parameters for the $\color{gray}\texttt{cosmicray_lacosmic()}$ function as
-defined above, and continues with the $\color{blue}\textbf{MMcosmic}$
+defined above, and continues with the $\color{blue}\textbf{M.M.Cosmic}$
 method. In this second case, it is worth noting that an MM diagnostic diagram
 is constructed using $\texttt{mean2d} − \texttt{min2d}$ on the vertical axis
 instead of $\texttt{median2d} − \texttt{min2d}$. **The same previously derived
@@ -616,7 +623,7 @@ stored in the $\color{magenta}\texttt{MEANCRT}$ extension of the
 
 The same process is then repeated again, but this time using the individual
 exposures. In these cases, the diagnostic diagram of the
-$\color{blue}\texttt{MMCosmic}$ method is constructed using the value
+$\color{blue}\texttt{M.M.Cosmic}$ method is constructed using the value
 $\texttt{image#}i − \texttt{min2d}$ on the vertical axis, where $i$ is the
 image number (1, 2, 3, etc.). **The same detection boundary calculated at the
 beginning is reused**, and the figures showing the pixels detected as affected
@@ -656,7 +663,7 @@ the different computed masks will be stored.
 ```
 
 Note that in this file, the masks are stored in different extensions. Since we
-have also used the LACosmic method, the cosmic-ray-cleaned image returned by
+have also used the L.A.Cosmic method, the cosmic-ray-cleaned image returned by
 the $\color{gray}\texttt{cosmicray_lacosmic()}$ function is additionally saved
 in an extension named $\color{magenta}\texttt{LAMEDIAN}$.
 
@@ -1192,12 +1199,12 @@ These parameters determine the overall execution of **numina-crmasks**:
 All parameters in this section correspond to parameters of the
 [$\color{gray}\texttt{cosmicray_lacosmic()}$
 function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmic.html),
-which is used to apply the $\color{red}\texttt{LAcosmic}$ technique. Not all
+which is used to apply the $\color{red}\texttt{L.A.Cosmic}$ technique. Not all
 parameters from that function are used (only a subset is being employed). Note
 that the parameter names here match those in the
 $\color{gray}\texttt{cosmicray_lacosmic()}$ but with a `la_` prefix, which
 helps distinguish them from the parameters used in the
-$\color{blue}\texttt{MMcosmic}$ algorithm.
+$\color{blue}\texttt{M.M.Cosmic}$ algorithm.
 
 We recommend that users consult the documentation for these parameters in the
 official documentation of the [$\color{gray}\texttt{cosmicray_lacosmic()}$
