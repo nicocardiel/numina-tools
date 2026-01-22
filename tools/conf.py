@@ -45,6 +45,7 @@ bibtex_reference_style = "author_year"
 myst_enable_extensions = [
     "amsmath",
     "dollarmath",  # enables $...$ and $$...$$ math syntax
+    "attrs_inline",  # allows {...} after inline elements to add classes/attrs
 ]
 
 # It is necessary the following definition to number sections and figures
@@ -86,8 +87,28 @@ html_theme = 'sphinx_rtd_theme'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
+# -------------------------------------------------------------
+# the following is necessary to make use of colored-function in
+# _static/custom.css file
+from docutils import nodes
+from docutils.parsers.rst import roles
+def make_colored_code_role(color):
+    "Factory function to create colored code roles"""
+    def colored_code_role(
+        name, rawtext, text, lineno, inliner, options={}, content=[]
+    ):
+        node = nodes.literal(rawtext, text, classes=[f'code-{color}'])
+        return [node], []
+    return colored_code_role
+# -------------------------------------------------------------
+
 html_static_path = ['_static']
 def setup(app):
+    # Define multiple roles with different colors
+    roles.register_local_role('graycode', make_colored_code_role('gray'))
+    roles.register_local_role('redcode', make_colored_code_role('red'))
+    roles.register_local_role('greencode', make_colored_code_role('green'))
+    roles.register_local_role('bluecode', make_colored_code_role('blue'))
     app.add_css_file("custom.css")
 
 # This doesn't work. Use html_logo above (NCL, 20241010).

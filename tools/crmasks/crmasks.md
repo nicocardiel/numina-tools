@@ -1,7 +1,7 @@
 # Removing CR in multiple exposures
 
 A common task in astronomical image reduction is the removal of cosmic rays
-(CRs).  When possible, observers typically acquire three or more equivalent
+(CRs). When possible, observers typically acquire three or more equivalent
 exposures, which can then be median-combined to effectively eliminate cosmic
 rays. However, this approach has limitations when exposure times are long and
 cosmic ray rates are high: individual pixels may be affected by cosmic rays in
@@ -63,8 +63,7 @@ procedures to enhance effectiveness:
      for cosmic-ray detection based on Laplacian edge detection. We use the 
      implementation provided by the Python package 
      [ccdproc](https://ccdproc.readthedocs.io/en/latest/index.html) through the 
-     [$\color{gray}\texttt{cosmicray_lacosmic()}$ 
-     function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmic.html), 
+     [{graycode}`cosmicray_lacosmic()` function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmic.html), 
      which itself relies on the 
      [Astro-SCRAPPY](https://github.com/astropy/astroscrappy) package 
      {cite}`mccully_2014`. This algorithm is widely used for cosmic ray 
@@ -162,24 +161,23 @@ background in the example above):
   Identified by the `la_` prefix, these parameters configure the *Laplacian
   Cosmic Ray Detection Algorithm* {cite}`2001PASP..113.1420V`. Default values
   are provided. These parameters (without the `la_` prefix) are passed to the
-  [$\color{gray}\texttt{cosmicray_lacosmic()}$
-  function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmic.html).
+  [{graycode}`cosmicray_lacosmic()`
+  function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmic.html)
 
-  3. Parameters for the $\color{BrickRed}\textbf{PyCosmic}$ technique 
-  {cite}`2012A&A...545A.137H`: Identified by the `pc_` prefix. These parameters 
-  (without the `pc_` prefix) are passed to the 
-  [$\color{gray}\texttt{det_cosmics()}$ 
+  3. Parameters for the $\color{BrickRed}\textbf{PyCosmic}$ technique
+  {cite}`2012A&A...545A.137H`: Identified by the `pc_` prefix. These parameters
+  (without the `pc_` prefix) are passed to the [{graycode}`det_cosmics()`
   function](https://github.com/brandherd/PyCosmic/blob/master/PyCosmic/det_cosmics.py).
 
-  4. Parameters for the $\color{BrickRed}\textbf{deepCR}$ technique 
-  {cite}`2020ApJ...889...24Z`: Identified by the `dc_` prefix. These parameters 
-  (without the `dc_` prefix) are passed to the [$\color{gray}\texttt{deepCR()}$ 
+  4. Parameters for the $\color{BrickRed}\textbf{deepCR}$ technique
+  {cite}`2020ApJ...889...24Z`: Identified by the `dc_` prefix. These parameters
+  (without the `dc_` prefix) are passed to the [{graycode}`deepCR()`
   class](https://deepcr.readthedocs.io/en/latest/tutorial_use.html).
 
-  5. Parameters for the $\color{BrickRed}\textbf{CoNN}$ technique 
-  {cite}`2023ApJ...942...73X`: Identified by the `nn_` prefix. These parameters 
-  (without the `nn_` prefix) are passed to the 
-  [$\color{gray}\texttt{init_model()}$ and $\color{gray}\texttt{detect_cr()}$ 
+  5. Parameters for the $\color{BrickRed}\textbf{CoNN}$ technique
+  {cite}`2023ApJ...942...73X`: Identified by the `nn_` prefix. These parameters
+  (without the `nn_` prefix) are passed to the [`init_model()` and
+  `detect_cr()`
   functions](https://cosmic-conn.readthedocs.io/en/latest/index.html).
 
   6. Parameters for the $\color{blue}\textbf{M.M.Cosmic}$ method: Identified by 
@@ -837,7 +835,7 @@ Note that the masks are stored in different extensions of this file.
 
 Since $\color{BrickRed}\textbf{PyCosmic}$ is used as the
 $\color{red}\textbf{Aux.Cosmic}$ method, the cosmic-ray-cleaned image returned
-by the $\color{gray}\texttt{cosmicray_lacosmic()}$ function is also saved in an
+by the {graycode}`cosmicray_lacosmic()` function is also saved in an
 extension named $\color{magenta}\texttt{AUXCLEAN}$.
 
 Finally, the program computes the combined images. First, the simple mean, 
@@ -1577,34 +1575,34 @@ These parameters determine the overall execution of **numina-crmasks**:
 
 - `crmethod` (string): this parameter must take one of the following values:
 
-  - $\color{green}\texttt{lacosmic}$: The $\color{BrickRed}\textbf{L.A.Cosmic}$
+  - {greencode}`lacosmic`: The $\color{BrickRed}\textbf{L.A.Cosmic}$
     technique {cite}`2001PASP..113.1420V`.
 
-  - $\color{green}\texttt{pycosmic}$: The $\color{BrickRed}\textbf{PyCosmic}$
+  - {greencode}`pycosmic`: The $\color{BrickRed}\textbf{PyCosmic}$
     algorithm {cite}`2012A&A...545A.137H`.
 
-  - $\color{green}\texttt{deepcr}$: The $\color{BrickRed}\textbf{deepCR}$
+  - {greencode}`deepcr`: The $\color{BrickRed}\textbf{deepCR}$
     algorithm {cite}`2020ApJ...889...24Z`.
 
-  - $\color{green}\texttt{conn}$: The $\color{BrickRed}\textbf{CoNN}$
+  - {greencode}`conn`: The $\color{BrickRed}\textbf{CoNN}$
     algorithm {cite}`2023ApJ...942...73X`.
 
-  - $\color{green}\texttt{mmcosmic}$: The $\color{blue}\textbf{M.M.Cosmic}$
+  - {greencode}`mmcosmic`: The $\color{blue}\textbf{M.M.Cosmic}$
     technique {cite}`cardiel_etal_2026`.
 
-  - $\color{green}\texttt{mm_lacosmic}$: Combination of
+  - {greencode}`mm_lacosmic`: Combination of
     $\color{BrickRed}\textbf{L.A.Cosmic}$ and
     $\color{blue}\textbf{M.M.Cosmic}$.
     
-  - $\color{green}\texttt{mm_pycosmic}$: Combination of
+  - {greencode}`mm_pycosmic`: Combination of
     $\color{BrickRed}\textbf{PyCosmic}$ and
     $\color{blue}\textbf{M.M.Cosmic}$.
     
-  - $\color{green}\texttt{mm_deepcr}$: Combination of
+  - {greencode}`mm_deepcr`: Combination of
     $\color{BrickRed}\textbf{deepCR}$ and
     $\color{blue}\textbf{M.M.Cosmic}$.
     
-  - $\color{green}\texttt{mm_conn}$: Combination of
+  - {greencode}`mm_conn`: Combination of
     $\color{BrickRed}\textbf{CoNN}$ and
     $\color{blue}\textbf{M.M.Cosmic}$.
     
@@ -1613,16 +1611,16 @@ These parameters determine the overall execution of **numina-crmasks**:
   cleaning the median array is used instead of the minimum value at each pixel.
   This affects differently depending on the combination method:
 
-  - $\color{green}\texttt{mediancr}$: all the masked pixels in the mask
+  - {greencode}`mediancr`: all the masked pixels in the mask
     $\color{magenta}\texttt{MEDIANCR}$ are replaced.
 
-  - $\color{green}\texttt{meancrt}$: only the pixels coincident in masks
+  - {greencode}`meancrt`: only the pixels coincident in masks
     $\color{magenta}\texttt{MEANCRT}$ and $\color{magenta}\texttt{MEDIANCR}$;
     the rest of the pixels flagged in the mask
     $\color{magenta}\texttt{MEANCRT}$ are replaced by the value obtained when
     the combination method is `mediancr`.
 
-  - $\color{green}\texttt{meancr}$: only the pixels flagged in all the
+  - {greencode}`meancr`: only the pixels flagged in all the
     individual exposures (i.e., those flagged simultaneously in all the masks
     $\color{magenta}\texttt{CRMASK1}$, $\color{magenta}\texttt{CRMASK2}$,
     etc.); the rest of the pixels flagged in any of the
@@ -1638,10 +1636,10 @@ These parameters determine the overall execution of **numina-crmasks**:
   controls how the relative flux levels of individual exposures are handled.
   This paramewter can be set in several ways:
 
-  - $\color{green}\texttt{none}$: Assumes all exposures are equivalent;
+  - {greencode}`none`: Assumes all exposures are equivalent;
     internally, a flux factor of 1.0 is applied to each.
 
-  - $\color{green}\texttt{auto}$: The program automatically estimates the flux
+  - {greencode}`auto`: The program automatically estimates the flux
     factor for each exposure by comparing it to the median of all exposures.
 
   - List of values: You can manually specify a list of flux factors (e.g.,
@@ -1651,7 +1649,7 @@ These parameters determine the overall execution of **numina-crmasks**:
     all exposures.
 
 - `flux_factor_regions` 
-  (string $\color{green}\texttt{"[xmin:xmax, ymin:ymax]"}$): rectangular region
+  (string {greencode}`"[xmin:xmax, ymin:ymax]"`): rectangular region
   to determine the relative flux levels of the individual exposures in
   comparison to the median combination, where the limits are defined in pixels
   following the FITS convention (the first pixel in each direction is numbered
@@ -1661,10 +1659,10 @@ These parameters determine the overall execution of **numina-crmasks**:
 - `apply_flux_factor_to` (string): specifies to which images the flux factors
   should be applied. Valid options are:
 
-  - $\color{green}\texttt{original}$: apply the flux factors to the original
+  - {greencode}`original`: apply the flux factors to the original
     images.
 
-  - $\color{green}\texttt{simulated}$: apply the flux factors to the simulated
+  - {greencode}`simulated`: apply the flux factors to the simulated
     data.
 
 - `dilation` (integer): Specifies the dilation factor used to expand the
@@ -1672,20 +1670,20 @@ These parameters determine the overall execution of **numina-crmasks**:
   value of 1 is typically recommended, as it helps include the tails of cosmic
   rays, which may have lower signal levels but are still affected.
 
-- `regions_to_be_skipped` (list of $\color{green}\texttt{[xmin, xmax, ymin,
-  ymax]}$ regions). The format of each region must be a list of 4 integers,
-  following the FITS convention
+- `regions_to_be_skipped` (list of {greencode}`[xmin, xmax, ymin, ymax]`
+  regions). The format of each region must be a list of 4 integers, following
+  the FITS convention
 
-- `pixels_to_be-flagged_as_cr` (list of $\color{green}\texttt{[X,Y]}$ pixel
-  coordinates; FITS criterium).
+- `pixels_to_be-flagged_as_cr` (list of {greencode}`[X,Y]` pixel coordinates;
+  FITS criterium).
 
-- `pixels_to_be_ignored_as_cr` (list of $\color{green}\texttt{[X,Y]}$ pixel
-  coordinates; FITS criterium).
+- `pixels_to_be_ignored_as_cr` (list of {greencode}`[X,Y]` pixel coordinates;
+  FITS criterium).
 
-- `pixels_to_be_replaced_by_local_median` (list of 
-  $\color{green}\texttt{[X, Y, X_width, Y_width]}$ values): $\color{green}\texttt{X, Y}$ pixel coordinates
-  (FITS criterium), and median window size $\color{green}\texttt{X_width,
-  Y_width}$ to compute the local median (these two numbers must be odd).
+- `pixels_to_be_replaced_by_local_median` (list of {greencode}`[X, Y, X_width,
+  Y_width]` values): {greencode}`X, Y` pixel coordinates (FITS criterium), and
+  median window size {greencode}`X_width, Y_width` to compute the local median
+  (these two numbers must be odd).
 
 - `verify_cr` (boolean): If set to True, the code displays a graphical
   representation of the pixels detected as cosmic rays during the computation
@@ -1697,7 +1695,7 @@ These parameters determine the overall execution of **numina-crmasks**:
 
 - `color_scale` (string): Specifies the color scale used in the images
   displayed in the `mediancr_identified_cr.pdf` file.  Valid values are
-  $\color{green}\texttt{minmax}$ and $\color{green}\texttt{zscale}$.
+  {greencode}`minmax` and {greencode}`zscale`.
 
 - `maxplots` (integer): Sets the maximum number of suspicious double
   cosmic rays to display. Limiting the number of plots is useful when
@@ -1709,15 +1707,14 @@ These parameters determine the overall execution of **numina-crmasks**:
 ### Parameters for the L.A. Cosmic algorithm
 
 All parameters in this section correspond to parameters of the
-[$\color{gray}\texttt{cosmicray_lacosmic()}$
+[{graycode}`cosmicray_lacosmic()`
 function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmic.html),
-which applies the $\color{BrickRed}\textbf{L.A.Cosmic}$
-technique {cite}`2001PASP..113.1420V`. Not all parameters from that function are
-used (only a subset is employed). Note that parameter names here match those in
-$\color{gray}\texttt{cosmicray_lacosmic()}$ but with a `la_` prefix to
-distinguish them from parameters used in other algorithms. We recommend
-consulting the official documentation for the
-[$\color{gray}\texttt{cosmicray_lacosmic()}$
+which applies the $\color{BrickRed}\textbf{L.A.Cosmic}$ technique
+{cite}`2001PASP..113.1420V`. Not all parameters from that function are used
+(only a subset is employed). Note that parameter names here match those in
+{graycode}`cosmicray_lacosmic()` but with a `la_` prefix to distinguish them from
+parameters used in other algorithms. We recommend consulting the official
+documentation for the [{graycode}`cosmicray_lacosmic()`
 function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmic.html).
 
 - `la_gain_apply` (bool): If True, apply the gain when computing the corrected
@@ -1738,7 +1735,7 @@ function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmi
 
 - `la_satlevel` (float): Saturation level of the image (in ADU). **Important**:
   this parameter is employed in electrons by the
-  $\color{gray}\texttt{cosmicray_lacosmic()}$ function.  Here we define this
+  {graycode}`cosmicray_lacosmic()` function.  Here we define this
   parameter in ADU and it is properly transformed into electron afterwards.
 
 - `la_niter` (integer): Number of iterations of the L.A. Cosmic algorithm to
@@ -1749,36 +1746,34 @@ function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmi
 
 - `la_cleantype` (string): Clean algorithm to be used:
 
-  - $\color{green}\texttt{median}$: An unmasked 5x5 median filter.
+  - {greencode}`median`: An unmasked 5x5 median filter.
 
-  - $\color{green}\texttt{medmask}$: A masked 5x5 median filter.
+  - {greencode}`medmask`: A masked 5x5 median filter.
 
-  - $\color{green}\texttt{meanmask}$ A masked 5x5 mean filter.
+  - {greencode}`meanmask` A masked 5x5 mean filter.
 
-  - $\color{green}\texttt{idw}$: A masked 5x5 inverse distance weighted
-    interpolation.
+  - {greencode}`idw`: A masked 5x5 inverse distance weighted interpolation.
 
 - `la_fsmode` (string): Method to build the fine structure image. Possible
   values are:
 
-  - $\color{green}\texttt{median}$: Use the median filter in the standard LA
+  - {greencode}`median`: Use the median filter in the standard LA
     Cosmic algorithm.
 
-  - $\color{green}\texttt{convolve}$: Convolve the image with the psf kernel to
+  - {greencode}`convolve`: Convolve the image with the psf kernel to
     calculate the fine structure image.
 
 - `la_psfmodel` (string): Model to use to generate the psf kernel if `fsmode ==
   'convolve'` and `psfk` is None (the latter is always the case when using
   **numina-crmasks**). Possible choices:
 
-  - $\color{green}\texttt{gauss}$ and $\color{green}\texttt{moffat}$: produce
-    circular PSF kernels.
+  - {greencode}`gauss` and {greencode}`moffat`: produce circular PSF kernels.
 
-  - $\color{green}\texttt{gaussx}$: Gaussian kernel in the X direction.
+  - {greencode}`gaussx`: Gaussian kernel in the X direction.
 
-  - $\color{green}\texttt{gaussy}$: Gaussian kernel in the Y direction.
+  - {greencode}`gaussy`: Gaussian kernel in the Y direction.
 
-  - $\color{green}\texttt{gaussxy}$: Elliptical Gaussian. This kernel is
+  - {greencode}`gaussxy`: Elliptical Gaussian. This kernel is
     defined by **numina-crmasks**.
 
 - `la_psffwhm_x` (integer): Full Width Half Maximum of the PSF to use to
@@ -1790,8 +1785,7 @@ function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmi
 - `la_psfsize` (integer): Size of the kernel to calculate (pixels).
 
 - `la_psfbeta` (float): Moffat beta parameter. Only used if 
-  `la_fsmode`=$\color{green}\texttt{convolve}$
-  and `la_psfmodel`=$\color{green}\texttt{moffat}$.
+  `la_fsmode`={greencode}`convolve` and `la_psfmodel`={greencode}`moffat`.
 
 - `la_verbose` (boolean): Print to the screen or not. This parameter is
   automatically set to False if the program is executed with `--log-level` set
@@ -1802,37 +1796,35 @@ function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmi
   sides by the indicated number of pixels using a mirror reflection of the data 
   (without repeating the outermost values). This helps find cosmic ray pixels 
   very close to the image borders, which remain undetected when using 
-  $\color{gray}\texttt{cosmicray_lacosmic()}$ without this preliminary 
-  manipulation.
+  {graycode}`cosmicray_lacosmic()` without this preliminary manipulation.
 
 In addition to these parameters, **numina-crmasks** also uses the values of
 `gain` and `rnoise` (defined at the top level of its configuration YAML file)
-as inputs to the $\color{gray}\texttt{cosmicray_lacosmic()}$ function.
+as inputs to the {graycode}`cosmicray_lacosmic()` function.
 Therefore, there is no need to define `la_gain` or `la_readnoise`.
 
-Note that although the $\color{gray}\texttt{cosmicray_lacosmic()}$ function
+Note that although the {graycode}`cosmicray_lacosmic()` function
 initially only makes use of a single parameter `psffwhm` to generate kernels,
 we have included the option to use different FWHM values along each axis. This
 is enabled by setting the desired values for `la_psffwhm_x` and `la_psffwhm_y`,
 and choosing `la_psfmodel=gaussxy`, whose kernel is defined within the
 **numina-crmasks** code. When `la_psfmodel` is set to
-$\color{green}\texttt{gauss}$ or $\color{green}\texttt{moffat}$, a
+{greencode}`gauss` or {greencode}`moffat`, a
 single `psffwhm` value computed as the arithmetic mean of `la_psffwhm_x` and
 `la_psffwhm_y` is employed. When `la_psfmodel` is set to
-$\color{green}\texttt{gaussx}$ or $\color{green}\texttt{gaussy}$,
+{greencode}`gaussx` or {greencode}`gaussy`,
 the `psffwhm` parameter is set to `la_psffwhm_x` or `la_psffwhm_y`,
 respectively.
 
 ### Parameters for the PyCosmic algorithm
 
-The parameters in this section correspond to those used by the 
-[$\color{gray}\texttt{det_cosmics()}$ 
-function](https://github.com/brandherd/PyCosmic/blob/master/PyCosmic/det_cosmics.py), 
+The parameters in this section correspond to those used by the
+[{graycode}`det_cosmics()`
+function](https://github.com/brandherd/PyCosmic/blob/master/PyCosmic/det_cosmics.py),
 which applies the $\color{BrickRed}\textbf{PyCosmic}$ algorithm
-{cite}`2012A&A...545A.137H`. We recommend 
-consulting the documentation for these parameters at that link.
-The parameter names here match those in $\color{gray}\texttt{det_cosmics()}$
-but with a `pc_` prefix.
+{cite}`2012A&A...545A.137H`. We recommend consulting the documentation for
+these parameters at that link.  The parameter names here match those in
+{graycode}`det_cosmics()` but with a `pc_` prefix.
 
 - `pc_sigma_det` ([float, float]): Detection limit of edge pixel above the
   noise in (sigma units) to be detected as comiscs. The first number is used in
@@ -1870,50 +1862,47 @@ In addition to these parameters, **numina-crmasks** also uses the values of
 ### Parameters for the deepCR algorithm
 
 The parameters in this section correspond to to those used by the
-[$\color{gray}\texttt{deepCR}$
+[{graycode}`deepCR`
 class](https://github.com/profjsb/deepCR/blob/master/deepCR/model.py) (see
-`__init__()` and `clean()` methods of that class), which
+{graycode}`__init__()` and {graycode}`clean()` methods of that class), which
 applies the $\color{BrickRed}\textbf{deepCR}$ technique
 {cite}`2020ApJ...889...24Z`.  Please, consult the documentation for these
 parameters at that link.  The parameter names here match those in the mentioned
-methods of the $\color{gray}\texttt{deepCR}$ class but with a `dc_` prefix.
+methods of the {graycode}`deepCR` class but with a `dc_` prefix.
 
 - `dc_mask` (string): Name of existing deepCR-mask model. Valid values are
-  $\color{green}\texttt{ACS-WFC}$ and
-  $\color{green}\texttt{WFC3-UVIS}$.
+  {greencode}`ACS-WFC` and {greencode}`WFC3-UVIS`.
 
 - `dc_threshold` (float): number in the $[0,\,1]$ range applied to
   probabilistic mask to generate the binary mask.
 
 - `dc_verbose` (bool): Flag for providing information during the processing.
   This is not an actual parameter employed by any method of the
-  $\color{gray}\texttt{deepCR}$ class, but a local parameter
-  employed internally by **numina-crmasks**.
+  {graycode}`deepCR` class, but a local parameter employed internally by
+  **numina-crmasks**.
 
 ### Parameters for the Cosmic-CoNN algorithm
 
-The parameters in this section correspond to
-to those used by the [$\color{gray}\texttt{cosmic-conn}$ package](https://github.com/cy-xu/cosmic-conn/tree/main), which applies 
-the $\color{BrickRed}\textbf{Cosmic-CoNN}$ technique 
-{cite}`2023ApJ...942...73X`
-Please, consult the documentation for these parameters at that link.
-The parameter names here match those in XX function but with a `nn_` prefix.
+The parameters in this section correspond to to those used by the
+[`cosmic-conn`](https://github.com/cy-xu/cosmic-conn/tree/main), which applies
+the $\color{BrickRed}\textbf{Cosmic-CoNN}$ technique
+{cite}`2023ApJ...942...73X` Please, consult the documentation for these
+parameters at that link.  The parameter names here match those in XX function
+but with a `nn_` prefix.
 
 - `nn_model` (string): model to be employed. Valid values are
-  $\color{green}\texttt{ground_imaging}$,
-  $\color{green}\texttt{NRES}$, and
-  $\color{green}\texttt{HST_ACS_WFC}$. These correspond to the trained models
-  available at this
+  {greencode}`ground_imaging`, {greencode}`NRES`, and {greencode}`HST_ACS_WFC`.
+  These correspond to the trained models available at this
   [link](https://github.com/cy-xu/cosmic-conn/tree/main/cosmic_conn/trained_models).
 
 - `nn_threshold` (float): number in the $[0,\,1]$ range applied to
   probabilistic mask to generate the binary mask.  This is not an actual
-  parameter employed by the $\color{gray}\texttt{cosmic-conn}$ package, but a
+  parameter employed by the `cosmic-conn` package, but a
   local parameter employed internally by **numina-crmasks**.
 
 - `nn_verbose` (bool): Flag for providing information during the processing.
   This is not an actual parameter employed by the
-  $\color{gray}\texttt{cosmic-conn}$ package, but a local parameter employed
+  `cosmic-conn` package, but a local parameter employed
   internally by **numina-crmasks**.
 
 ### Parameters for the detection boundary in the MM diagnostic diagram
@@ -1922,44 +1911,43 @@ These are the parameters that define how to compute the detection boundary in
 the MM diagnostic diagram. Their name make use of the prefix `mm_` to clearly
 distinguish them from those associated with the L.A. Cosmic method.
 
-- `mm_xy_offsets` (list of $\color{green}\texttt{[xoffset, yoffset]}$ values).
+- `mm_xy_offsets` (list of {greencode}`[xoffset, yoffset]` values).
   Offsets (pixels) to apply to each simulated individual exposure when
   computing the diagnostic diagram for the mmcosmic method. This option is not
   compatible with `mm_crosscorr_region`.
 
-- `mm_crosscorr_region` (string $\color{green}\texttt{"[xmin:xmax,
-  ymin:ymax]"}$): Rectangular region used to determine X and Y offsets between
-  the individual exposures. The region must be specified in the format
-  $\color{green}\texttt{[xmin:xmax, ymin:ymax]}$, where the limits are defined
-  in pixels following the FITS convention (the first pixel in each direction is
-  numbered as 1).  This means that $1 \leq \texttt{xmin} < \texttt{xmax} \leq
-  \texttt{NAXIS1}$ and $1 \leq \texttt{ymin} < \texttt{ymax} \leq
-  \texttt{NAXIS2}$. If this parameter is set to null in the YAML file
-  (interpreted as None when read by Python), it is assumed that the individual
-  exposures are perfectly aligned.
+- `mm_crosscorr_region` (string {greencode}`"[xmin:xmax, ymin:ymax]"`):
+  Rectangular region used to determine X and Y offsets between the individual
+  exposures. The region must be specified in the format {greencode}`[xmin:xmax,
+  ymin:ymax]`, where the limits are defined in pixels following the FITS
+  convention (the first pixel in each direction is numbered as 1).  This means
+  that $1 \leq \texttt{xmin} < \texttt{xmax} \leq \texttt{NAXIS1}$ and $1 \leq
+  \texttt{ymin} < \texttt{ymax} \leq \texttt{NAXIS2}$. If this parameter is set
+  to null in the YAML file (interpreted as None when read by Python), it is
+  assumed that the individual exposures are perfectly aligned.
 
 - `mm_boundary_fit` (string): Type of mathematical function used to determine
   the boundary separating the expected signal in the MM diagnostic diagram
   between pixels affected and unaffected by cosmic rays. The two available
   options are:
 
-  - $\color{green}\texttt{piecewise}$: piecewise linear function passing through
+  - {greencode}`piecewise`: piecewise linear function passing through
     a set of fixed points defined in `mm_fixed_points_in_boundary`).
 
-  - $\color{green}\texttt{spline}$: iterative fit using splines with a
+  - {greencode}`spline`: iterative fit using splines with a
     predefined number of knots specified by `mm_knots_split`.
 
 - `mm_knots_splfit` (integer): Total number of knots employed in the spline fit
   that define the detection boundary in the diagnostic diagram.
 
 - `mm_fixed_points_in_boundary` (list of 
-  $\color{green}\texttt{[X, Y, weight]}$): Points used to fit the detection
+  {greencode}`[X, Y, weight]`): Points used to fit the detection
   boundary in the MM diagnostic diagram. In the case of a `piecewise` fit, the
   boundary is constructed using straight lines connecting the specified points.
   If a $\texttt{spline}$ fit is used, the manually provided points are combined
   with simulated ones. In the first case, each point is specified on a separate
-  line in the YAML file using the format $\color{green}\texttt{[X, Y]}$. In the
-  second case, the format is $\color{green}\texttt{[X, Y, weight]}$, where the
+  line in the YAML file using the format {greencode}`[X, Y]`. In the
+  second case, the format is {greencode}`[X, Y, weight]`, where the
   weight is optional and should be a large number (default 1000 when not
   provided) to ensure that the numerical fit closely follows the manually
   specified points.
@@ -1971,7 +1959,7 @@ distinguish them from those associated with the L.A. Cosmic method.
   used to extend the detection boundary above the red crosses in the simulated
   diagnostic diagram, improving the robustness of cosmic ray detection by
   reducing the number of false positives. This option is only employed when
-  `mm_boundary_fit`=$\color{green}\texttt{spline}$.
+  `mm_boundary_fit`={greencode}`spline`.
 
 - `mm_weight_boundary_extension` (float): Weight applied to
   the vertical distance between fitted points in the diagnostic diagram when

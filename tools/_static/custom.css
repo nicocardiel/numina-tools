@@ -17,3 +17,36 @@ div.my-special-block span {
     background: transparent !important; /* kill inline bg */
     /*color: inherit !important; */
 }
+
+/* Define colors for inline code; see conf.py */
+code.code-gray,
+.code-gray code,
+literal.code-gray {
+    color: #888888 !important;
+    font-weight: bold !important;
+    background-color: inherit !important;
+}
+
+code.code-red,
+.code-red code,
+literal.code-red {
+    color: #FF0000 !important;
+    font-weight: bold !important;
+    background-color: inherit !important;
+}
+
+code.code-green,
+.code-green code,
+literal.code-green {
+    color: #008800 !important;
+    font-weight: bold !important;
+    background-color: inherit !important;
+}
+
+code.code-blue,
+.code-blue code,
+literal.code-blue {
+    color: #0000FF !important;
+    font-weight: bold !important;
+    background-color: inherit !important;
+}
