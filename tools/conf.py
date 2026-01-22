@@ -34,10 +34,14 @@ release = '2025.10.15'
 extensions = [
     'myst_parser',
     'sphinx_rtd_theme',
+    'sphinxcontrib.bibtex',
     'sphinx_copybutton',
     'sphinx.ext.mathjax',
     'click_extra.sphinx',
+    'sphinx_new_tab_link',   # external links open in new tab
 ]
+bibtex_bibfiles = ['references.bib']
+bibtex_reference_style = "author_year"
 myst_enable_extensions = [
     "amsmath",
     "dollarmath",  # enables $...$ and $$...$$ math syntax

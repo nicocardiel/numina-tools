@@ -2,4 +2,6 @@ myst-parser
 sphinx
 sphinx_rtd_theme
 sphinx-copybutton
+sphinxcontrib-bibtex
+sphinx-new-tab-link
 click_extra[sphinx]
