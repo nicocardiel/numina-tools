@@ -49,7 +49,7 @@ procedures to enhance effectiveness:
   *detection boundary* is established in the MM diagnostic diagram: pixels
   above this boundary have a high probability of cosmic ray contamination in
   two of the three exposures. We refer to this method as
-  $\color{blue}\textbf{M.M.Cosmic}$.
+  {bluecode}`M.M.Cosmic`.
 
 - One of the existing algorithms for detecting and correcting cosmic rays in 
   **individual exposures**. Here, these algorithms identify residual 
@@ -68,29 +68,28 @@ procedures to enhance effectiveness:
      [Astro-SCRAPPY](https://github.com/astropy/astroscrappy) package 
      {cite}`mccully_2014`. This algorithm is widely used for cosmic ray 
      detection in individual exposures. We refer to this method as 
-     $\color{BrickRed}\textbf{L.A.Cosmic}\color{black}.$
+     {darkredcode}`L.A.Cosmic`.
 
   2. The PyCosmic method {cite}`2012A&A...545A.137H`, a robust method based on 
      L.A. Cosmic and specifically developed for detecting cosmic rays in 
      fiber-fed integral-field spectroscopic exposures from the Calar Alto 
      Legacy Integral Field Area (CALIFA) survey {cite}`2012A&A...538A...8S`.
      We refer to this method as
-     $\color{BrickRed}\textbf{PyCosmic}\color{black}.$
+     {darkredcode}`PyCosmic`.
 
   3. The deepCR method {cite}`2020ApJ...889...24Z`, a deep-learning-based 
      algorithm for cosmic ray identification and image inpainting. We refer to 
-     this method as $\color{BrickRed}\textbf{deepCR}\color{black}.$
+     this method as {darkredcode}`deepCR`.
 
   4. The Cosmic-CoNN method {cite}`2023ApJ...942...73X`, an alternative 
      deep-learning algorithm trained on large ground-based cosmic ray datasets. 
-     We refer to this method as $\color{BrickRed}\textbf{CoNN}\color{black}.$
+     We refer to this method as {darkredcode}`CoNN`.
 
-  Each of these four methods for correcting individual exposures can be 
-  used in conjunction with $\color{blue}\textbf{M.M.Cosmic}\color{black}$. 
-  For convenience, we collectively refer to them as 
-  $\color{red}\textbf{Aux.Cosmic}\color{black}$. Note that only one 
-  $\color{red}\textbf{Aux.Cosmic}$ method can be used at a time with 
-  $\color{blue}\textbf{M.M.Cosmic}$.
+  Each of these four methods for correcting individual exposures can be used in
+  conjunction with {bluecode}`M.M.Cosmic`.  For convenience, we collectively
+  refer to them as {redcode}`Aux.Cosmic`. Note that only one
+  {redcode}`Aux.Cosmic` method can be used at a time with
+  {bluecode}`M.M.Cosmic`.
 
 ```{note}
 The practical application of the M.M.Cosmic algorithm for removing cosmic rays 
@@ -108,7 +107,7 @@ images.
 ```
 
 The **numina** script for detecting and correcting residual cosmic rays using 
-$\color{blue}\textbf{M.M.Cosmic}$ and any $\color{red}\textbf{Aux.Cosmic}$ 
+{bluecode}`M.M.Cosmic` and any {redcode}`Aux.Cosmic` 
 method is **numina-crmasks**. Its execution is straightforward:
 
 ```console
@@ -157,30 +156,30 @@ background in the example above):
   1. General execution parameters: Control the overall behavior of 
   **numina-crmasks**.
 
-  2. Parameters for the $\color{BrickRed}\textbf{L.A.Cosmic}$ technique:
+  2. Parameters for the {darkredcode}`L.A.Cosmic` technique:
   Identified by the `la_` prefix, these parameters configure the *Laplacian
   Cosmic Ray Detection Algorithm* {cite}`2001PASP..113.1420V`. Default values
   are provided. These parameters (without the `la_` prefix) are passed to the
   [{graycode}`cosmicray_lacosmic()`
   function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmic.html)
 
-  3. Parameters for the $\color{BrickRed}\textbf{PyCosmic}$ technique
+  3. Parameters for the {darkredcode}`PyCosmic` technique
   {cite}`2012A&A...545A.137H`: Identified by the `pc_` prefix. These parameters
   (without the `pc_` prefix) are passed to the [{graycode}`det_cosmics()`
   function](https://github.com/brandherd/PyCosmic/blob/master/PyCosmic/det_cosmics.py).
 
-  4. Parameters for the $\color{BrickRed}\textbf{deepCR}$ technique
+  4. Parameters for the {darkredcode}`deepCR` technique
   {cite}`2020ApJ...889...24Z`: Identified by the `dc_` prefix. These parameters
   (without the `dc_` prefix) are passed to the [{graycode}`deepCR()`
   class](https://deepcr.readthedocs.io/en/latest/tutorial_use.html).
 
-  5. Parameters for the $\color{BrickRed}\textbf{CoNN}$ technique
+  5. Parameters for the {darkredcode}`CoNN` technique
   {cite}`2023ApJ...942...73X`: Identified by the `nn_` prefix. These parameters
   (without the `nn_` prefix) are passed to the [`init_model()` and
   `detect_cr()`
   functions](https://cosmic-conn.readthedocs.io/en/latest/index.html).
 
-  6. Parameters for the $\color{blue}\textbf{M.M.Cosmic}$ method: Identified by 
+  6. Parameters for the {bluecode}`M.M.Cosmic` method: Identified by 
   the `mm_` prefix, these control the computation of the detection boundary in 
   the MM diagnostic diagram.
 
@@ -213,32 +212,32 @@ script generates several FITS files:
 - `combined_mediancr.fits`: Median combination of the three exposures, 
   replacing pixels suspected of cosmic ray contamination in two of the three 
   exposures with the minimum value across exposures. The suspected CR pixels
-  are those identified by either $\color{blue}\textbf{M.M.Cosmic}$ or by
-  $\color{red}\textbf{Aux.Cosmic}$. When the replaced pixels 
+  are those identified by either {bluecode}`M.M.Cosmic` or by
+  {redcode}`Aux.Cosmic`. When the replaced pixels 
   genuinely correspond to double-contaminated cases, using the minimum value is 
   equivalent to relying on a single exposure. Since only one measurement is 
   available, there is no reason to assume this value is biased toward 
   lower-than-expected levels.
   
   Instead of using the minimum value, flagged pixels can be replaced using 
-  values computed by the $\color{red}\textbf{Aux.Cosmic}$ method by setting 
+  values computed by the {redcode}`Aux.Cosmic` method by setting 
   `use_auxmedian=True`.
   
 - `combined_meancrt.fits`: First attempt at mean (not median) combination of
   the three individual exposures. A direct mean combination is computed first,
   producing an image containing all cosmic rays from the individual frames. A
   cosmic ray mask is then generated from this image using the selected
-  $\color{red}\textbf{Aux.Cosmic}$ method. Masked pixels are replaced with
+  {redcode}`Aux.Cosmic` method. Masked pixels are replaced with
   their corresponding values from `combined_mediancr.fits`.
   
 - `combined_meancr.fits`: Second attempt at mean combination. Individual cosmic
   ray masks are generated for each of the three exposures using the selected
-  $\color{red}\textbf{Aux.Cosmic}$ method. A mean combination is then performed
+  {redcode}`Aux.Cosmic` method. A mean combination is then performed
   using each image with its corresponding mask, with masked pixels replaced by
   the minimum value.
   
 - `combined_meancr2.fits`: Refined mean combination obtained by applying the
-  chosen $\color{red}\textbf{Aux.Cosmic}$ method to `combined_mediancr.fits`.
+  chosen {redcode}`Aux.Cosmic` method to `combined_mediancr.fits`.
   Detected pixels are replaced with their minimum values, correcting residual
   cosmic ray pixels that survived the mean combination.
   
@@ -338,25 +337,25 @@ small set of parameters stored as FITS keywords, along with the parameters used
 during **numina-crmasks** execution (recorded in the HISTORY section of the 
 primary header). Extensions 1 through 6 contain the following masks:
 
-- $\color{magenta}\texttt{MEDIANCR}$: Mask used to generate 
+- {magentacode}`MEDIANCR`: Mask used to generate 
   `combined_mediancr.fits`. Flagged pixels correspond to those identified by 
-  either $\color{blue}\texttt{M.M.Cosmic}$ or $\color{red}\textbf{Aux.Cosmic}$.
+  either $\color{blue}\texttt{M.M.Cosmic}$ or {redcode}`Aux.Cosmic`.
   
-- $\color{magenta}\texttt{MEANCRT}$: Mask generated by the
-  $\color{red}\textbf{Aux.Cosmic}$ algorithm and used to generate 
-  `combined_meancrt.fits`. Pixels flagged in $\color{magenta}\texttt{MEDIANCR}$ 
+- {magentacode}`MEANCRT`: Mask generated by the
+  {redcode}`Aux.Cosmic` algorithm and used to generate 
+  `combined_meancrt.fits`. Pixels flagged in {magentacode}`MEDIANCR` 
   are also flagged in this mask.
   
-- $\color{magenta}\texttt{CRMASK1}$, $\color{magenta}\texttt{CRMASK2}$, and
-  $\color{magenta}\texttt{CRMASK3}$: Individual masks for each of the three
-  exposures, generated by the $\color{red}\textbf{Aux.Cosmic}$ algorithm, and
+- {magentacode}`CRMASK1`, {magentacode}`CRMASK2`, and
+  {magentacode}`CRMASK3`: Individual masks for each of the three
+  exposures, generated by the {redcode}`Aux.Cosmic` algorithm, and
   used to generate `combined_meancr.fits`. Pixels are only flagged if they were
-  flagged in the $\color{magenta}\texttt{MEANCRT}$ mask (since the mean
+  flagged in the {magentacode}`MEANCRT` mask (since the mean
   combination is less noisy than individual exposures, this restriction reduces
   false positives).
   
-- $\color{magenta}\texttt{MEANCR}$: Mask computed by the
-  $\color{red}\textbf{Aux.Cosmic}$ method on the `combined_meancr.fits` image,
+- {magentacode}`MEANCR`: Mask computed by the
+  {redcode}`Aux.Cosmic` method on the `combined_meancr.fits` image,
   used to generate the refined `combined_meancr2.fits` version.
 
 In all cases, these masks store values of 0 (unaffected pixels) and 1 (cosmic 
@@ -364,9 +363,9 @@ ray-affected pixels).
 
 Extension 7 contains:
 
-- $\color{magenta}\texttt{AUXCLEAN}$: this extension does not actually contain
+- {magentacode}`AUXCLEAN`: this extension does not actually contain
   a mask but rather the value of the cosmic-ray-cleaned image obtained using
-  $\color{red}\textbf{Aux.Cosmic}$.
+  {redcode}`Aux.Cosmic`.
 
 In addition to the FITS files, **numina-crmasks** generates auxiliary PNG, PDF, 
 and CSV files containing plots and tables with useful information.
@@ -401,11 +400,11 @@ acquired frames with the same instrumental configuration.
 ### Example 1: simple execution
 
 In this example, we use `crmethod: mm_pycosmic`, which detects cosmic-ray
-pixels using both the $\color{BrickRed}\textbf{PyCosmic}$ and
-$\color{blue}\textbf{M.M.Cosmic}$ methods. A pixel is flagged as containing
+pixels using both the {darkredcode}`PyCosmic` and
+{bluecode}`M.M.Cosmic` methods. A pixel is flagged as containing
 spurious signal from a cosmic ray hit when detected by either method (not
-necessarily both). Note that in this case $\color{BrickRed}\textbf{PyCosmic}$ is
-chosen as the $\color{red}\textbf{Aux.Cosmic}$ method because it performs
+necessarily both). Note that in this case {darkredcode}`PyCosmic` is
+chosen as the {redcode}`Aux.Cosmic` method because it performs
 better for IFU exposures.
 
 ```console
@@ -425,16 +424,16 @@ parameters.
 ```{include} files/terminal_output_example1_00.md
 ```
 
-Next, the specific values for the $\color{blue}\textbf{M.M.Cosmic}$ method are
+Next, the specific values for the {bluecode}`M.M.Cosmic` method are
 displayed.
 
 ```{include} files/terminal_output_example1_01.md
 ```
 
 After a short processing time, **numina-crmasks** applies the 
-$\color{red}\textbf{Aux.Cosmic}$ technique to detect residual cosmic rays in
+{redcode}`Aux.Cosmic` technique to detect residual cosmic rays in
 the median combination. In this case, we use
-$\color{BrickRed}\textbf{PyCosmic}$. Note that this algorithm is applied twice
+{darkredcode}`PyCosmic`. Note that this algorithm is applied twice
 to better determine cosmic ray *tails*.
 
 ```{admonition} Cosmic ray tails
@@ -457,7 +456,7 @@ identification of neighboring pixels affected by the cosmic ray.
 ```
 
 In the output above, lines starting with `PyCosmic >` correspond to the actual
-output of the $\color{BrickRed}\textbf{PyCosmic}$ code.
+output of the {darkredcode}`PyCosmic` code.
 
 Next, **numina-crmasks** applies the same cosmic ray detection procedure to the 
 individual images using the same detection parameters defined for the median 
@@ -472,7 +471,7 @@ combination.
 ```{include} files/terminal_output_example1_05.md
 ```
 
-Next, the program begins applying the $\color{blue}\textbf{M.M.Cosmic}$
+Next, the program begins applying the {bluecode}`M.M.Cosmic`
 method in the median combination. 
 
 ```{include} files/terminal_output_example1_06.md
@@ -533,7 +532,7 @@ data. If the three individual exposures are truly equivalent, the MM diagnostic
 diagram on the right should closely resemble the diagram on the left. Pixels 
 appearing above the calculated boundary in the right panel exhibit very large 
 `median2d - min2d` values, exceeding expectations based on image noise, and are 
-flagged as cosmic-ray pixels by the $\color{blue}\textbf{M.M.Cosmic}$ method.
+flagged as cosmic-ray pixels by the {bluecode}`M.M.Cosmic` method.
 
 After pressing the `c` key, the program resumes execution. Press the `x` key to 
 halt execution completely if you need to modify any input parameters in the 
@@ -541,9 +540,9 @@ YAML file. As shown in Example 2, you can also modify the detection boundary
 fit interactively by pressing the `r` (replot) key.
 
 Since we are using `crmethod: mm_pycosmic`, the program proceeds to combine the 
-detections made by both the $\color{red}\textbf{Aux.Cosmic}$
-($\color{BrickRed}\textbf{PyCosmic}$ in this case) and 
-$\color{blue}\textbf{M.M.Cosmic}$ methods. This allows detailed analysis of how 
+detections made by both the {redcode}`Aux.Cosmic`
+({darkredcode}`PyCosmic` in this case) and 
+{bluecode}`M.M.Cosmic` methods. This allows detailed analysis of how 
 many pixels were flagged by one method but not the other, and how many were 
 identified by both.
 
@@ -561,8 +560,8 @@ widgets. This figure is also saved as `diagnostic_mediancr.png`.
 :width: 100%
 
 **Panel (a)**: MM diagnostic diagram showing pixels detected only by
-$\color{red}\textbf{Aux.Cosmic}$ (red x's), only by
-$\color{blue}\textbf{M.M.Cosmic}$ (blue +'s), and by both methods (open magenta
+{redcode}`Aux.Cosmic` (red x's), only by
+{bluecode}`M.M.Cosmic` (blue +'s), and by both methods (open magenta
 circles). **Panel (b)**: The same diagram with sequential numbers assigned to
 each suspected pixel instead of symbols. Numbers follow the same color coding
 as symbols in Panel (a). **Panel (c)**: The `median2d` image with suspected
@@ -574,7 +573,7 @@ only suspected pixels within the zoomed region of Panel (a). Panels (c) and (d)
 update simultaneously when zoom is modified in either panel. This interactive
 figure allows close examination of pixels suspected of cosmic ray contamination
 in two of the three exposures and helps assess how the two detection methods
-($\color{red}\textbf{Aux.Cosmic}$ and $\color{blue}\textbf{M.M.Cosmic}$)
+({redcode}`Aux.Cosmic` and {bluecode}`M.M.Cosmic`)
 performed in identifying suspected pixels. Note that zooming and panning can be
 slow when the number of cosmic ray pixels is high.
 ```
@@ -628,13 +627,13 @@ numbering as panel (b).
 ```
 
 Note that this figure shows many cosmic ray pixels detected by 
-$\color{blue}\textbf{M.M.Cosmic}$ below the detection boundary. This occurs 
+{bluecode}`M.M.Cosmic` below the detection boundary. This occurs 
 because `mm_dilation: 1` is used in the input parameter YAML file. This means 
 the locations of cosmic ray pixels initially detected by this method (those 
 above the detection boundary) are extended using the specified dilation factor, 
 which includes pixels below the detection boundary.
 
-On the other hand, in this case the $\color{blue}\textbf{M.M.Cosmic}$ algorithm 
+On the other hand, in this case the {bluecode}`M.M.Cosmic` algorithm 
 has detected many false positives at the locations of some bright sky lines. 
 These are easily identified as pixels above the detection boundary for 
 $({\rm min2d} - {\rm bias}) \lesssim 10\;{\rm e}^{-}$ in the MM diagram.
@@ -655,23 +654,23 @@ From this point onward, the program continues without interruption.
 
 The program groups connected pixels into cosmic ray features, each representing 
 an individual cosmic ray hit affecting contiguous pixels. Each feature can 
-contain pixels detected by either $\color{red}\textbf{Aux.Cosmic}$ or 
-$\color{blue}\textbf{M.M.Cosmic}$. To assess the reliability of these methods 
+contain pixels detected by either {redcode}`Aux.Cosmic` or 
+{bluecode}`M.M.Cosmic`. To assess the reliability of these methods 
 in detecting actual cosmic ray hits, features are classified into 4 categories:
 
 - **4**: The feature contains at least one pixel detected by both 
-  $\color{red}\textbf{Aux.Cosmic}$ and $\color{blue}\textbf{M.M.Cosmic}$
+  {redcode}`Aux.Cosmic` and {bluecode}`M.M.Cosmic`
 - **3**: The feature contains only pixels detected by 
-  $\color{red}\textbf{Aux.Cosmic}$
+  {redcode}`Aux.Cosmic`
 - **2**: The feature contains only pixels detected by 
-  $\color{blue}\textbf{M.M.Cosmic}$
+  {bluecode}`M.M.Cosmic`
 - **other**: The feature is not included in categories 2, 3, or 4
 
 Note: Category 1 is not used because this flag identifies pixels added to 
 features by applying a global dilation factor (the `dilation` key in the input 
 parameter YAML file). For this example, `dilation: 0`. This global dilation 
 factor is independent of `mm_dilation`, which applies only to cosmic ray pixels 
-detected exclusively by the $\color{blue}\textbf{M.M.Cosmic}$ method.
+detected exclusively by the {bluecode}`M.M.Cosmic` method.
 
 After this classification, **numina-crmasks** saves a CSV file and a PDF file 
 for each category. The CSV file contains the list of pixels assigned to each 
@@ -710,9 +709,9 @@ individual exposures. The left panel of the *bottom row* shows the initial
 `median2d` combination of the 3 exposures. The central panel of the *bottom
 row* displays the detection information, where each detected pixel is coloured
 according to the detection method: red when detected only by
-$\color{red}\textbf{Aux.Cosmic}$; blue when detected only by
-$\color{blue}\textbf{M.M.Cosmic}$; yellow when detected by both
-$\color{red}\textbf{Aux.Cosmic}$ and $\color{blue}\textbf{M.M.Cosmic}$; gray
+{redcode}`Aux.Cosmic`; blue when detected only by
+{bluecode}`M.M.Cosmic`; yellow when detected by both
+{redcode}`Aux.Cosmic` and {bluecode}`M.M.Cosmic`; gray
 for pixels included after applying a global dilation process (none in this
 example). The right panel of the *bottom row* shows the result of replacing the
 masked pixels in `median2d` by their value in `min2d`.
@@ -761,16 +760,16 @@ false positive):
 ```
 
 The pixels of all the CR features detected in the median image (independently
-of the CR category) are stored in the $\color{magenta}\texttt{MEDIANCR}$
+of the CR category) are stored in the {magentacode}`MEDIANCR`
 extension of the `crmasks.fits` file with a value of 1.
 
 Next, the program generates the `mean2d` image containing the average of all
 individual exposures and attempts to identify cosmic rays in this image. Note
 that the number of cosmic rays will be very large, as it includes all cosmic
 rays from all individual exposures. This procedure begins with the
-$\color{red}\textbf{Aux.Cosmic}$ method, using in this case the same
-$\color{BrickRed}\textbf{PyCosmic}$ parameters employed above, and continues
-with the $\color{blue}\textbf{M.M.Cosmic}$ method. In this second case, an MM
+{redcode}`Aux.Cosmic` method, using in this case the same
+{darkredcode}`PyCosmic` parameters employed above, and continues
+with the {bluecode}`M.M.Cosmic` method. In this second case, an MM
 diagnostic diagram is constructed using $\texttt{mean2d} − \texttt{min2d}$ on
 the vertical axis instead of $\texttt{median2d} − \texttt{min2d}$. **The same
 previously derived detection boundary is also used**. The figure showing
@@ -781,7 +780,7 @@ suspected pixel locations is not displayed interactively but is saved as
 ```
 
 The same process is then repeated for the individual exposures. In these cases,
-the $\color{blue}\textbf{M.M.Cosmic}$ diagnostic diagram is constructed using
+the {bluecode}`M.M.Cosmic` diagnostic diagram is constructed using
 $\texttt{image#}i − \texttt{min2d}$ on the vertical axis, where $\texttt{#}i$
 is the image number (1, 2, or 3). **The same detection boundary calculated
 initially is reused**, and the figures showing cosmic ray-affected pixels are
@@ -798,7 +797,7 @@ not displayed interactively but are saved as `diagnostic_crmaski.png`, where
 ```
 
 All pixels suspected of cosmic ray contamination in each individual image are 
-stored with a value of 1 in the $\color{magenta}\texttt{CRMASK}i$ extension of 
+stored with a value of 1 in the {magentacode}`CRMASKi` extension of 
 the `crmasks.fits` file, where $i$ is the image number.
 
 The code generates a cleaned version of `median2d` that is used to search for 
@@ -811,7 +810,7 @@ residual cosmic ray pixels in this combination.
 ```
 
 All pixels suspected of cosmic ray contamination in the cleaned `mean2d` image
-are stored with a value of 1 in the $\color{magenta}\texttt{MEANCR}$ extension
+are stored with a value of 1 in the {magentacode}`MEANCR` extension
 of the `crmasks.fits` file.
 
 Since a specific cosmic-ray pixel mask has been obtained for each individual 
@@ -833,10 +832,10 @@ different computed masks.
 
 Note that the masks are stored in different extensions of this file. 
 
-Since $\color{BrickRed}\textbf{PyCosmic}$ is used as the
-$\color{red}\textbf{Aux.Cosmic}$ method, the cosmic-ray-cleaned image returned
+Since {darkredcode}`PyCosmic` is used as the
+{redcode}`Aux.Cosmic` method, the cosmic-ray-cleaned image returned
 by the {graycode}`cosmicray_lacosmic()` function is also saved in an
-extension named $\color{magenta}\texttt{AUXCLEAN}$.
+extension named {magentacode}`AUXCLEAN`.
 
 Finally, the program computes the combined images. First, the simple mean, 
 median, and minimum 2D images are created. These do not require any cosmic ray 
@@ -853,9 +852,9 @@ versions. The corresponding images are saved as `combined_mean.fits`,
 ```{include} files/terminal_output_example1_23.md
 ```
 
-Then, the program uses the $\color{magenta}\texttt{MEDIANCR}$ mask to obtain 
+Then, the program uses the {magentacode}`MEDIANCR` mask to obtain 
 the corrected median combination, replacing masked pixels with the minimum 
-value (or with the value stored in the $\color{magenta}\texttt{AUXCLEAN}$ 
+value (or with the value stored in the {magentacode}`AUXCLEAN` 
 extension if `use_auxmedian: True` is set). The corrected image is saved in 
 `combined_mediancr.fits`.
 
@@ -864,7 +863,7 @@ extension if `use_auxmedian: True` is set). The corrected image is saved in
 
 The first attempt to compute a corrected mean combination is performed on the 
 initial mean-combined image, where values indicated by the 
-$\color{magenta}\texttt{MEANCRT}$ mask **are replaced with those from the 
+{magentacode}`MEANCRT` mask **are replaced with those from the 
 corrected median image**. This is important. The result is saved in 
 `combined_meancrt.fits`.
 
@@ -873,14 +872,14 @@ corrected median image**. This is important. The result is saved in
 
 The program generates a second version of a combined image using the mean value 
 at each pixel, this time using the individual masks 
-$\color{magenta}\texttt{CRMASK}i$ obtained for each exposure. The resulting 
+{magentacode}`CRMASKi` obtained for each exposure. The resulting 
 image is saved in `combined_meancr.fits`.
 
 ```{include} files/terminal_output_example1_26.md
 ```
 
 A third version of a mean combination is computed using the 
-$\color{magenta}\texttt{MEANCR}$ mask to correct residual cosmic ray pixels in 
+{magentacode}`MEANCR` mask to correct residual cosmic ray pixels in 
 the `combined_meancr.fits` image. The result is saved as 
 `combined_meancr2.fits`.
 
@@ -1132,7 +1131,7 @@ When these kinds of problems are present in the data, a better approach to
 generate the simulated 2D diagnostic histogram is to use a better model for 
 the signal in each individual exposure. We have implemented this in 
 **numina-crmasks** by obtaining a pre-cleaned version of each individual 
-exposure using the chosen $\color{red}\textbf{Aux.Cosmic}$ algorithm and using 
+exposure using the chosen {redcode}`Aux.Cosmic` algorithm and using 
 these to generate simulated exposure sets. To use this approach, define 
 `mm_synthetic: single` in the input YAML file.
 
@@ -1385,7 +1384,7 @@ MM diagnostic diagram and location of detected cosmic-ray pixels. Compare this
 figure with {numref}`fig-diagnostic_mediancr_example5a`. Note that although we
 have significantly reduced the number of false detections by
 $\color{blue}\textbf{M.M.Cosmic}\color{black},$ this number is still high for
-the $\color{red}\textbf{Aux.Cosmic}$ algorithm. In this case, it would be
+the {redcode}`Aux.Cosmic` algorithm. In this case, it would be
 necessary to adjust the corresponding parameters in the input YAML file to
 avoid this problem (this has not been done in this example).
 ```
@@ -1575,56 +1574,55 @@ These parameters determine the overall execution of **numina-crmasks**:
 
 - `crmethod` (string): this parameter must take one of the following values:
 
-  - {greencode}`lacosmic`: The $\color{BrickRed}\textbf{L.A.Cosmic}$
+  - {greencode}`lacosmic`: The {darkredcode}`L.A.Cosmic`
     technique {cite}`2001PASP..113.1420V`.
 
-  - {greencode}`pycosmic`: The $\color{BrickRed}\textbf{PyCosmic}$
+  - {greencode}`pycosmic`: The {darkredcode}`PyCosmic`
     algorithm {cite}`2012A&A...545A.137H`.
 
-  - {greencode}`deepcr`: The $\color{BrickRed}\textbf{deepCR}$
+  - {greencode}`deepcr`: The {darkredcode}`deepCR`
     algorithm {cite}`2020ApJ...889...24Z`.
 
-  - {greencode}`conn`: The $\color{BrickRed}\textbf{CoNN}$
+  - {greencode}`conn`: The {darkredcode}`CoNN`
     algorithm {cite}`2023ApJ...942...73X`.
 
-  - {greencode}`mmcosmic`: The $\color{blue}\textbf{M.M.Cosmic}$
+  - {greencode}`mmcosmic`: The {bluecode}`M.M.Cosmic`
     technique {cite}`cardiel_etal_2026`.
 
   - {greencode}`mm_lacosmic`: Combination of
-    $\color{BrickRed}\textbf{L.A.Cosmic}$ and
-    $\color{blue}\textbf{M.M.Cosmic}$.
+    {darkredcode}`L.A.Cosmic` and {bluecode}`M.M.Cosmic`.
     
   - {greencode}`mm_pycosmic`: Combination of
-    $\color{BrickRed}\textbf{PyCosmic}$ and
-    $\color{blue}\textbf{M.M.Cosmic}$.
+    {darkredcode}`PyCosmic` and
+    {bluecode}`M.M.Cosmic`.
     
   - {greencode}`mm_deepcr`: Combination of
-    $\color{BrickRed}\textbf{deepCR}$ and
-    $\color{blue}\textbf{M.M.Cosmic}$.
+    {darkredcode}`deepCR` and
+    {bluecode}`M.M.Cosmic`.
     
   - {greencode}`mm_conn`: Combination of
-    $\color{BrickRed}\textbf{CoNN}$ and
-    $\color{blue}\textbf{M.M.Cosmic}$.
+    {darkredcode}`CoNN` and
+    {bluecode}`M.M.Cosmic`.
     
 - `use_auxmedian` (boolean): If True, the cosmic-ray corrected array
-  returned by the selected $\color{red}\textbf{Aux.Cosmic}$ algorithm when
+  returned by the selected {redcode}`Aux.Cosmic` algorithm when
   cleaning the median array is used instead of the minimum value at each pixel.
   This affects differently depending on the combination method:
 
   - {greencode}`mediancr`: all the masked pixels in the mask
-    $\color{magenta}\texttt{MEDIANCR}$ are replaced.
+    {magentacode}`MEDIANCR` are replaced.
 
   - {greencode}`meancrt`: only the pixels coincident in masks
-    $\color{magenta}\texttt{MEANCRT}$ and $\color{magenta}\texttt{MEDIANCR}$;
+    {magentacode}`MEANCRT` and {magentacode}`MEDIANCR`;
     the rest of the pixels flagged in the mask
-    $\color{magenta}\texttt{MEANCRT}$ are replaced by the value obtained when
+    {magentacode}`MEANCRT` are replaced by the value obtained when
     the combination method is `mediancr`.
 
   - {greencode}`meancr`: only the pixels flagged in all the
     individual exposures (i.e., those flagged simultaneously in all the masks
-    $\color{magenta}\texttt{CRMASK1}$, $\color{magenta}\texttt{CRMASK2}$,
+    {magentacode}`CRMASK1`$, {magentacode}`CRMASK2`,
     etc.); the rest of the pixels flagged in any of the
-    $\color{magenta}\texttt{CRMASK1}$, $\color{magenta}\texttt{CRMASK2}$, etc.
+    {magentacode}`CRMASK1`, {magentacode}`CRMASK2`, etc.
     masks are replaced by the corresponding masked mean.
 
 - `interactive`: Controls whether the program generates
@@ -1687,7 +1685,7 @@ These parameters determine the overall execution of **numina-crmasks**:
 
 - `verify_cr` (boolean): If set to True, the code displays a graphical
   representation of the pixels detected as cosmic rays during the computation
-  of the $\color{magenta}\texttt{MEDIANCR}$ mask, allowing the user to decide
+  of the {magentacode}`MEDIANCR` mask, allowing the user to decide
   whether or not to include those pixels in the final mask.
 
 - `semiwindow` (integer): Defines the semiwindow size (in pixels) used when
@@ -1709,7 +1707,7 @@ These parameters determine the overall execution of **numina-crmasks**:
 All parameters in this section correspond to parameters of the
 [{graycode}`cosmicray_lacosmic()`
 function](https://ccdproc.readthedocs.io/en/latest/api/ccdproc.cosmicray_lacosmic.html),
-which applies the $\color{BrickRed}\textbf{L.A.Cosmic}$ technique
+which applies the {darkredcode}`L.A.Cosmic` technique
 {cite}`2001PASP..113.1420V`. Not all parameters from that function are used
 (only a subset is employed). Note that parameter names here match those in
 {graycode}`cosmicray_lacosmic()` but with a `la_` prefix to distinguish them from
@@ -1821,7 +1819,7 @@ respectively.
 The parameters in this section correspond to those used by the
 [{graycode}`det_cosmics()`
 function](https://github.com/brandherd/PyCosmic/blob/master/PyCosmic/det_cosmics.py),
-which applies the $\color{BrickRed}\textbf{PyCosmic}$ algorithm
+which applies the {darkredcode}`PyCosmic` algorithm
 {cite}`2012A&A...545A.137H`. We recommend consulting the documentation for
 these parameters at that link.  The parameter names here match those in
 {graycode}`det_cosmics()` but with a `pc_` prefix.
@@ -1865,7 +1863,7 @@ The parameters in this section correspond to to those used by the
 [{graycode}`deepCR`
 class](https://github.com/profjsb/deepCR/blob/master/deepCR/model.py) (see
 {graycode}`__init__()` and {graycode}`clean()` methods of that class), which
-applies the $\color{BrickRed}\textbf{deepCR}$ technique
+applies the {darkredcode}`deepCR` technique
 {cite}`2020ApJ...889...24Z`.  Please, consult the documentation for these
 parameters at that link.  The parameter names here match those in the mentioned
 methods of the {graycode}`deepCR` class but with a `dc_` prefix.

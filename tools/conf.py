@@ -107,8 +107,10 @@ def setup(app):
     # Define multiple roles with different colors
     roles.register_local_role('graycode', make_colored_code_role('gray'))
     roles.register_local_role('redcode', make_colored_code_role('red'))
+    roles.register_local_role('darkredcode', make_colored_code_role('darkred'))
     roles.register_local_role('greencode', make_colored_code_role('green'))
     roles.register_local_role('bluecode', make_colored_code_role('blue'))
+    roles.register_local_role('magentacode', make_colored_code_role('magenta'))
     app.add_css_file("custom.css")
 
 # This doesn't work. Use html_logo above (NCL, 20241010).

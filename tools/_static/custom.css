@@ -35,6 +35,14 @@ literal.code-red {
     background-color: inherit !important;
 }
 
+code.code-darkred,
+.code-darkred code,
+literal.code-darkred {
+    color: #880000 !important;
+    font-weight: bold !important;
+    background-color: inherit !important;
+}
+
 code.code-green,
 .code-green code,
 literal.code-green {
@@ -50,3 +58,12 @@ literal.code-blue {
     font-weight: bold !important;
     background-color: inherit !important;
 }
+
+code.code-magenta,
+.code-magenta code,
+literal.code-magenta {
+    color: #FF00FF !important;
+    font-weight: bold !important;
+    background-color: inherit !important;
+}
+
