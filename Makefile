@@ -17,4 +17,9 @@ help:
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
+	@echo "Running preliminary scripts..."
+	tools/crmasks/files/run_extract_blocks_ansi_example1.sh
+	tools/crmasks/files/run_extract_blocks_ansi_example2.sh
+	tools/crmasks/files/run_extract_blocks_ansi_example6b.sh
+	@echo "Generating documentation now..."
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
