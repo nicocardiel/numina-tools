@@ -84,6 +84,7 @@ requirements:
   nn_verbose: True         # Provide information during the processing
   #-----------------------------------------------------------------------------
   # Parameters for the Median-Minimum method (Cardiel et al. 2026)
+  mm_cr_coincidences: 2      # number of CR coincidences to be sought
   mm_synthetic: median       # median | single (to simulate M.M. diagram)
   mm_hist2d_min_neighbors: 0 # minimum number of neighbors in hist2d bins
   mm_ydiag_max: 0            # maximum Y value in hist2d (0=auto)

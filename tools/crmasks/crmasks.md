@@ -5,7 +5,7 @@ A common task in astronomical image reduction is the removal of cosmic rays
 exposures, which can then be median-combined to effectively eliminate cosmic
 rays. However, this approach has limitations when exposure times are long and
 cosmic ray rates are high: individual pixels may be affected by cosmic rays in
-multiple exposures.  In such cases, while median combination removes most
+multiple exposures. In such cases, while median combination removes most
 cosmic rays from the final image, some contaminated pixels may remain
 uncorrected.
 
@@ -23,32 +23,56 @@ than three equivalent exposures available. With four exposures, median
 combination still fails when a pixel is contaminated in two exposures,
 requiring then at least five exposures to address this issue. However,
 obtaining five or more truly equivalent long exposures is challenging: extended
-integration times introduce variations in the signal due to changes in airmass,
-atmospheric transmission, sky line intensity, pointing drift, instrument
-flexures, and other factors. These variations make it unreasonable to treat the
-images as equivalent. Conversely, if an observing program does provide five or
-more exposures, median combination typically yields satisfactory results, and
-the method described below may be unnecessary. For these reasons, the following
-description assumes three available exposures.
+integration times introduce variations in the signal due to changes in seeing,
+airmass, atmospheric transmission, sky line intensity, pointing drift,
+instrument flexures, and other factors. These variations make it more difficult
+to treat the images as equivalent. Conversely, if an observing program is able
+to provide five or more equivalent exposures, median combination typically
+yields satisfactory results, and the method described below may be not
+necessary. 
 ```
 
-The method described here applies when three (or more, if necessary) equivalent
-exposures are available. It identifies pixels affected by cosmic rays in more
-than half of the exposures—cases where median combination fails to remove the
-contamination. Detection in the median-combined image uses two complementary
-procedures to enhance effectiveness:
+The method described here applies when three or more equivalent exposures are
+available. It identifies pixels affected by cosmic rays in more than half of
+the exposures—cases where median combination fails to remove the contamination.
 
-- The Median-Minimum (MM) diagnostic diagram technique
+The detection of cosmic-ray pixels in the median-combined image uses two
+complementary procedures to enhance effectiveness:
+
+- The **Median-Minimum (MM) diagnostic diagram technique**
   {cite}`cardiel_etal_2026`, which identifies pixels that deviate unexpectedly
-  in a diagnostic diagram constructed from the median and minimum signal values
-  of each pixel **across the different exposures**. This algorithm assumes that
-  the detector's gain and readout noise are known with reasonable accuracy,
-  enabling prediction of the typical difference between median and minimum
-  signal values for each pixel across the three exposures as a function of the
-  minimum signal (after bias subtraction). Using numerical simulations, a
-  *detection boundary* is established in the MM diagnostic diagram: pixels
-  above this boundary have a high probability of cosmic ray contamination in
-  two of the three exposures. We refer to this method as
+  in a diagnostic diagram constructed from the median signal and a "minimum
+  signal" value for each pixel **across the different exposures**. 
+
+  The "minimum signal" represents the average expected signal at each pixel
+  after excluding a predefined number of high-data values. We are calling this
+  a parameter `mm_cr_coincidences`. For example:
+  
+  - With 3 exposures and `mm_cr_coincidences=2`: excluding the 2 highest values
+    leaves the minimum signal
+  - With 4 or more exposures and `mm_cr_coincidences=2`: excluding the 2
+    highest values allows computing the mean of the remaining values
+  
+  Although this strategy might appear to bias the replacement values of
+  cosmic-ray pixels toward lower than expected values, this is not actually the
+  case when the method works correctly. If the discarded `mm_cr_coincidences`
+  values correspond to pixels actually affected by cosmic ray hits, the
+  remaining pixel values used to compute the "minimum signal" will be unbiased.
+  This is because the true values (i.e., unaffected by cosmic rays) of the
+  discarded pixels were already lost due to the cosmic ray contamination, and
+  there is no reason to assume that those true values would be higher than
+  those employed to compute the "minimum signal". In this sense, we are simply
+  excluding randomly corrupted measurements.
+
+  This algorithm assumes the detector's gain and readout noise are known with
+  reasonable accuracy. This enables prediction of the typical difference
+  between median and "minimum signal" values for each pixel across the
+  available exposures as a function of the "minimum signal" (after bias
+  subtraction). 
+  
+  Using numerical simulations, a *detection boundary* is established in the MM
+  diagnostic diagram. Pixels above this boundary have a high probability of
+  cosmic ray contamination in multiple exposures. We refer to this method as
   {bluecode}`M.M.Cosmic`.
 
 - One of the existing algorithms for detecting and correcting cosmic rays in 
@@ -86,10 +110,13 @@ procedures to enhance effectiveness:
      We refer to this method as {darkredcode}`CoNN`.
 
   Each of these four methods for correcting individual exposures can be used in
-  conjunction with {bluecode}`M.M.Cosmic`.  For convenience, we collectively
-  refer to them as {redcode}`Aux.Cosmic`. Note that only one
-  {redcode}`Aux.Cosmic` method can be used at a time with
-  {bluecode}`M.M.Cosmic`.
+  conjunction with {bluecode}`M.M.Cosmic`. For convenience, we collectively
+  refer to them as {redcode}`Aux.Cosmic` (standing for auxiliary method). Note
+  that in the current implementation, only one {redcode}`Aux.Cosmic` method can
+  be used at a time with {bluecode}`M.M.Cosmic`. However, this is not a
+  significant limitation: users can execute **numina-crmasks** multiple times
+  using different pairs of detection methods, then combine the resulting masks
+  as needed for their scientific analysis.
 
 ```{note}
 The practical application of the M.M.Cosmic algorithm for removing cosmic rays 
@@ -209,40 +236,39 @@ script generates several FITS files:
 - `combined_median.fits`: Simple median combination of the three exposures 
   without additional processing. Saved for comparison with subsequent 
   combinations.
-- `combined_mediancr.fits`: Median combination of the three exposures, 
-  replacing pixels suspected of cosmic ray contamination in two of the three 
-  exposures with the minimum value across exposures. The suspected CR pixels
+- `combined_mediancr.fits`: Median combination of the three exposures,
+  replacing pixels suspected of cosmic ray contamination in two of the three
+  exposures with the "minimum value" across exposures. The suspected CR pixels
   are those identified by either {bluecode}`M.M.Cosmic` or by
-  {redcode}`Aux.Cosmic`. When the replaced pixels 
-  genuinely correspond to double-contaminated cases, using the minimum value is 
-  equivalent to relying on a single exposure. Since only one measurement is 
-  available, there is no reason to assume this value is biased toward 
-  lower-than-expected levels.
+  {redcode}`Aux.Cosmic`. When the replaced pixels genuinely correspond to
+  double-contaminated cases, using the "minimum value" is equivalent to relying
+  on a single exposure. Since only one measurement is available, there is no
+  reason to assume this value is biased toward lower-than-expected levels.
   
-  Instead of using the minimum value, flagged pixels can be replaced using 
-  values computed by the {redcode}`Aux.Cosmic` method by setting 
+  Instead of using the minimum value, flagged pixels can be replaced using
+  values computed by the {redcode}`Aux.Cosmic` method by setting
   `use_auxmedian=True`.
   
 - `combined_meancrt.fits`: First attempt at mean (not median) combination of
   the three individual exposures. A direct mean combination is computed first,
   producing an image containing all cosmic rays from the individual frames. A
   cosmic ray mask is then generated from this image using the selected
-  {redcode}`Aux.Cosmic` method. Masked pixels are replaced with
-  their corresponding values from `combined_mediancr.fits`.
+  {redcode}`Aux.Cosmic` method. Masked pixels are replaced with their
+  corresponding values from `combined_mediancr.fits`.
   
 - `combined_meancr.fits`: Second attempt at mean combination. Individual cosmic
   ray masks are generated for each of the three exposures using the selected
-  {redcode}`Aux.Cosmic` method. A mean combination is then performed
-  using each image with its corresponding mask, with masked pixels replaced by
-  the minimum value.
+  {redcode}`Aux.Cosmic` method. A mean combination is then performed using each
+  image with its corresponding mask, with masked pixels replaced by the
+  "minimum value".
   
 - `combined_meancr2.fits`: Refined mean combination obtained by applying the
-  chosen {redcode}`Aux.Cosmic` method to `combined_mediancr.fits`.
-  Detected pixels are replaced with their minimum values, correcting residual
-  cosmic ray pixels that survived the mean combination.
+  chosen {redcode}`Aux.Cosmic` method to `combined_mediancr.fits`.  Detected
+  pixels are replaced with their "minimum values", correcting residual cosmic
+  ray pixels that survived the mean combination.
   
-- `combined_min.fits`: Image containing the minimum value of each pixel across
-  all individual exposures.
+- `combined_min.fits`: Image containing the "minimum value" of each pixel
+  across all individual exposures.
 
 Each FITS file contains the combined image in the primary extension, along with 
 two additional extensions: `VARIANCE` (storing the variance) and `MAP` 
@@ -397,6 +423,13 @@ images, the same configuration can be applied to larger sets of similarly
 acquired frames with the same instrumental configuration.
 ```
 
+```{note}
+To simplify the explanations, all the examples below use 3 input individual
+exposures with `mm_cr_coincidences=2`. For that reason, the descriptions refer
+to this particular case. However, generalization to a larger number of input
+images is straightforward.
+```
+
 ### Example 1: simple execution
 
 In this example, we use `crmethod: mm_pycosmic`, which detects cosmic-ray
@@ -478,7 +511,7 @@ method in the median combination.
 ```
 
 In this process, a 3D stack is built from the individual exposures. The 
-minimum, maximum, and median values of each pixel across the three exposures 
+"minimum", maximum, and median values of each pixel across the three exposures 
 are computed, resulting in three 2D images: `min2d`, `max2d`, and `median2d`. 
 These images have the same dimensions as the original exposures.
 
@@ -781,7 +814,7 @@ suspected pixel locations is not displayed interactively but is saved as
 
 The same process is then repeated for the individual exposures. In these cases,
 the {bluecode}`M.M.Cosmic` diagnostic diagram is constructed using
-$\texttt{image#}i − \texttt{min2d}$ on the vertical axis, where $\texttt{#}i$
+$\texttt{image\#}i − \texttt{min2d}$ on the vertical axis, where $\texttt{\#}i$
 is the image number (1, 2, or 3). **The same detection boundary calculated
 initially is reused**, and the figures showing cosmic ray-affected pixels are
 not displayed interactively but are saved as `diagnostic_crmaski.png`, where
@@ -838,10 +871,11 @@ by the {graycode}`cosmicray_lacosmic()` function is also saved in an
 extension named {magentacode}`AUXCLEAN`.
 
 Finally, the program computes the combined images. First, the simple mean, 
-median, and minimum 2D images are created. These do not require any cosmic ray 
-masks and are generated so users can compare them with the cleaned combination 
-versions. The corresponding images are saved as `combined_mean.fits`,
-`combined_median.fits` and `combined_min.fits`, respectively.
+median, and "minimum" 2D images are created. These do not require any cosmic
+ray masks and are generated so users can compare them with the cleaned
+combination versions. The corresponding images are saved as
+`combined_mean.fits`, `combined_median.fits` and `combined_min.fits`,
+respectively.
 
 ```{include} files/terminal_output_example1_21.md
 ```
@@ -853,8 +887,8 @@ versions. The corresponding images are saved as `combined_mean.fits`,
 ```
 
 Then, the program uses the {magentacode}`MEDIANCR` mask to obtain 
-the corrected median combination, replacing masked pixels with the minimum 
-value (or with the value stored in the {magentacode}`AUXCLEAN` 
+the corrected median combination, replacing masked pixels with the "minimum 
+value" (or with the value stored in the {magentacode}`AUXCLEAN` 
 extension if `use_auxmedian: True` is set). The corrected image is saved in 
 `combined_mediancr.fits`.
 
@@ -899,19 +933,19 @@ diagram and thus reduces false positive detections, we can perform a manually
 refined fit. For this purpose, we start the code execution as in Example 1.
 
 ```console
-(venv_numina) $ numina-crmasks params_example1.yaml --output_dir example2
+(venv_numina) $ numina-crmasks params_example1.yaml --output_dir example2a
 ```
 
 **Note that here we are reusing the same `params_example1.yaml` file although
-the output files will be stored in the `example2` subdirectory.**
+the output files will be stored in the `example2a` subdirectory.**
 
-```{include} files/terminal_output_example2_00.md
+```{include} files/terminal_output_example2a_00.md
 ```
 
 After some execution time, the program arrives to the point where the 2D
 diagnostic histograms are displayed:
 
-```{include} files/terminal_output_example2_01.md
+```{include} files/terminal_output_example2a_01.md
 ```
 
 ```{figure} images/diagnostic_histogram2d_example1.png
@@ -992,7 +1026,7 @@ number   X    Y    Weight
 Once the two fixed points have been introduced, the program recomputes and 
 displays the new 2D diagnostic histograms:
 
-```{include} files/terminal_output_example2_02.md
+```{include} files/terminal_output_example2a_02.md
 ```
 
 ```{figure} images/diagnostic_histogram2d_example2.png
@@ -1009,7 +1043,7 @@ squares).
 
 By pressing `c` the program resumes execution.
 
-```{include} files/terminal_output_example2_03.md
+```{include} files/terminal_output_example2a_03.md
 ```
 
 By shifting the detection boundary upward, the false detection rate decreases. 
@@ -1027,7 +1061,7 @@ compared with {numref}`fig-diagnostic_mediancr_example1`.
 
 From this point onward, the program continues execution as in Example 1.
 
-```{include} files/terminal_output_example2_04.md
+```{include} files/terminal_output_example2a_04.md
 ```
 
 Comparing the results obtained here with those obtained in Example 1, we can
@@ -1063,12 +1097,12 @@ mm_fixed_points_in_boundary:
 (here we insert the same two fixed points used previously; the default weight
 10000 are assumed by default).
 
-The modified YAML file `params_example2.yaml` contains these changes. We can 
-execute **numina-crmasks** with this modified YAML file, storing the results in 
+The modified YAML file `params_example2b.yaml` contains these changes. We can 
+execute **numina-crmasks** with this modified file, storing the results in 
 a subdirectory `example2b`:
 
 ```console
-(venv_numina) $ numina-crmasks params_example2.yaml --output_dir example2b
+(venv_numina) $ numina-crmasks params_example2b.yaml --output_dir example2b
 ```
 
 The results saved in subdirectories `example2` and `example2b` are identical.
@@ -1606,8 +1640,8 @@ These parameters determine the overall execution of **numina-crmasks**:
     
 - `use_auxmedian` (boolean): If True, the cosmic-ray corrected array
   returned by the selected {redcode}`Aux.Cosmic` algorithm when
-  cleaning the median array is used instead of the minimum value at each pixel.
-  This affects differently depending on the combination method:
+  cleaning the median array is used instead of the "minimum value" at each
+  pixel.  This affects differently depending on the combination method:
 
   - {greencode}`mediancr`: all the masked pixels in the mask
     {magentacode}`MEDIANCR` are replaced.

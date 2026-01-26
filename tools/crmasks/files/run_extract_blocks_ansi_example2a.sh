@@ -3,7 +3,7 @@
 # Note: this script is executed by ../../../Makefile
 # (it is not intended to be executed locally)
 local_dir="`pwd`/tools/crmasks/files"
-fname="${local_dir}/terminal_output_example2"
+fname="${local_dir}/terminal_output_example2a"
 input="${fname}.txt"
 
 #------------------------------------------------------------------------------
@@ -13,17 +13,17 @@ tools/extract_blocks_ansi.sh \
 #------------------------------------------------------------------------------
 output="${fname}_01.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 0 0 217 220
+  "$input" "${output}" 0 0 219 222
 #------------------------------------------------------------------------------
 output="${fname}_02.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 252 262
+  "$input" "${output}" 254 264
 #------------------------------------------------------------------------------
 output="${fname}_03.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 263 270
+  "$input" "${output}" 265 272
 #------------------------------------------------------------------------------
 output="${fname}_04.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 271 291 0 0 629 629
+  "$input" "${output}" 273 293 0 0 631 631
 #------------------------------------------------------------------------------

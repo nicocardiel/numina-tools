@@ -19,7 +19,7 @@ help:
 %: Makefile
 	@echo "Running preliminary scripts..."
 	tools/crmasks/files/run_extract_blocks_ansi_example1.sh
-	tools/crmasks/files/run_extract_blocks_ansi_example2.sh
+	tools/crmasks/files/run_extract_blocks_ansi_example2a.sh
 	tools/crmasks/files/run_extract_blocks_ansi_example6b.sh
 	@echo "Generating documentation now..."
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
