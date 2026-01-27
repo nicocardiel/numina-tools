@@ -170,14 +170,18 @@ background in the example above):
 
 * `images`: List of input FITS images to be processed. Each image is specified 
   on an indented line below this keyword, starting with a dash followed by a 
-  space and the FITS filename.
+  space and the FITS filename. **Important: input images are assumed to be
+  in ADU units**. If the input arrays are in electrons, set `gain=1.0` in the
+  *General parameters* section (see below).
+
 * `extnum`: Extension number of the FITS file to be read (e.g., `0` for the 
   primary extension).
+
 * `gain`, `rnoise`, and `bias`: General image parameters including detector 
-  gain (electrons/ADU), readout noise (ADU), and bias level (ADU). This file 
-  uses parameters for preprocessed MEGARA exposures where the bias level has 
-  already been subtracted and the signal converted to electrons (hence 
-  `bias=0` and `gain=1.0`).
+  gain (electrons/ADU), readout noise (ADU), and bias level (ADU). Since in
+  this example we are working with preprocessed MEGARA exposures where the bias
+  level has already been subtracted and the signal converted to electrons, we
+  set `bias=0` and `gain=1.0`.
 * `requirements`: This section contains six parameter blocks:
 
   1. General execution parameters: Control the overall behavior of 
@@ -1029,7 +1033,7 @@ displays the new 2D diagnostic histograms:
 ```{include} files/terminal_output_example2a_02.md
 ```
 
-```{figure} images/diagnostic_histogram2d_example2.png
+```{figure} images/diagnostic_histogram2d_example2a.png
 :alt: MM diagnostic diagram for the median combination
 :name: fig-diagnostic_histogram2d_example2
 :width: 100%
@@ -1051,7 +1055,7 @@ Specifically, false detections on sky lines decrease drastically, as shown in
 panel (c) of the following figure:
 
 
-```{figure} images/diagnostic_mediancr_example2.png
+```{figure} images/diagnostic_mediancr_example2a.png
 :name: fig-diagnostic_mediancr_example2
 :width: 100%
 
