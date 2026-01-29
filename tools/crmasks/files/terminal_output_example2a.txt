@@ -219,7 +219,7 @@ applying cleaning mask region
 pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m785[0m [1m([0m[1;36m000.0244[0m%[1m)[0m                      
 saving diagnostic_histogram2d.png                                               
 Entering interactive mode                                                       
-[1m([0mpress [32m'r'[0m to repeat plot, [32m'c'[0m to continue, [32m'x'[0m to quit program[1m)[0m                
+[1m([0mpress [32m'r'[0m to repeat fit, [32m'c'[0m to continue, [32m'x'[0m to quit program[1m)[0m                
 No fixed points in boundary.                                                    
 Type:                                                                           
 - [32m'a'[0m to add a fixed point                                                      
@@ -261,7 +261,7 @@ applying cleaning mask region
 pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m329[0m [1m([0m[1;36m000.0102[0m%[1m)[0m                      
 saving diagnostic_histogram2d.png                                               
 Entering interactive mode                                                       
-[1m([0mpress [32m'r'[0m to repeat plot, [32m'c'[0m to continue, [32m'x'[0m to quit program[1m)[0m                
+[1m([0mpress [32m'r'[0m to repeat fit, [32m'c'[0m to continue, [32m'x'[0m to quit program[1m)[0m                
 pixels flagged as cosmic rays by [1;31mpycosmic[0m or [1;34mmmcosmic[0m : [1;36m340[0m [1m([0m[1;36m000.0106[0m%[1m)[0m         
 pixels flagged as cosmic rays by [1;31mpycosmic[0m only[33m...[0m[33m...[0m..:  [1;36m11[0m [1m([0m[1;36m000.0003[0m%[1m)[0m         
 pixels flagged as cosmic rays by [1;34mmmcosmic[0m only[33m...[0m[33m...[0m..: [1;36m262[0m [1m([0m[1;36m000.0081[0m%[1m)[0m         

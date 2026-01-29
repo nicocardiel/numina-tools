@@ -237,7 +237,7 @@ applying cleaning mask region
 pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m474[0m [1m([0m[1;36m000.0147[0m%[1m)[0m                      
 saving diagnostic_histogram2d.png                                               
 Entering interactive mode                                                       
-[1m([0mpress [32m'r'[0m to repeat plot, [32m'c'[0m to continue, [32m'x'[0m to quit program[1m)[0m                
+[1m([0mpress [32m'r'[0m to repeat fit, [32m'c'[0m to continue, [32m'x'[0m to quit program[1m)[0m                
 pixels flagged as cosmic rays by [1;31mpycosmic[0m or [1;34mmmcosmic[0m : [1;36m577[0m [1m([0m[1;36m000.0179[0m%[1m)[0m         
 pixels flagged as cosmic rays by [1;31mpycosmic[0m only[33m...[0m[33m...[0m..: [1;36m103[0m [1m([0m[1;36m000.0032[0m%[1m)[0m         
 pixels flagged as cosmic rays by [1;34mmmcosmic[0m only[33m...[0m[33m...[0m..: [1;36m411[0m [1m([0m[1;36m000.0128[0m%[1m)[0m         
