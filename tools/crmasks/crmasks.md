@@ -624,30 +624,7 @@ display each cosmic ray pixel individually.
 Pressing the `?` key displays a help message in the terminal showing available 
 actions.
 
-```{code-block} ansi-shell-session
-:class: my-special-block no-copybutton
-
--------------------------------------------------------------------------------
-Keyboard shortcuts:
-'h' or 'r': reset zoom to initial limits
-'p': pan mode
-'o': zoom to rectangle
-'f': toggle full screen mode
-'s': save the figure to a PNG file
-...............................................................................
-'?': show this help message
-'i': print pixel info at mouse position (ax3 only)
-'&': print CR pixels within the zoomed region (ax3 only)
-'n': toggle display of number of cosmic rays (ax3 only)
-'a': toggle imshow aspect='equal' / aspect='auto' (ax3 and ax4 only)
-'t': toggle mean2d -> individual exposures in ax4
-'0': switch to mean2d in ax4
-'1', '2', ...: switch to individual exposure #1, #2, ... in ax4
-',': set vmin and vmax to min and max of the zoomed region (ax3 and ax4 only)
-'/': set vmin and vmax using zscale of the zoomed region (ax3 and ax4 only)
-'c': close the plot and continue the program execution
-'x': halt the program execution
--------------------------------------------------------------------------------
+```{include} files/terminal_output_example1_07b.md
 ```
 
 ```{figure} images/diagnostic_mediancr_zoom_example1.png
@@ -962,69 +939,19 @@ diagnostic diagram.
 ```
 
 While the previous figure is displayed, we can repeat the boundary fit by 
-pressing the `r` key. The program then asks several questions about how the 
+pressing the `f` key. The program then asks several questions about how the 
 boundary fit is performed (values shown in brackets are the current defaults; 
 pressing RETURN accepts the proposed value). We accept the default values for 
 the first questions:
 
-```{code-block} ansi-shell-session
-:class: my-special-block no-copybutton
-
-Minimum number of neighbors to keep bins in the 2D histogram (0-8) [0]:
-Type of boundary fit: piecewise or spline [spline]: spline
-Number of knots for spline boundary fit (min. 2) [5]: 
-Number of iterations for boundary extension (min. 0) [5]: 
-Weight for boundary extension (greater than 1.0) [2]: 
+```{include} files/terminal_output_example2a_01b.md
 ```
 
 Then we indicate our interest in including fixed points in the boundary fit. 
 Specifically, we insert two fixed points at the following $(x,y)$ coordinates: 
 $(50, 60)$ and $(150, 80)$.
 
-```{code-block} ansi-shell-session
-:class: my-special-block no-copybutton
-
-No fixed points in boundary.                                                    
-Do you want to modify the fixed points in the boundary? (y/[n]): y
-Type:                                                                           
-- 'a' to add a fixed point                                                      
-- 'n' none (continue without additional changes)                                
-Your choice (a/[n]): a
-x value of new fixed point: 50
-y value of new fixed point: 60
-weight of new fixed point [10000.0]: 
-Current fixed points in boundary:                                               
-number  X    Y    Weight                                                        
------- ---- ---- -------                                                        
-     1 50.0 60.0 10000.0                                                        
-Type:                                                                           
-- 'a' to add a fixed point                                                      
-- 'c' to clear all fixed points                                                 
-- 'd' to delete an existing fixed point                                         
-- 'e' to edit an existing fixed point                                           
-- 'n' none (continue without additional changes)                                
-Your choice (a/c/d/e/[n]): a
-x value of new fixed point: 150
-y value of new fixed point: 80
-weight of new fixed point [10000.0]: 
-Current fixed points in boundary:                                               
-number   X    Y    Weight                                                       
------- ----- ---- -------                                                       
-     1  50.0 60.0 10000.0                                                       
-     2 150.0 80.0 10000.0                                                       
-Type:                                                                           
-- 'a' to add a fixed point                                                      
-- 'c' to clear all fixed points                                                 
-- 'd' to delete an existing fixed point                                         
-- 'e' to edit an existing fixed point                                           
-- 'n' none (continue without additional changes)                                
-Your choice (a/c/d/e/[n]): n
-No changes made to fixed points in boundary.                                    
-Current fixed points in boundary:                                               
-number   X    Y    Weight                                                       
------- ----- ---- -------                                                       
-     1  50.0 60.0 10000.0                                                       
-     2 150.0 80.0 10000.0  
+```{include} files/terminal_output_example2a_01c.md
 ```
 
 Once the two fixed points have been introduced, the program recomputes and 
@@ -1215,35 +1142,18 @@ appears that the fitted boundary derived from the simulated data is still too
 low. We can simulate data with larger dispersion by reducing the shape
 parameter of the negative binomial distribution. 
 
-We press `c` to close the previous plot and continue.
+We press `r` to rerun the simulations. The program prompts a series of
+questions related to how the simulated images are generated and the limits used
+to rebuild the 2D diagnostic diagram (note that pressing RETURN accepts the
+default values shown in brackets for the following interactive prompts):
 
-```{code-block} ansi-shell-session
-:class: my-special-block no-copybutton
-
-Do you want to rerun the simulations? (y/n) [n]: y
-```
-
-By answering `y`, **numina-crmasks** prompts a series of questions related to
-how the simulated images are generated and the limits used to rebuild the 2D
-diagnostic diagram (note that pressing RETURN accepts the default values shown
-in brackets for the following interactive prompts):
-
-```{code-block} ansi-shell-session
-:class: my-special-block no-copybutton
-
-Enter new value for mm_photon_distribution (poisson | nbinom) [nbinom]:
-Enter new value for mm_nbinom_shape (float > 0) [1000]: 200
-Enter new value for xdiag_min (float) [-38.03779983520508]: 
-Enter new value for xdiag_max (float > xdiag_min) [303.4587285175408]: 
-Enter new value for ydiag_max (float > 0) [156.6892040763359]: 
-Enter new value for mm_nsimulations (int > 0) [10]: 
-rerunning the simulations as per user request...    
+```{include} files/terminal_output_example4_02.md
 ```
 
 In this case, we have reduced `mm_nbinom_shape` from its initial value of 1000
 to 200.
 
-```{include} files/terminal_output_example4_02.md
+```{include} files/terminal_output_example4_03.md
 ```
 
 ```{figure} images/diagnostic_histogram2d_example4.png
@@ -1256,7 +1166,7 @@ diagnostic diagram. Compare with
 ```
 
 Since the new detection boundary appears reasonable, we press `c` to close the
-previous plot and answer `n` to the question about rerunning the simulations.
+previous plot and continue the program execution.
 
 ```{figure} images/diagnostic_mediancr_example4.png
 :name: fig-diagnostic_mediancr_example4
@@ -1316,7 +1226,7 @@ On the other hand, this new approach may skip some pixels actually affected by
 cosmic rays. When running **numina-crmasks** interactively, users can obtain a
 simulated 2D diagnostic diagram closer to the diagram from actual data. To do
 this, remove relatively isolated bins in the simulated histogram by performing
-a refined fit (press the `r` key while the 2D diagnostic histogram is
+a refined fit (press the `f` key while the 2D diagnostic histogram is
 displayed) and specifying the number of neighbors when answering the following
 question:
 
@@ -1549,6 +1459,52 @@ avoid this problem (this has not been done in this example).
 
 From this point onward, the program can be used as in Example 1.
 
+**Alternative approach: using the negative binomial distribution**
+
+To illustrate how the negative binomial distribution can address the
+limitations described in this example, we now demonstrate the results obtained
+by setting `mm_photon_distribution: nbinom` in the input YAML file.
+
+```console
+(venv_numina) $ numina-crmasks params_example6c.yaml --output_dir example6c
+```
+
+```{figure} images/diagnostic_histogram2d_example6c_initial.png
+:alt: MM diagnostic diagram for the median combination
+:name: fig-diagnostic_histogram2d_example6c_initial
+:width: 100%
+
+Simulated (left) and real (right) 2D diagnostic histogram. 
+```
+
+The simulated diagram above was generated using the negative binomial
+distribution with a shape parameter of 1000. Since this value is large, the
+negative binomial distribution approaches the behavior of a Poisson
+distribution. Consequently, the detection boundary remains unsatisfactory and
+the number of false positives is still high.
+
+To exploit the benefits of using the negative binomial here, we modify the 
+shape parameter, decreasing it from 1000 to 60 (the latter value was determined 
+through quick trial and error).
+
+```{include} files/terminal_output_example6c_01.md
+```
+
+```{figure} images/diagnostic_histogram2d_example6c.png
+:alt: MM diagnostic diagram for the median combination
+:name: fig-diagnostic_histogram2d_example6c
+:width: 100%
+
+Simulated (left) and real (right) 2D diagnostic histogram.  Compare with
+{numref}`fig-diagnostic_histogram2d_example6c_initial`.
+```
+
+The resulting boundary fit is not very different from the one obtained in this 
+example when using different flux factors for each individual exposure. The 
+benefit of using the negative binomial distribution is that users can skip the 
+tedious task of finding suitable flux factors, requiring only adjustment of the 
+`mm_nbinom_shape` parameter.
+
 ### Example 7: taking care of small image offsets
 
 ```{warning}
@@ -1683,7 +1639,8 @@ diagram has been generated using the $(\delta x, \delta y)$ offsets between
 exposures computed by **numina-crmasks**. This time, the simulated data show a 
 distribution much more similar to the original data, and the calculated 
 detection boundary is better defined. Compare this figure with 
-{numref}`fig-diagnostic_histogram2d_example7a`.
+{numref}`fig-diagnostic_histogram2d_example7a` (note that the upper limit in
+the vertical axis is different!).
 ```
 
 The newly calculated detection boundary performs much better, removing the 
@@ -1719,6 +1676,53 @@ mm_xy_offsets:             # XYoffsets between exposures (pixels)
   - [ 0.48, -0.26]
 mm_crosscorr_region: null  # [xmin, xmax, ymin, ymax] FITS criterium | null
 ```
+
+**Alternative approach: using the negative binomial distribution**
+
+To illustrate how the negative binomial distribution can also address the 
+limitations described in this example, we demonstrate the results obtained by 
+setting `mm_photon_distribution: nbinom` in the input YAML file.
+
+```console
+(venv_numina) $ numina-crmasks params_example7c.yaml --output_dir example7c
+```
+
+```{figure} images/diagnostic_histogram2d_example7c_initial.png
+:alt: MM diagnostic diagram for the median combination
+:name: fig-diagnostic_histogram2d_example7c_initial
+:width: 100%
+
+Simulated (left) and real (right) 2D diagnostic histogram. 
+```
+
+The simulated diagram above was generated using the negative binomial
+distribution with a shape parameter of 1000. Since this value is large, the
+negative binomial distribution approaches the behavior of a Poisson
+distribution. Consequently, the detection boundary remains unsatisfactory and
+the number of false positives is still high.
+
+To exploit the benefits of using the negative binomial here, we modify the 
+shape parameter, decreasing it from 1000 to 20 (the latter value was determined 
+through quick trial and error).
+
+```{include} files/terminal_output_example7c_01.md
+```
+
+```{figure} images/diagnostic_histogram2d_example7c.png
+:alt: MM diagnostic diagram for the median combination
+:name: fig-diagnostic_histogram2d_example7c
+:width: 100%
+
+Simulated (left) and real (right) 2D diagnostic histogram. Compare with
+{numref}`fig-diagnostic_histogram2d_example7c_initial`. Note that here we have
+reduced the number of iterations to extend the detection boundary.
+```
+
+The resulting boundary fit does a better job to reproduce the actual histogram
+obtained with the real data. The benefit of using the negative binomial
+distribution is that users can skip the tedious task of determining the
+corresponding $(\delta x,\, \delta y)$ offsets, requiring only adjustment of
+the `mm_nbinom_shape` parameter.
 
 (description-of-parameters-in-requirements)=
 ## Parameters in the requirements section

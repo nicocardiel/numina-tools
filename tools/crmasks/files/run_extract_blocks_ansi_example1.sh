@@ -6,6 +6,9 @@ local_dir="`pwd`/tools/crmasks/files"
 fname="${local_dir}/terminal_output_example1"
 input="${fname}.txt"
 
+# Note: to identify line numbers, it is useful to use:
+# $ cat -n filename.txt
+# (enlarge the terminal)
 #------------------------------------------------------------------------------
 output="${fname}_00.md"
 tools/extract_blocks_ansi.sh \
@@ -37,89 +40,93 @@ tools/extract_blocks_ansi.sh \
 #------------------------------------------------------------------------------
 output="${fname}_07.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 225 232
+  "$input" "${output}" 225 233
+#------------------------------------------------------------------------------
+output="${fname}_07b.md"
+tools/extract_blocks_ansi.sh \
+  "$input" "${output}" 234 254
 #------------------------------------------------------------------------------
 output="${fname}_08.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 233 252
+  "$input" "${output}" 255 275
 #------------------------------------------------------------------------------
 output="${fname}_09.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 253 279
+  "$input" "${output}" 276 301
 #------------------------------------------------------------------------------
 output="${fname}_10.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 280 291
+  "$input" "${output}" 302 313
 #------------------------------------------------------------------------------
 output="${fname}_11.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 292 317
+  "$input" "${output}" 314 339
 #------------------------------------------------------------------------------
 output="${fname}_12.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 318 331
+  "$input" "${output}" 340 353
 #------------------------------------------------------------------------------
 output="${fname}_13.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 332 376
+  "$input" "${output}" 354 398
 #------------------------------------------------------------------------------
 output="${fname}_14.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 377 391
+  "$input" "${output}" 399 413
 #------------------------------------------------------------------------------
 output="${fname}_15.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 392 406
+  "$input" "${output}" 414 428
 #------------------------------------------------------------------------------
 output="${fname}_16.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 407 421
+  "$input" "${output}" 429 443
 #------------------------------------------------------------------------------
 output="${fname}_17.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 422 439
+  "$input" "${output}" 444 461
 #------------------------------------------------------------------------------
 output="${fname}_18.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 440 476
+  "$input" "${output}" 462 498
 #------------------------------------------------------------------------------
 output="${fname}_19.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 477 478
+  "$input" "${output}" 499 500
 #------------------------------------------------------------------------------
 output="${fname}_20.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 479 491
+  "$input" "${output}" 501 513
 #------------------------------------------------------------------------------
 output="${fname}_21.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 492 503
+  "$input" "${output}" 514 525
 #------------------------------------------------------------------------------
 output="${fname}_22.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 504 515
+  "$input" "${output}" 526 537
 #------------------------------------------------------------------------------
 output="${fname}_23.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 516 527
+  "$input" "${output}" 538 549
 #------------------------------------------------------------------------------
 output="${fname}_24.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 528 542
+  "$input" "${output}" 550 564
 #------------------------------------------------------------------------------
 output="${fname}_25.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 543 558
+  "$input" "${output}" 565 580
 #------------------------------------------------------------------------------
 output="${fname}_26.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 559 576
+  "$input" "${output}" 581 598
 #------------------------------------------------------------------------------
 output="${fname}_27.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 577 597
+  "$input" "${output}" 599 619
 #------------------------------------------------------------------------------
 output="${fname}_28.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 598 599
+  "$input" "${output}" 620 621
 #------------------------------------------------------------------------------

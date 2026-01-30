@@ -1,10 +1,10 @@
 [92m─────────────────────────── [0m[1;35mNumina: Cosmic Ray Masks[0m[92m ───────────────────────────[0m
 Using numina.array.crmasks.__main__ version [1;36m0.36[0m.[1;36m1.[0mdev78+ga5a251ac7             
-Reading input parameters from: [1;34mparams_example1.yaml[0m                             
-found input file: fake_1a.fits                                                  
-found input file: fake_2a.fits                                                  
-found input file: fake_3a.fits                                                  
-Output directory: example1                                                      
+Reading input parameters from: [1;34mparams_example6c.yaml[0m                            
+found input file: fake_1b.fits                                                  
+found input file: fake_2b.fits                                                  
+found input file: fake_3b.fits                                                  
+Output directory: example6c                                                     
 [92m───────────────────────── [0m[1;35m Computing cosmic ray masks [0m[92m ─────────────────────────[0m
 computing crmasks using crmethod: [1;32mmm_pycosmic[0m                                   
 number of input arrays: [1;36m3[0m                                                       
@@ -25,7 +25,7 @@ individual pixels to be initially flagged as CR: [3;35mNone[0m
 individual pixels to be initially ignored as CR: [3;35mNone[0m                           
 pixels to be replaced by the median value when removing the CRs: [3;35mNone[0m           
 mm_cr_coincidences: [1;36m2[0m                                                           
-mm_photon_distribution: poisson                                                 
+mm_photon_distribution: nbinom                                                  
 mm_nbinom_shape: [1;36m1000.000000[0m                                                    
 mm_synthetic: median                                                            
 mm_hist2d_min_neighbors: [1;36m0[0m                                                      
@@ -62,37 +62,37 @@ verbose for pycosmic: [3;92mTrue[0m
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m40[0m out of [1;36m3217536[0m pixels           
+PyCosmic > Total number of detected cosmics: [1;36m264[0m out of [1;36m3217536[0m pixels          
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m64[0m out of [1;36m3217536[0m pixels           
+PyCosmic > Total number of detected cosmics: [1;36m304[0m out of [1;36m3217536[0m pixels          
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m65[0m out of [1;36m3217536[0m pixels           
+PyCosmic > Total number of detected cosmics: [1;36m310[0m out of [1;36m3217536[0m pixels          
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m65[0m out of [1;36m3217536[0m pixels           
+PyCosmic > Total number of detected cosmics: [1;36m314[0m out of [1;36m3217536[0m pixels          
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m65[0m out of [1;36m3217536[0m pixels           
+PyCosmic > Total number of detected cosmics: [1;36m319[0m out of [1;36m3217536[0m pixels          
 [1;32m[[0m[32mPyCosmic parameters modified for run [0m[1;36m2[0m[1;32m][0m                                        
 pc_sigma_det for run [1;36m2[0m [1m([0mrun [1;36m1[0m[1m)[0m: [1;36m3.000000[0m [1m([0m[1;36m5.000000[0m[1m)[0m                             
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m1072[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m10429[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m1124[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m10829[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m1137[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m10950[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m1142[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m11024[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m1144[0m out of [1;36m3217536[0m pixels         
-Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m:   [1;36m65[0m                        
-Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m1144[0m                        
-Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m:   [1;36m80[0m                        
-PyCosmic execution time: [1;92m0:00:24[0m.[1;36m256351[0m                                         
-pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m80[0m [1m([0m[1;36m000.0025[0m%[1m)[0m                       
+PyCosmic > Total number of detected cosmics: [1;36m11060[0m out of [1;36m3217536[0m pixels        
+Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m:   [1;36m319[0m                       
+Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m11060[0m                       
+Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m:   [1;36m517[0m                       
+PyCosmic execution time: [1;92m0:00:26[0m.[1;36m094104[0m                                         
+pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m517[0m [1m([0m[1;36m000.0161[0m%[1m)[0m                      
 applying [33mmm_threshold[0m=[1;36m10[0m[1;36m.2[0m to auxiliary method [1;31mpycosmic[0m[33m...[0m                      
-number of CR pixels before applying mm_threshold: [1;36m80[0m                            
-number of CR pixels after  applying mm_threshold: [1;36m78[0m                            
+number of CR pixels before applying mm_threshold: [1;36m517[0m                           
+number of CR pixels after  applying mm_threshold: [1;36m501[0m                           
 [32m-------------------------------------------------------------------------------[0m 
 starting cosmic ray detection in [35mimage#[0m[1;36m1[0m[33m...[0m                                     
 PyCosmic will be run in [1;36m2[0m passes with modified parameters.                      
@@ -100,32 +100,32 @@ using PyCosmic version: [1;36m0.6[0m.post0
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m3185[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m3663[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m6070[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m6623[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m7194[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m7796[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m7386[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m8031[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m7414[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m8079[0m out of [1;36m3217536[0m pixels         
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m19482[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m31762[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m23179[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m36162[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m25048[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m38311[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m25552[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m38996[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m25687[0m out of [1;36m3217536[0m pixels        
-Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m:  [1;36m7414[0m                       
-Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m25687[0m                       
-Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m:  [1;36m8698[0m                       
-PyCosmic execution time: [1;92m0:00:29[0m.[1;36m984193[0m                                         
-pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m8698[0m [1m([0m[1;36m000.2703[0m%[1m)[0m                     
+PyCosmic > Total number of detected cosmics: [1;36m39207[0m out of [1;36m3217536[0m pixels        
+Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m:  [1;36m8079[0m                       
+Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m39207[0m                       
+Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m:  [1;36m9745[0m                       
+PyCosmic execution time: [1;92m0:00:32[0m.[1;36m882904[0m                                         
+pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m9745[0m [1m([0m[1;36m000.3029[0m%[1m)[0m                     
 [32m-------------------------------------------------------------------------------[0m 
 starting cosmic ray detection in [35mimage#[0m[1;36m2[0m[33m...[0m                                     
 PyCosmic will be run in [1;36m2[0m passes with modified parameters.                      
@@ -133,32 +133,32 @@ using PyCosmic version: [1;36m0.6[0m.post0
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m3626[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m4701[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m6925[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m8015[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m8285[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m9394[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m8543[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m9656[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m8580[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m9708[0m out of [1;36m3217536[0m pixels         
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m20053[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m42204[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m24182[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m47626[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m26420[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m50137[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m27042[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m50933[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m27219[0m out of [1;36m3217536[0m pixels        
-Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m:  [1;36m8580[0m                       
-Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m27219[0m                       
-Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m: [1;36m10045[0m                       
-PyCosmic execution time: [1;92m0:00:30[0m.[1;36m652215[0m                                         
-pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m10045[0m [1m([0m[1;36m000.3122[0m%[1m)[0m                    
+PyCosmic > Total number of detected cosmics: [1;36m51165[0m out of [1;36m3217536[0m pixels        
+Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m:  [1;36m9708[0m                       
+Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m51165[0m                       
+Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m: [1;36m11637[0m                       
+PyCosmic execution time: [1;92m0:00:36[0m.[1;36m156190[0m                                         
+pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m11637[0m [1m([0m[1;36m000.3617[0m%[1m)[0m                    
 [32m-------------------------------------------------------------------------------[0m 
 starting cosmic ray detection in [35mimage#[0m[1;36m3[0m[33m...[0m                                     
 PyCosmic will be run in [1;36m2[0m passes with modified parameters.                      
@@ -166,97 +166,107 @@ using PyCosmic version: [1;36m0.6[0m.post0
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m3320[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m5258[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m6306[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m8285[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m7453[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m9408[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m7633[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m9590[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m7657[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m9619[0m out of [1;36m3217536[0m pixels         
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m19482[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m53796[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m23262[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m59801[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m25237[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m62068[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m25714[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m62676[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m25829[0m out of [1;36m3217536[0m pixels        
-Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m:  [1;36m7657[0m                       
-Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m25829[0m                       
-Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m:  [1;36m8901[0m                       
-PyCosmic execution time: [1;92m0:00:30[0m.[1;36m392400[0m                                         
-pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m8901[0m [1m([0m[1;36m000.2766[0m%[1m)[0m                     
+PyCosmic > Total number of detected cosmics: [1;36m62889[0m out of [1;36m3217536[0m pixels        
+Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m:  [1;36m9619[0m                       
+Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m62889[0m                       
+Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m: [1;36m11560[0m                       
+PyCosmic execution time: [1;92m0:00:39[0m.[1;36m912061[0m                                         
+pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m11560[0m [1m([0m[1;36m000.3593[0m%[1m)[0m                    
 [32m-------------------------------------------------------------------------------[0m 
 detecting cosmic rays in [35mmedian2d[0m using [1;34mmmcosmic[0m[33m...[0m                             
 diagnostic diagram limits:                                                      
 xdiag_min xdiag_max ydiag_min ydiag_max                                         
 --------- --------- --------- ---------                                         
-  [1;36m-38.038[0m   [1;36m297.805[0m     [1;36m0.000[0m   [1;36m129.850[0m                                         
+  [1;36m-16.560[0m   [1;36m311.459[0m     [1;36m0.000[0m   [1;36m159.603[0m                                         
 flux factor for simulated images: [1m[[0m[1;36m1[0m. [1;36m1[0m. [1;36m1[0m.[1m][0m                                    
 assuming no offsets between images                                              
 computing simulated 2D histogram[33m...[0m                                             
-simulation [1;36m01[0m/[1;36m10[0m, time elapsed: [1;92m0:00:00[0m.[1;36m949652[0m                                  
-simulation [1;36m02[0m/[1;36m10[0m, time elapsed: [1;92m0:00:00[0m.[1;36m929954[0m                                  
-simulation [1;36m03[0m/[1;36m10[0m, time elapsed: [1;92m0:00:00[0m.[1;36m926511[0m                                  
-simulation [1;36m04[0m/[1;36m10[0m, time elapsed: [1;92m0:00:00[0m.[1;36m926470[0m                                  
-simulation [1;36m05[0m/[1;36m10[0m, time elapsed: [1;92m0:00:00[0m.[1;36m926108[0m                                  
-simulation [1;36m06[0m/[1;36m10[0m, time elapsed: [1;92m0:00:00[0m.[1;36m925325[0m                                  
-simulation [1;36m07[0m/[1;36m10[0m, time elapsed: [1;92m0:00:00[0m.[1;36m982161[0m                                  
-simulation [1;36m08[0m/[1;36m10[0m, time elapsed: [1;92m0:00:00[0m.[1;36m933083[0m                                  
-simulation [1;36m09[0m/[1;36m10[0m, time elapsed: [1;92m0:00:00[0m.[1;36m925681[0m                                  
-simulation [1;36m10[0m/[1;36m10[0m, time elapsed: [1;92m0:00:00[0m.[1;36m929375[0m                                  
+simulation [1;36m01[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m151411[0m                                  
+simulation [1;36m02[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m115353[0m                                  
+simulation [1;36m03[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m118612[0m                                  
+simulation [1;36m04[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m116300[0m                                  
+simulation [1;36m05[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m131939[0m                                  
+simulation [1;36m06[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m119165[0m                                  
+simulation [1;36m07[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m116916[0m                                  
+simulation [1;36m08[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m115924[0m                                  
+simulation [1;36m09[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m109812[0m                                  
+simulation [1;36m10[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m113304[0m                                  
 computing numerical boundary for coincident cosmic-ray detection[33m...[0m             
 applying binary dilation with [33msize[0m=[1;36m1[0m to cosmic-ray mask                         
-number of pixels flagged before dilation : [1;36m112[0m                                  
-number of pixels flagged after dilation  : [1;36m785[0m                                  
+number of pixels flagged before dilation :  [1;36m487[0m                                 
+number of pixels flagged after dilation  : [1;36m3714[0m                                 
 applying thresholding again after dilation                                      
-number of pixels after thresholding again: [1;36m785[0m                                  
+number of pixels after thresholding again: [1;36m3714[0m                                 
 applying cleaning mask region                                                   
-pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m785[0m [1m([0m[1;36m000.0244[0m%[1m)[0m                      
+pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m3714[0m [1m([0m[1;36m000.1154[0m%[1m)[0m                     
+saving diagnostic_histogram2d.png                                               
+Entering interactive mode [1m([0mpress any of the following keys[1m)[0m                     
+[32m'f'[0m to repeat fit, [32m'r'[0m to rerun simulations, [32m'c'[0m to continue, [32m'x'[0m to quit       
+Rerunning simulations and fit as per user request [1m([0m[32m'r'[0m key pressed[1m)[0m.            
+modifying simulation parameters[33m...[0m                                              
+Enter new value for mm_photon_distribution [1m([0mpoisson | nbinom[1m)[0m [1m[[0mnbinom[1m][0m: nbinom  
+Enter new value for mm_nbinom_shape [1m([0mfloat > [1;36m0[0m[1m)[0m [1m[[0m[1;36m1000[0m[1m][0m: [1;36m60.0[0m                    
+Enter new value for xdiag_min [1m([0mfloat[1m)[0m [1m[[0m[1;36m-16.560[0m[1m][0m: [1;36m-16.560[0m                        
+Enter new value for xdiag_max [1m([0mfloat > xdiag_min[1m)[0m [1m[[0m[1;36m311.459[0m[1m][0m: [1;36m311.459[0m            
+Enter new value for ydiag_max [1m([0mfloat > [1;36m0[0m[1m)[0m [1m[[0m[1;36m159.603[0m[1m][0m: [1;36m159.603[0m                    
+Enter new value for mm_nsimulations [1m([0mint > [1;36m0[0m[1m)[0m [1m[[0m[1;36m10[0m[1m][0m: [1;36m10[0m                          
+rerunning the simulations as per user request[33m...[0m                                
+computing simulated 2D histogram[33m...[0m                                             
+simulation [1;36m01[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m129655[0m                                  
+simulation [1;36m02[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m111113[0m                                  
+simulation [1;36m03[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m105693[0m                                  
+simulation [1;36m04[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m111378[0m                                  
+simulation [1;36m05[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m105998[0m                                  
+simulation [1;36m06[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m108666[0m                                  
+simulation [1;36m07[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m106678[0m                                  
+simulation [1;36m08[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m114910[0m                                  
+simulation [1;36m09[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m107653[0m                                  
+simulation [1;36m10[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m106429[0m                                  
+computing numerical boundary for coincident cosmic-ray detection[33m...[0m             
+applying binary dilation with [33msize[0m=[1;36m1[0m to cosmic-ray mask                         
+number of pixels flagged before dilation :  [1;36m60[0m                                  
+number of pixels flagged after dilation  : [1;36m347[0m                                  
+applying thresholding again after dilation                                      
+number of pixels after thresholding again: [1;36m347[0m                                  
+applying cleaning mask region                                                   
+pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m347[0m [1m([0m[1;36m000.0108[0m%[1m)[0m                      
 saving diagnostic_histogram2d.png                                               
 Entering interactive mode [1m([0mpress any of the following keys[1m)[0m                     
 [32m'f'[0m to repeat fit, [32m'r'[0m to rerun simulations, [32m'c'[0m to continue, [32m'x'[0m to quit       
 Continuing to next step as per user request [1m([0m[32m'c'[0m key pressed[1m)[0m.                  
-pixels flagged as cosmic rays by [1;31mpycosmic[0m or [1;34mmmcosmic[0m : [1;36m795[0m [1m([0m[1;36m000.0247[0m%[1m)[0m         
-pixels flagged as cosmic rays by [1;31mpycosmic[0m only[33m...[0m[33m...[0m..:  [1;36m10[0m [1m([0m[1;36m000.0003[0m%[1m)[0m         
-pixels flagged as cosmic rays by [1;34mmmcosmic[0m only[33m...[0m[33m...[0m..: [1;36m717[0m [1m([0m[1;36m000.0223[0m%[1m)[0m         
-pixels flagged as cosmic rays by [1;31mpycosmic[0m and [1;34mmmcosmic[0m:  [1;36m68[0m [1m([0m[1;36m000.0021[0m%[1m)[0m         
+pixels flagged as cosmic rays by [1;31mpycosmic[0m or [1;34mmmcosmic[0m : [1;36m778[0m [1m([0m[1;36m000.0242[0m%[1m)[0m         
+pixels flagged as cosmic rays by [1;31mpycosmic[0m only[33m...[0m[33m...[0m..: [1;36m431[0m [1m([0m[1;36m000.0134[0m%[1m)[0m         
+pixels flagged as cosmic rays by [1;34mmmcosmic[0m only[33m...[0m[33m...[0m..: [1;36m277[0m [1m([0m[1;36m000.0086[0m%[1m)[0m         
+pixels flagged as cosmic rays by [1;31mpycosmic[0m and [1;34mmmcosmic[0m:  [1;36m70[0m [1m([0m[1;36m000.0022[0m%[1m)[0m         
 generating diagnostic plot for MEDIANCR[33m...[0m                                      
 saving diagnostic_mediancr.png                                                  
 Entering interactive mode [1m([0mpress any of the following keys[1m)[0m                     
 [32m'?'[0m for help, [32m'c'[0m to continue, [32m'x'[0m to quit program                              
-------------------------------------------------------------------------------- 
-Keyboard shortcuts:                                                             
-[32m'h'[0m or [32m'r'[0m: reset zoom to initial limits                                        
-[32m'p'[0m: pan mode                                                                   
-[32m'o'[0m: zoom to rectangle                                                          
-[32m'f'[0m: toggle full screen mode                                                    
-[32m's'[0m: save the figure to a PNG file                                              
-[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m. 
-[32m'?'[0m: show this help message                                                     
-[32m'i'[0m: print pixel info at mouse position [1m([0max3 only[1m)[0m                              
-[32m'&'[0m: print CR pixels within the zoomed region [1m([0max3 only[1m)[0m                        
-[32m'n'[0m: toggle display of number of cosmic rays [1m([0max3 only[1m)[0m                         
-[32m'a'[0m: toggle imshow [33maspect[0m=[32m'equal'[0m [35m/[0m [33maspect[0m=[32m'auto'[0m [1m([0max3 and ax4 only[1m)[0m            
-[32m't'[0m: toggle mean2d -> individual exposures in ax4                               
-[32m'0'[0m: switch to mean2d in ax4                                                    
-[32m'1'[0m, [32m'2'[0m, [33m...[0m: switch to individual exposure #[1;36m1[0m, #[1;36m2[0m, [33m...[0m in ax4                 
-[32m','[0m: set vmin and vmax to min and max of the zoomed region [1m([0max3 and ax4 only[1m)[0m   
-[32m'/'[0m: set vmin and vmax using zscale of the zoomed region [1m([0max3 and ax4 only[1m)[0m     
-[32m'c'[0m: close the plot and continue the program execution                          
-[32m'x'[0m: halt the program execution                                                 
-------------------------------------------------------------------------------- 
 Continuing program execution as per user request [1m([0m[32m'c'[0m key pressed[1m)[0m.             
 coincident cosmic-ray pixels detected[33m...[0m                                        
-no global dilation applied: [1;36m795[0m pixels flagged as coincident CR pixels          
-number of grouped cosmic-ray pixels detected: [1;36m81[0m                                
-generating [1;36m81[0m plots[33m...[0m                                                          
+no global dilation applied: [1;36m778[0m pixels flagged as coincident CR pixels          
+number of grouped cosmic-ray pixels detected: [1;36m247[0m                               
+generating [1;36m247[0m plots[33m...[0m                                                         
 [1;36m0[0m%                                                                              
 [1;36m0[0m% [1;36m10[0m%                                                                          
 [1;36m0[0m% [1;36m10[0m% [1;36m20[0m%                                                                      
@@ -269,87 +279,91 @@ generating [1;36m81[0m plots[33m...[0m
 [1;36m0[0m% [1;36m10[0m% [1;36m20[0m% [1;36m30[0m% [1;36m40[0m% [1;36m50[0m% [1;36m60[0m% [1;36m70[0m% [1;36m80[0m% [1;36m90[0m%                                          
 [1;36m0[0m% [1;36m10[0m% [1;36m20[0m% [1;36m30[0m% [1;36m40[0m% [1;36m50[0m% [1;36m60[0m% [1;36m70[0m% [1;36m80[0m% [1;36m90[0m% [1;36m100[0m%                                     
 plot generation complete                                                        
-saving [1;36m18[0m CRs in mediancr_identified_any4.pdf file                              
-saving  [1;36m7[0m CRs in mediancr_identified_only3.pdf file                             
-saving [1;36m55[0m CRs in mediancr_identified_only2.pdf file                             
-saving  [1;36m1[0m CRs in mediancr_identified_other.pdf file                             
-table of [1;36m18[0m CRs in mediancr_identified_any4.csv:                                
+saving  [1;36m16[0m CRs in mediancr_identified_any4.pdf file                             
+saving [1;36m219[0m CRs in mediancr_identified_only3.pdf file                            
+saving  [1;36m12[0m CRs in mediancr_identified_only2.pdf file                            
+saving   [1;36m0[0m CRs in mediancr_identified_other.pdf file                            
+table of [1;36m16[0m CRs in mediancr_identified_any4.csv:                                
 CR_number X_pixel Y_pixel Mask_value                                            
 --------- ------- ------- ----------                                            
-        [1;36m1[0m     [1;36m423[0m       [1;36m4[0m          [1;36m2[0m                                            
-        [1;36m1[0m     [1;36m424[0m       [1;36m4[0m          [1;36m2[0m                                            
-        [1;36m1[0m     [1;36m425[0m       [1;36m4[0m          [1;36m2[0m                                            
-        [1;36m1[0m     [1;36m423[0m       [1;36m5[0m          [1;36m2[0m                                            
-        [1;36m1[0m     [1;36m424[0m       [1;36m5[0m          [1;36m4[0m                                            
-        [1;36m1[0m     [1;36m425[0m       [1;36m5[0m          [1;36m4[0m                                            
-        [1;36m1[0m     [1;36m423[0m       [1;36m6[0m          [1;36m2[0m                                            
-        [1;36m1[0m     [1;36m424[0m       [1;36m6[0m          [1;36m2[0m                                            
-        [1;36m1[0m     [1;36m425[0m       [1;36m6[0m          [1;36m4[0m                                            
-        [1;36m2[0m     [1;36m111[0m     [1;36m142[0m          [1;36m2[0m                                            
+        [1;36m2[0m     [1;36m423[0m       [1;36m4[0m          [1;36m2[0m                                            
+        [1;36m2[0m     [1;36m424[0m       [1;36m4[0m          [1;36m2[0m                                            
+        [1;36m2[0m     [1;36m425[0m       [1;36m4[0m          [1;36m2[0m                                            
+        [1;36m2[0m     [1;36m423[0m       [1;36m5[0m          [1;36m2[0m                                            
+        [1;36m2[0m     [1;36m424[0m       [1;36m5[0m          [1;36m4[0m                                            
+        [1;36m2[0m     [1;36m425[0m       [1;36m5[0m          [1;36m4[0m                                            
+        [1;36m2[0m     [1;36m423[0m       [1;36m6[0m          [1;36m2[0m                                            
+        [1;36m2[0m     [1;36m424[0m       [1;36m6[0m          [1;36m2[0m                                            
+        [1;36m2[0m     [1;36m425[0m       [1;36m6[0m          [1;36m4[0m                                            
+       [1;36m55[0m    [1;36m1070[0m     [1;36m328[0m          [1;36m2[0m                                            
       [33m...[0m     [33m...[0m     [33m...[0m        [33m...[0m                                            
-       [1;36m78[0m     [1;36m173[0m    [1;36m1462[0m          [1;36m2[0m                                            
-       [1;36m78[0m     [1;36m174[0m    [1;36m1462[0m          [1;36m2[0m                                            
-       [1;36m78[0m     [1;36m171[0m    [1;36m1463[0m          [1;36m2[0m                                            
-       [1;36m78[0m     [1;36m172[0m    [1;36m1463[0m          [1;36m4[0m                                            
-       [1;36m78[0m     [1;36m173[0m    [1;36m1463[0m          [1;36m4[0m                                            
-       [1;36m78[0m     [1;36m174[0m    [1;36m1463[0m          [1;36m2[0m                                            
-       [1;36m78[0m     [1;36m171[0m    [1;36m1464[0m          [1;36m2[0m                                            
-       [1;36m78[0m     [1;36m172[0m    [1;36m1464[0m          [1;36m2[0m                                            
-       [1;36m78[0m     [1;36m173[0m    [1;36m1464[0m          [1;36m2[0m                                            
-       [1;36m78[0m     [1;36m174[0m    [1;36m1464[0m          [1;36m2[0m                                            
-Length = [1;36m259[0m rows                                                               
+      [1;36m228[0m     [1;36m173[0m    [1;36m1462[0m          [1;36m2[0m                                            
+      [1;36m228[0m     [1;36m174[0m    [1;36m1462[0m          [1;36m2[0m                                            
+      [1;36m228[0m     [1;36m171[0m    [1;36m1463[0m          [1;36m2[0m                                            
+      [1;36m228[0m     [1;36m172[0m    [1;36m1463[0m          [1;36m4[0m                                            
+      [1;36m228[0m     [1;36m173[0m    [1;36m1463[0m          [1;36m4[0m                                            
+      [1;36m228[0m     [1;36m174[0m    [1;36m1463[0m          [1;36m2[0m                                            
+      [1;36m228[0m     [1;36m171[0m    [1;36m1464[0m          [1;36m2[0m                                            
+      [1;36m228[0m     [1;36m172[0m    [1;36m1464[0m          [1;36m2[0m                                            
+      [1;36m228[0m     [1;36m173[0m    [1;36m1464[0m          [1;36m4[0m                                            
+      [1;36m228[0m     [1;36m174[0m    [1;36m1464[0m          [1;36m2[0m                                            
+Length = [1;36m239[0m rows                                                               
 table saved                                                                     
-table of [1;36m7[0m CRs in mediancr_identified_only3.csv:                                
+table of [1;36m219[0m CRs in mediancr_identified_only3.csv:                              
 CR_number X_pixel Y_pixel Mask_value                                            
 --------- ------- ------- ----------                                            
-        [1;36m6[0m    [1;36m1769[0m     [1;36m254[0m          [1;36m3[0m                                            
-        [1;36m9[0m     [1;36m120[0m     [1;36m382[0m          [1;36m3[0m                                            
-       [1;36m16[0m     [1;36m124[0m     [1;36m593[0m          [1;36m3[0m                                            
-       [1;36m16[0m     [1;36m125[0m     [1;36m593[0m          [1;36m3[0m                                            
-       [1;36m54[0m     [1;36m234[0m    [1;36m1000[0m          [1;36m3[0m                                            
-       [1;36m70[0m     [1;36m255[0m    [1;36m1231[0m          [1;36m3[0m                                            
-       [1;36m75[0m     [1;36m119[0m    [1;36m1338[0m          [1;36m3[0m                                            
-       [1;36m79[0m    [1;36m1459[0m    [1;36m1461[0m          [1;36m3[0m                                            
-table saved                                                                     
-table of [1;36m55[0m CRs in mediancr_identified_only2.csv:                               
-CR_number X_pixel Y_pixel Mask_value                                            
---------- ------- ------- ----------                                            
-        [1;36m3[0m     [1;36m114[0m     [1;36m235[0m          [1;36m2[0m                                            
-        [1;36m3[0m     [1;36m115[0m     [1;36m235[0m          [1;36m2[0m                                            
-        [1;36m3[0m     [1;36m116[0m     [1;36m235[0m          [1;36m2[0m                                            
-        [1;36m3[0m     [1;36m114[0m     [1;36m236[0m          [1;36m2[0m                                            
-        [1;36m3[0m     [1;36m115[0m     [1;36m236[0m          [1;36m2[0m                                            
-        [1;36m3[0m     [1;36m116[0m     [1;36m236[0m          [1;36m2[0m                                            
-        [1;36m3[0m     [1;36m114[0m     [1;36m237[0m          [1;36m2[0m                                            
-        [1;36m3[0m     [1;36m115[0m     [1;36m237[0m          [1;36m2[0m                                            
-        [1;36m3[0m     [1;36m116[0m     [1;36m237[0m          [1;36m2[0m                                            
-        [1;36m5[0m      [1;36m26[0m     [1;36m249[0m          [1;36m2[0m                                            
+        [1;36m1[0m      [1;36m58[0m       [1;36m4[0m          [1;36m3[0m                                            
+        [1;36m3[0m    [1;36m1458[0m       [1;36m8[0m          [1;36m3[0m                                            
+        [1;36m4[0m    [1;36m1273[0m      [1;36m13[0m          [1;36m3[0m                                            
+        [1;36m4[0m    [1;36m1274[0m      [1;36m13[0m          [1;36m3[0m                                            
+        [1;36m5[0m    [1;36m1302[0m      [1;36m18[0m          [1;36m3[0m                                            
+        [1;36m5[0m    [1;36m1303[0m      [1;36m18[0m          [1;36m3[0m                                            
+        [1;36m6[0m     [1;36m377[0m      [1;36m23[0m          [1;36m3[0m                                            
+        [1;36m7[0m    [1;36m1461[0m      [1;36m30[0m          [1;36m3[0m                                            
+        [1;36m7[0m    [1;36m1461[0m      [1;36m31[0m          [1;36m3[0m                                            
+        [1;36m8[0m    [1;36m1659[0m      [1;36m32[0m          [1;36m3[0m                                            
       [33m...[0m     [33m...[0m     [33m...[0m        [33m...[0m                                            
-       [1;36m80[0m     [1;36m245[0m    [1;36m1476[0m          [1;36m2[0m                                            
-       [1;36m81[0m     [1;36m241[0m    [1;36m1498[0m          [1;36m2[0m                                            
-       [1;36m81[0m     [1;36m242[0m    [1;36m1498[0m          [1;36m2[0m                                            
-       [1;36m81[0m     [1;36m243[0m    [1;36m1498[0m          [1;36m2[0m                                            
-       [1;36m81[0m     [1;36m241[0m    [1;36m1499[0m          [1;36m2[0m                                            
-       [1;36m81[0m     [1;36m242[0m    [1;36m1499[0m          [1;36m2[0m                                            
-       [1;36m81[0m     [1;36m243[0m    [1;36m1499[0m          [1;36m2[0m                                            
-       [1;36m81[0m     [1;36m241[0m    [1;36m1500[0m          [1;36m2[0m                                            
-       [1;36m81[0m     [1;36m242[0m    [1;36m1500[0m          [1;36m2[0m                                            
-       [1;36m81[0m     [1;36m243[0m    [1;36m1500[0m          [1;36m2[0m                                            
-Length = [1;36m518[0m rows                                                               
+      [1;36m244[0m    [1;36m1750[0m    [1;36m1569[0m          [1;36m3[0m                                            
+      [1;36m245[0m      [1;36m49[0m    [1;36m1576[0m          [1;36m3[0m                                            
+      [1;36m245[0m      [1;36m50[0m    [1;36m1576[0m          [1;36m3[0m                                            
+      [1;36m245[0m      [1;36m51[0m    [1;36m1576[0m          [1;36m3[0m                                            
+      [1;36m245[0m      [1;36m49[0m    [1;36m1577[0m          [1;36m3[0m                                            
+      [1;36m245[0m      [1;36m50[0m    [1;36m1577[0m          [1;36m3[0m                                            
+      [1;36m245[0m      [1;36m51[0m    [1;36m1577[0m          [1;36m3[0m                                            
+      [1;36m245[0m      [1;36m50[0m    [1;36m1578[0m          [1;36m3[0m                                            
+      [1;36m246[0m     [1;36m208[0m    [1;36m1590[0m          [1;36m3[0m                                            
+      [1;36m247[0m    [1;36m1412[0m    [1;36m1591[0m          [1;36m3[0m                                            
+Length = [1;36m431[0m rows                                                               
 table saved                                                                     
-table of [1;36m1[0m CRs in mediancr_identified_other.csv:                                
+table of [1;36m12[0m CRs in mediancr_identified_only2.csv:                               
 CR_number X_pixel Y_pixel Mask_value                                            
 --------- ------- ------- ----------                                            
-       [1;36m52[0m      [1;36m35[0m     [1;36m952[0m          [1;36m3[0m                                            
-       [1;36m52[0m      [1;36m36[0m     [1;36m952[0m          [1;36m2[0m                                            
-       [1;36m52[0m      [1;36m37[0m     [1;36m952[0m          [1;36m2[0m                                            
-       [1;36m52[0m      [1;36m38[0m     [1;36m952[0m          [1;36m2[0m                                            
-       [1;36m52[0m      [1;36m36[0m     [1;36m953[0m          [1;36m2[0m                                            
-       [1;36m52[0m      [1;36m37[0m     [1;36m953[0m          [1;36m2[0m                                            
-       [1;36m52[0m      [1;36m38[0m     [1;36m953[0m          [1;36m2[0m                                            
-       [1;36m52[0m      [1;36m36[0m     [1;36m954[0m          [1;36m2[0m                                            
-       [1;36m52[0m      [1;36m37[0m     [1;36m954[0m          [1;36m2[0m                                            
-       [1;36m52[0m      [1;36m38[0m     [1;36m954[0m          [1;36m2[0m                                            
+       [1;36m12[0m     [1;36m246[0m      [1;36m50[0m          [1;36m2[0m                                            
+       [1;36m12[0m     [1;36m247[0m      [1;36m50[0m          [1;36m2[0m                                            
+       [1;36m12[0m     [1;36m248[0m      [1;36m50[0m          [1;36m2[0m                                            
+       [1;36m12[0m     [1;36m246[0m      [1;36m51[0m          [1;36m2[0m                                            
+       [1;36m12[0m     [1;36m247[0m      [1;36m51[0m          [1;36m2[0m                                            
+       [1;36m12[0m     [1;36m248[0m      [1;36m51[0m          [1;36m2[0m                                            
+       [1;36m12[0m     [1;36m246[0m      [1;36m52[0m          [1;36m2[0m                                            
+       [1;36m12[0m     [1;36m247[0m      [1;36m52[0m          [1;36m2[0m                                            
+       [1;36m12[0m     [1;36m248[0m      [1;36m52[0m          [1;36m2[0m                                            
+       [1;36m17[0m     [1;36m360[0m     [1;36m115[0m          [1;36m2[0m                                            
+      [33m...[0m     [33m...[0m     [33m...[0m        [33m...[0m                                            
+      [1;36m226[0m     [1;36m372[0m    [1;36m1455[0m          [1;36m2[0m                                            
+      [1;36m227[0m     [1;36m959[0m    [1;36m1454[0m          [1;36m2[0m                                            
+      [1;36m227[0m     [1;36m960[0m    [1;36m1454[0m          [1;36m2[0m                                            
+      [1;36m227[0m     [1;36m961[0m    [1;36m1454[0m          [1;36m2[0m                                            
+      [1;36m227[0m     [1;36m959[0m    [1;36m1455[0m          [1;36m2[0m                                            
+      [1;36m227[0m     [1;36m960[0m    [1;36m1455[0m          [1;36m2[0m                                            
+      [1;36m227[0m     [1;36m961[0m    [1;36m1455[0m          [1;36m2[0m                                            
+      [1;36m227[0m     [1;36m959[0m    [1;36m1456[0m          [1;36m2[0m                                            
+      [1;36m227[0m     [1;36m960[0m    [1;36m1456[0m          [1;36m2[0m                                            
+      [1;36m227[0m     [1;36m961[0m    [1;36m1456[0m          [1;36m2[0m                                            
+Length = [1;36m108[0m rows                                                               
+table saved                                                                     
+table of [1;36m0[0m CRs in mediancr_identified_other.csv:                                
+CR_number X_pixel Y_pixel Mask_value                                            
+--------- ------- ------- ----------                                            
 table saved                                                                     
 [32m-------------------------------------------------------------------------------[0m 
 starting cosmic ray detection in [35mmean2d[0m[33m...[0m                                      
@@ -359,88 +373,88 @@ using PyCosmic version: [1;36m0.6[0m.post0
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m9084[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m9125[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m16491[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m16533[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m18053[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m18115[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m18236[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m18288[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m18264[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m18319[0m out of [1;36m3217536[0m pixels        
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m9316[0m out of [1;36m3217536[0m pixels         
+PyCosmic > Total number of detected cosmics: [1;36m14205[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m17463[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m22504[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m19950[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m25067[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m20316[0m out of [1;36m3217536[0m pixels        
+PyCosmic > Total number of detected cosmics: [1;36m25492[0m out of [1;36m3217536[0m pixels        
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m20394[0m out of [1;36m3217536[0m pixels        
-Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m18264[0m                       
-Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m20394[0m                       
-Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m: [1;36m20153[0m                       
-PyCosmic execution time: [1;92m0:00:34[0m.[1;36m065978[0m                                         
-pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m20153[0m [1m([0m[1;36m000.6263[0m%[1m)[0m                    
+PyCosmic > Total number of detected cosmics: [1;36m25566[0m out of [1;36m3217536[0m pixels        
+Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m18319[0m                       
+Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m25566[0m                       
+Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m: [1;36m20322[0m                       
+PyCosmic execution time: [1;92m0:00:35[0m.[1;36m109066[0m                                         
+pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m20322[0m [1m([0m[1;36m000.6316[0m%[1m)[0m                    
 detecting cosmic rays in mean2d using [1;34mmmcosmic[0m[33m...[0m                               
 applying binary dilation with [33msize[0m=[1;36m1[0m to cosmic-ray mask                         
-number of pixels flagged before dilation : [1;36m17451[0m                                
-number of pixels flagged after dilation  : [1;36m60327[0m                                
+number of pixels flagged before dilation : [1;36m16939[0m                                
+number of pixels flagged after dilation  : [1;36m59448[0m                                
 applying [33mmm_threshold[0m=[1;36m10[0m[1;36m.2[0m to auxiliary method [1;31mpycosmic[0m[33m...[0m                      
-number of CR pixels before applying mm_threshold: [1;36m20153[0m                         
-number of CR pixels after  applying mm_threshold: [1;36m20151[0m                         
+number of CR pixels before applying mm_threshold: [1;36m20322[0m                         
+number of CR pixels after  applying mm_threshold: [1;36m20304[0m                         
 including pixels flagged in MEDIANCR into MEANCRT [1m([0mlogical_or[1m)[0m[33m...[0m               
-pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m20765[0m [1m([0m[1;36m000.6454[0m%[1m)[0m                    
-pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m60805[0m [1m([0m[1;36m001.8898[0m%[1m)[0m                    
-no global dilation applied: [1;36m60822[0m pixels flagged as cosmic rays                 
+pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m20849[0m [1m([0m[1;36m000.6480[0m%[1m)[0m                    
+pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m59913[0m [1m([0m[1;36m001.8621[0m%[1m)[0m                    
+no global dilation applied: [1;36m59964[0m pixels flagged as cosmic rays                 
 [32m-------------------------------------------------------------------------------[0m 
 starting cosmic ray detection in [35msingle exposure #[0m[1;36m1[0m[33m...[0m                          
 detecting cosmic rays in single exposure #[1;36m1[0m using [1;31mpycosmic[0m[33m...[0m                   
 image #[1;36m1[0m already cleaned, retrieving flags from previous step[33m...[0m                
 detecting cosmic rays in single exposure #[1;36m1[0m using [1;34mmmcosmic[0m[33m...[0m                   
 applying binary dilation with [33msize[0m=[1;36m1[0m to cosmic-ray mask                         
-number of pixels flagged before dilation :  [1;36m8767[0m                                
-number of pixels flagged after dilation  : [1;36m34738[0m                                
+number of pixels flagged before dilation :  [1;36m6517[0m                                
+number of pixels flagged after dilation  : [1;36m21095[0m                                
 applying [33mmm_threshold[0m=[1;36m10[0m[1;36m.2[0m to auxiliary method [1;31mpycosmic[0m[33m...[0m                      
-number of CR pixels before applying mm_threshold: [1;36m8698[0m                          
-number of CR pixels after  applying mm_threshold: [1;36m8691[0m                          
+number of CR pixels before applying mm_threshold: [1;36m9745[0m                          
+number of CR pixels after  applying mm_threshold: [1;36m9123[0m                          
 including pixels flagged in MEANCRT into CRMASK1 [1m([0mlogical_and[1m)[0m[33m...[0m               
-pixels flagged as cosmic rays by [1;31mpycosmic[0m:  [1;36m8172[0m [1m([0m[1;36m000.2540[0m%[1m)[0m                    
-pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m19640[0m [1m([0m[1;36m000.6104[0m%[1m)[0m                    
-no global dilation applied: [1;36m19652[0m pixels flagged as cosmic rays                 
+pixels flagged as cosmic rays by [1;31mpycosmic[0m:  [1;36m8411[0m [1m([0m[1;36m000.2614[0m%[1m)[0m                    
+pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m18854[0m [1m([0m[1;36m000.5860[0m%[1m)[0m                    
+no global dilation applied: [1;36m18916[0m pixels flagged as cosmic rays                 
 [32m-------------------------------------------------------------------------------[0m 
 starting cosmic ray detection in [35msingle exposure #[0m[1;36m2[0m[33m...[0m                          
 detecting cosmic rays in single exposure #[1;36m2[0m using [1;31mpycosmic[0m[33m...[0m                   
 image #[1;36m2[0m already cleaned, retrieving flags from previous step[33m...[0m                
 detecting cosmic rays in single exposure #[1;36m2[0m using [1;34mmmcosmic[0m[33m...[0m                   
 applying binary dilation with [33msize[0m=[1;36m1[0m to cosmic-ray mask                         
-number of pixels flagged before dilation :  [1;36m7998[0m                                
-number of pixels flagged after dilation  : [1;36m25360[0m                                
+number of pixels flagged before dilation :  [1;36m7649[0m                                
+number of pixels flagged after dilation  : [1;36m24194[0m                                
 applying [33mmm_threshold[0m=[1;36m10[0m[1;36m.2[0m to auxiliary method [1;31mpycosmic[0m[33m...[0m                      
-number of CR pixels before applying mm_threshold: [1;36m10045[0m                         
-number of CR pixels after  applying mm_threshold: [1;36m10035[0m                         
+number of CR pixels before applying mm_threshold: [1;36m11637[0m                         
+number of CR pixels after  applying mm_threshold: [1;36m11518[0m                         
 including pixels flagged in MEANCRT into CRMASK2 [1m([0mlogical_and[1m)[0m[33m...[0m               
-pixels flagged as cosmic rays by [1;31mpycosmic[0m:  [1;36m9494[0m [1m([0m[1;36m000.2951[0m%[1m)[0m                    
-pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m22292[0m [1m([0m[1;36m000.6928[0m%[1m)[0m                    
-no global dilation applied: [1;36m22300[0m pixels flagged as cosmic rays                 
+pixels flagged as cosmic rays by [1;31mpycosmic[0m:  [1;36m9806[0m [1m([0m[1;36m000.3048[0m%[1m)[0m                    
+pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m21627[0m [1m([0m[1;36m000.6722[0m%[1m)[0m                    
+no global dilation applied: [1;36m21918[0m pixels flagged as cosmic rays                 
 [32m-------------------------------------------------------------------------------[0m 
 starting cosmic ray detection in [35msingle exposure #[0m[1;36m3[0m[33m...[0m                          
 detecting cosmic rays in single exposure #[1;36m3[0m using [1;31mpycosmic[0m[33m...[0m                   
 image #[1;36m3[0m already cleaned, retrieving flags from previous step[33m...[0m                
 detecting cosmic rays in single exposure #[1;36m3[0m using [1;34mmmcosmic[0m[33m...[0m                   
 applying binary dilation with [33msize[0m=[1;36m1[0m to cosmic-ray mask                         
-number of pixels flagged before dilation :  [1;36m7493[0m                                
-number of pixels flagged after dilation  : [1;36m25528[0m                                
+number of pixels flagged before dilation :  [1;36m7129[0m                                
+number of pixels flagged after dilation  : [1;36m24033[0m                                
 applying [33mmm_threshold[0m=[1;36m10[0m[1;36m.2[0m to auxiliary method [1;31mpycosmic[0m[33m...[0m                      
-number of CR pixels before applying mm_threshold: [1;36m8901[0m                          
-number of CR pixels after  applying mm_threshold: [1;36m8884[0m                          
+number of CR pixels before applying mm_threshold: [1;36m11560[0m                         
+number of CR pixels after  applying mm_threshold: [1;36m11505[0m                         
 including pixels flagged in MEANCRT into CRMASK3 [1m([0mlogical_and[1m)[0m[33m...[0m               
-pixels flagged as cosmic rays by [1;31mpycosmic[0m:  [1;36m8425[0m [1m([0m[1;36m000.2618[0m%[1m)[0m                    
-pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m20072[0m [1m([0m[1;36m000.6238[0m%[1m)[0m                    
-no global dilation applied: [1;36m20092[0m pixels flagged as cosmic rays                 
+pixels flagged as cosmic rays by [1;31mpycosmic[0m:  [1;36m8405[0m [1m([0m[1;36m000.2612[0m%[1m)[0m                    
+pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m19665[0m [1m([0m[1;36m000.6112[0m%[1m)[0m                    
+no global dilation applied: [1;36m19806[0m pixels flagged as cosmic rays                 
 [32m-------------------------------------------------------------------------------[0m 
 applying CRMASKi masks to generate MEANCR combination[33m...[0m                        
 number of input arrays: [1;36m3[0m                                                       
@@ -454,11 +468,11 @@ flux factor values set to [1m[[0m[1;36m1[0m. [1;36m1[0m. [1;36m1[0m.[1m
 use_auxmedian: [3;91mFalse[0m                                                            
 applying bias and flux factors to input arrays[33m...[0m                               
 applying combination method: meancr                                             
-using crmasks in [93mdfbb3ff7-44a3-44e4-a978-395a7e778086[0m                           
-applying mask CRMASK1: [1;36m19652[0m masked pixels                                      
-applying mask CRMASK2: [1;36m22300[0m masked pixels                                      
-applying mask CRMASK3: [1;36m20092[0m masked pixels                                      
-replacing [1;36m51[0m pixels without data by the minimum value                           
+using crmasks in [93me0099086-f67c-4ecb-a611-d42db5d4a4d7[0m                           
+applying mask CRMASK1: [1;36m18916[0m masked pixels                                      
+applying mask CRMASK2: [1;36m21918[0m masked pixels                                      
+applying mask CRMASK3: [1;36m19806[0m masked pixels                                      
+replacing [1;36m6[0m pixels without data by the minimum value                            
 [32m-------------------------------------------------------------------------------[0m 
 starting cosmic ray detection in [35mMEANCR[0m[33m...[0m                                      
 detecting cosmic rays in MEANCR using [1;31mpycosmic[0m[33m...[0m                               
@@ -467,40 +481,40 @@ using PyCosmic version: [1;36m0.6[0m.post0
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m2[0m out of [1;36m3217536[0m pixels            
+PyCosmic > Total number of detected cosmics: [1;36m23[0m out of [1;36m3217536[0m pixels           
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m2[0m out of [1;36m3217536[0m pixels            
+PyCosmic > Total number of detected cosmics: [1;36m24[0m out of [1;36m3217536[0m pixels           
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m2[0m out of [1;36m3217536[0m pixels            
+PyCosmic > Total number of detected cosmics: [1;36m24[0m out of [1;36m3217536[0m pixels           
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m2[0m out of [1;36m3217536[0m pixels            
+PyCosmic > Total number of detected cosmics: [1;36m24[0m out of [1;36m3217536[0m pixels           
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m2[0m out of [1;36m3217536[0m pixels            
+PyCosmic > Total number of detected cosmics: [1;36m24[0m out of [1;36m3217536[0m pixels           
 PyCosmic > A value of [1;36m3.400000[0m is used for the electron read-out noise.         
 PyCosmic > Start the detection process using.                                   
 PyCosmic > Start iteration [1;36m1[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m250[0m out of [1;36m3217536[0m pixels          
+PyCosmic > Total number of detected cosmics: [1;36m5416[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m2[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m261[0m out of [1;36m3217536[0m pixels          
+PyCosmic > Total number of detected cosmics: [1;36m5508[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m3[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m262[0m out of [1;36m3217536[0m pixels          
+PyCosmic > Total number of detected cosmics: [1;36m5537[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m4[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m263[0m out of [1;36m3217536[0m pixels          
+PyCosmic > Total number of detected cosmics: [1;36m5552[0m out of [1;36m3217536[0m pixels         
 PyCosmic > Start iteration [1;36m5[0m                                                    
-PyCosmic > Total number of detected cosmics: [1;36m263[0m out of [1;36m3217536[0m pixels          
-Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m:   [1;36m2[0m                         
-Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m263[0m                         
-Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m:   [1;36m2[0m                         
-PyCosmic execution time: [1;92m0:00:23[0m.[1;36m959426[0m                                         
-pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m2[0m [1m([0m[1;36m000.0001[0m%[1m)[0m                        
-pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m2[0m [1m([0m[1;36m000.0001[0m%[1m)[0m                        
-pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m0[0m [1m([0m[1;36m000.0000[0m%[1m)[0m                        
-no global dilation applied: [1;36m2[0m pixels flagged as cosmic rays                     
+PyCosmic > Total number of detected cosmics: [1;36m5557[0m out of [1;36m3217536[0m pixels         
+Number of cosmic ray pixels [1m([0mpeaks[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m:   [1;36m24[0m                        
+Number of cosmic ray pixels [1m([0mtails[1m)[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m[33m...[0m: [1;36m5557[0m                        
+Number of cosmic ray pixels [1m([0mmerged peaks & tails[1m)[0m:   [1;36m40[0m                        
+PyCosmic execution time: [1;92m0:00:24[0m.[1;36m805080[0m                                         
+pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m40[0m [1m([0m[1;36m000.0012[0m%[1m)[0m                       
+pixels flagged as cosmic rays by [1;31mpycosmic[0m: [1;36m40[0m [1m([0m[1;36m000.0012[0m%[1m)[0m                       
+pixels flagged as cosmic rays by [1;34mmmcosmic[0m:  [1;36m0[0m [1m([0m[1;36m000.0000[0m%[1m)[0m                       
+no global dilation applied: [1;36m40[0m pixels flagged as cosmic rays                    
 [32m-------------------------------------------------------------------------------[0m 
 number of problematic cosmic-ray pixels masked in all CRMASKi: [1;36m0[0m                
-[92m─────────────── [0mSaving cosmic ray masks to [1;35mexample1/crmasks.fits[0m[92m ───────────────[0m
+[92m────────────── [0mSaving cosmic ray masks to [1;35mexample6c/crmasks.fits[0m[92m ───────────────[0m
 Cosmic ray masks saved                                                          
-Filename: example1/crmasks.fits                                                 
+Filename: example6c/crmasks.fits                                                
 No.    Name      Ver    Type      Cards   Dimensions   Format                   
   [1;36m0[0m  PRIMARY       [1;36m1[0m PrimaryHDU      [1;36m61[0m   [1m([0m[1m)[0m                                    
   [1;36m1[0m  MEDIANCR      [1;36m1[0m ImageHDU         [1;36m9[0m   [1m([0m[1;36m2016[0m, [1;36m1596[0m[1m)[0m   uint8                  
@@ -521,7 +535,7 @@ apply_flux_factor: [3;92mTrue[0m
 flux factor values: [1m[[0m[1;36m1[0m. [1;36m1[0m. [1;36m1[0m.[1m][0m will be employed                                 
 use_auxmedian: [3;91mFalse[0m                                                            
 applying bias and flux factors to input arrays[33m...[0m                               
-saving to [1;35mexample1/combined_mean.fits[0m                                           
+saving to [1;35mexample6c/combined_mean.fits[0m                                          
 combined [1m([0mbias subtracted[1m)[0m array, variance, and map saved                       
 [92m────── [0mComputing simple [1;35mmedian[0m combination, no cosmic ray masks applied.[92m ───────[0m
 number of input arrays: [1;36m3[0m                                                       
@@ -533,7 +547,7 @@ apply_flux_factor: [3;92mTrue[0m
 flux factor values: [1m[[0m[1;36m1[0m. [1;36m1[0m. [1;36m1[0m.[1m][0m will be employed                                 
 use_auxmedian: [3;91mFalse[0m                                                            
 applying bias and flux factors to input arrays[33m...[0m                               
-saving to [1;35mexample1/combined_median.fits[0m                                         
+saving to [1;35mexample6c/combined_median.fits[0m                                        
 combined [1m([0mbias subtracted[1m)[0m array, variance, and map saved                       
 [92m──────── [0mComputing simple [1;35mmin[0m combination, no cosmic ray masks applied.[92m ────────[0m
 number of input arrays: [1;36m3[0m                                                       
@@ -545,7 +559,7 @@ apply_flux_factor: [3;92mTrue[0m
 flux factor values: [1m[[0m[1;36m1[0m. [1;36m1[0m. [1;36m1[0m.[1m][0m will be employed                                 
 use_auxmedian: [3;91mFalse[0m                                                            
 applying bias and flux factors to input arrays[33m...[0m                               
-saving to [1;35mexample1/combined_min.fits[0m                                            
+saving to [1;35mexample6c/combined_min.fits[0m                                           
 combined [1m([0mbias subtracted[1m)[0m array, variance, and map saved                       
 [92m────────── [0mComputing [1;35mmediancr[0m combination applying cosmic ray masks.[92m ───────────[0m
 number of input arrays: [1;36m3[0m                                                       
@@ -558,9 +572,9 @@ flux factor values: [1m[[0m[1;36m1[0m. [1;36m1[0m. [1;36m1[0m.[1m][0m 
 use_auxmedian: [3;91mFalse[0m                                                            
 applying bias and flux factors to input arrays[33m...[0m                               
 applying combination method: mediancr                                           
-using crmasks in [93m92f62dce-2b5f-4119-8943-05a11cbcdeb6[0m                           
-applying mask MEDIANCR: [1;36m795[0m masked pixels                                       
-saving to [1;35mexample1/combined_mediancr.fits[0m                                       
+using crmasks in [93m57c5f091-37b0-4a19-a5e5-8e2ea3e81d88[0m                           
+applying mask MEDIANCR: [1;36m778[0m masked pixels                                       
+saving to [1;35mexample6c/combined_mediancr.fits[0m                                      
 combined [1m([0mbias subtracted[1m)[0m array, variance, and map saved                       
 [92m─────────── [0mComputing [1;35mmeancrt[0m combination applying cosmic ray masks.[92m ───────────[0m
 number of input arrays: [1;36m3[0m                                                       
@@ -573,10 +587,10 @@ flux factor values: [1m[[0m[1;36m1[0m. [1;36m1[0m. [1;36m1[0m.[1m][0m 
 use_auxmedian: [3;91mFalse[0m                                                            
 applying bias and flux factors to input arrays[33m...[0m                               
 applying combination method: meancrt                                            
-using crmasks in [93m92f62dce-2b5f-4119-8943-05a11cbcdeb6[0m                           
-applying mask MEDIANCR: [1;36m795[0m masked pixels                                       
-applying mask MEANCRT: [1;36m60822[0m masked pixels                                      
-saving to [1;35mexample1/combined_meancrt.fits[0m                                        
+using crmasks in [93m57c5f091-37b0-4a19-a5e5-8e2ea3e81d88[0m                           
+applying mask MEDIANCR: [1;36m778[0m masked pixels                                       
+applying mask MEANCRT: [1;36m59964[0m masked pixels                                      
+saving to [1;35mexample6c/combined_meancrt.fits[0m                                       
 combined [1m([0mbias subtracted[1m)[0m array, variance, and map saved                       
 [92m─────────── [0mComputing [1;35mmeancr[0m combination applying cosmic ray masks.[92m ────────────[0m
 number of input arrays: [1;36m3[0m                                                       
@@ -589,12 +603,12 @@ flux factor values: [1m[[0m[1;36m1[0m. [1;36m1[0m. [1;36m1[0m.[1m][0m 
 use_auxmedian: [3;91mFalse[0m                                                            
 applying bias and flux factors to input arrays[33m...[0m                               
 applying combination method: meancr                                             
-using crmasks in [93m92f62dce-2b5f-4119-8943-05a11cbcdeb6[0m                           
-applying mask CRMASK1: [1;36m19652[0m masked pixels                                      
-applying mask CRMASK2: [1;36m22300[0m masked pixels                                      
-applying mask CRMASK3: [1;36m20092[0m masked pixels                                      
-replacing [1;36m51[0m pixels without data by the minimum value                           
-saving to [1;35mexample1/combined_meancr.fits[0m                                         
+using crmasks in [93m57c5f091-37b0-4a19-a5e5-8e2ea3e81d88[0m                           
+applying mask CRMASK1: [1;36m18916[0m masked pixels                                      
+applying mask CRMASK2: [1;36m21918[0m masked pixels                                      
+applying mask CRMASK3: [1;36m19806[0m masked pixels                                      
+replacing [1;36m6[0m pixels without data by the minimum value                            
+saving to [1;35mexample6c/combined_meancr.fits[0m                                        
 combined [1m([0mbias subtracted[1m)[0m array, variance, and map saved                       
 [92m─────────── [0mComputing [1;35mmeancr2[0m combination applying cosmic ray masks.[92m ───────────[0m
 number of input arrays: [1;36m3[0m                                                       
@@ -607,15 +621,15 @@ flux factor values: [1m[[0m[1;36m1[0m. [1;36m1[0m. [1;36m1[0m.[1m][0m 
 use_auxmedian: [3;91mFalse[0m                                                            
 applying bias and flux factors to input arrays[33m...[0m                               
 applying combination method: meancr2                                            
-using crmasks in [93m92f62dce-2b5f-4119-8943-05a11cbcdeb6[0m                           
-applying mask MEDIANCR: [1;36m795[0m masked pixels                                       
-applying mask CRMASK1: [1;36m19652[0m masked pixels                                      
-applying mask CRMASK2: [1;36m22300[0m masked pixels                                      
-applying mask CRMASK3: [1;36m20092[0m masked pixels                                      
-replacing [1;36m51[0m pixels without data by the minimum value                           
-applying mask MEANCR: [1;36m2[0m masked pixels                                           
-replacing [1;36m2[0m pixels flagged in MEANCR by the minimum value                       
-saving to [1;35mexample1/combined_meancr2.fits[0m                                        
+using crmasks in [93m57c5f091-37b0-4a19-a5e5-8e2ea3e81d88[0m                           
+applying mask MEDIANCR: [1;36m778[0m masked pixels                                       
+applying mask CRMASK1: [1;36m18916[0m masked pixels                                      
+applying mask CRMASK2: [1;36m21918[0m masked pixels                                      
+applying mask CRMASK3: [1;36m19806[0m masked pixels                                      
+replacing [1;36m6[0m pixels without data by the minimum value                            
+applying mask MEANCR: [1;36m40[0m masked pixels                                          
+replacing [1;36m40[0m pixels flagged in MEANCR by the minimum value                      
+saving to [1;35mexample6c/combined_meancr2.fits[0m                                       
 combined [1m([0mbias subtracted[1m)[0m array, variance, and map saved                       
-Total time elapsed: [1;92m0:05:17[0m.[1;36m026288[0m                                              
+Total time elapsed: [1;92m0:06:30[0m.[1;36m079042[0m                                              
 [92m────────────────────────────────── [0m[1;35m Goodbye! [0m[92m ──────────────────────────────────[0m

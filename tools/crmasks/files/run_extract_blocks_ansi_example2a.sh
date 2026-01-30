@@ -6,6 +6,9 @@ local_dir="`pwd`/tools/crmasks/files"
 fname="${local_dir}/terminal_output_example2a"
 input="${fname}.txt"
 
+# Note: to identify line numbers, it is useful to use:
+# $ cat -n filename.txt
+# (enlarge the terminal)
 #------------------------------------------------------------------------------
 output="${fname}_00.md"
 tools/extract_blocks_ansi.sh \
@@ -13,17 +16,25 @@ tools/extract_blocks_ansi.sh \
 #------------------------------------------------------------------------------
 output="${fname}_01.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 0 0 219 222
+  "$input" "${output}" 0 0 221 224
+#------------------------------------------------------------------------------
+output="${fname}_01b.md"
+tools/extract_blocks_ansi.sh \
+  "$input" "${output}" 225 230
+#------------------------------------------------------------------------------
+output="${fname}_01c.md"
+tools/extract_blocks_ansi.sh \
+  "$input" "${output}" 231 271
 #------------------------------------------------------------------------------
 output="${fname}_02.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 254 264
+  "$input" "${output}" 272 282
 #------------------------------------------------------------------------------
 output="${fname}_03.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 265 272
+  "$input" "${output}" 283 291
 #------------------------------------------------------------------------------
 output="${fname}_04.md"
 tools/extract_blocks_ansi.sh \
-  "$input" "${output}" 273 293 0 0 631 631
+  "$input" "${output}" 292 312 0 0 650 650
 #------------------------------------------------------------------------------

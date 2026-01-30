@@ -12,16 +12,16 @@ xdiag_min xdiag_max ydiag_min ydiag_max
 flux factor for simulated images: [1m[[0m[1;36m1[0m. [1;36m1[0m. [1;36m1[0m.[1m][0m                                    
 assuming no offsets between images                                              
 computing simulated 2D histogram[33m...[0m                                             
-simulation [1;36m01[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m137760[0m                                  
-simulation [1;36m02[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m104707[0m                                  
-simulation [1;36m03[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m094157[0m                                  
-simulation [1;36m04[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m100591[0m                                  
-simulation [1;36m05[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m102997[0m                                  
-simulation [1;36m06[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m096611[0m                                  
-simulation [1;36m07[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m089670[0m                                  
-simulation [1;36m08[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m088996[0m                                  
-simulation [1;36m09[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m093792[0m                                  
-simulation [1;36m10[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m090475[0m                                  
+simulation [1;36m01[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m133811[0m                                  
+simulation [1;36m02[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m114104[0m                                  
+simulation [1;36m03[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m113950[0m                                  
+simulation [1;36m04[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m115590[0m                                  
+simulation [1;36m05[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m119285[0m                                  
+simulation [1;36m06[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m109080[0m                                  
+simulation [1;36m07[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m113121[0m                                  
+simulation [1;36m08[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m114731[0m                                  
+simulation [1;36m09[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m106267[0m                                  
+simulation [1;36m10[0m/[1;36m10[0m, time elapsed: [1;92m0:00:01[0m.[1;36m106638[0m                                  
 computing numerical boundary for coincident cosmic-ray detection[33m...[0m             
 applying binary dilation with [33msize[0m=[1;36m1[0m to cosmic-ray mask                         
 number of pixels flagged before dilation :  [1;36m87[0m                                  
@@ -31,6 +31,6 @@ number of pixels after thresholding again: [1;36m570[0m
 applying cleaning mask region                                                   
 pixels flagged as cosmic rays by [1;34mmmcosmic[0m: [1;36m570[0m [1m([0m[1;36m000.0177[0m%[1m)[0m                      
 saving diagnostic_histogram2d.png                                               
-Entering interactive mode                                                       
-[1m([0mpress [32m'r'[0m to repeat fit, [32m'c'[0m to continue, [32m'x'[0m to quit program[1m)[0m                 
+Entering interactive mode [1m([0mpress any of the following keys[1m)[0m                     
+[32m'f'[0m to repeat fit, [32m'r'[0m to rerun simulations, [32m'c'[0m to continue, [32m'x'[0m to quit       
 ```
